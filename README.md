@@ -7,8 +7,8 @@ This project is a working in progress:
 
 you need the followoing setup:
 
- Unity 4.6.0f1
- PlayMaker 1.8.0f7
+ Unity 4.6.0f2
+ PlayMaker 1.8.0f11
  
  Improvments over the original version:
  

@@ -1518,7 +1518,7 @@ MonoBehaviour:
         actionEnabled: 0101
         actionIsOpen: 0101
         actionStartIndex: 0000000003000000
-        actionHashCodes: 0fc9da009cdc3905
+        actionHashCodes: 73ef4a029cdc3905
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -1615,17 +1615,17 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 290000000100000027000000140000001c000000180000000f000000
+        paramDataType: 290000002700000001000000140000001c000000180000000f000000
         paramName:
         - array
-        - everyFrame
         - storeValue
+        - everyFrame
         - gameObject
         - position
         - clip
         - volume
         paramDataPos: 00000000000000000000000000000000000000000000000000000000
-        paramByteDataSize: 00000000010000000000000000000000000000000000000000000000
+        paramByteDataSize: 00000000000000000100000000000000000000000000000000000000
     - name: Add Health
       description: 
       colorIndex: 0
@@ -2057,7 +2057,7 @@ MonoBehaviour:
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 0}
 --- !u!114 &11400002
@@ -2753,7 +2753,7 @@ MonoBehaviour:
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 0}
 --- !u!114 &11400004
@@ -3021,7 +3021,7 @@ MonoBehaviour:
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 0}
 --- !u!114 &11400006
@@ -3534,7 +3534,7 @@ MonoBehaviour:
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 0}
 --- !u!114 &11400008
@@ -3936,7 +3936,7 @@ MonoBehaviour:
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 0}
 --- !u!114 &11400012
@@ -4305,7 +4305,7 @@ MonoBehaviour:
         actionEnabled: 0101
         actionIsOpen: 0101
         actionStartIndex: 0000000003000000
-        actionHashCodes: 0fc9da001b142f01
+        actionHashCodes: 73ef4a021b142f01
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -4401,17 +4401,17 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 290000000100000027000000140000000f0000001800000017000000
+        paramDataType: 290000002700000001000000140000000f0000001800000017000000
         paramName:
         - array
-        - everyFrame
         - storeValue
+        - everyFrame
         - gameObject
         - volume
         - oneShotClip
         - finishedEvent
         paramDataPos: 00000000000000000000000000000000000000000000000000000000
-        paramByteDataSize: 00000000010000000000000000000000000000000000000000000000
+        paramByteDataSize: 00000000000000000100000000000000000000000000000000000000
     - name: nothing
       description: 
       colorIndex: 0
@@ -4566,7 +4566,7 @@ MonoBehaviour:
       isGlobal: 1
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 0}
 --- !u!114 &11400014
@@ -5519,7 +5519,7 @@ MonoBehaviour:
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 0}
 --- !u!212 &21200000

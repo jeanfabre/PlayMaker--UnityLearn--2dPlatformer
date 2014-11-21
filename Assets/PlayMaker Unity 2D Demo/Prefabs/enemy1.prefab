@@ -573,7 +573,7 @@ MonoBehaviour:
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 11400000, guid: 96475948966984df0a62480e2f1abd31, type: 2}
 --- !u!114 &11400002
@@ -692,7 +692,7 @@ MonoBehaviour:
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 11400000, guid: 15349db176cab4dd7b640b1130bda060, type: 2}
 --- !u!114 &11400004
@@ -1217,7 +1217,7 @@ MonoBehaviour:
         actionEnabled: 0100
         actionIsOpen: 0101
         actionStartIndex: 0000000003000000
-        actionHashCodes: 0fc9da009cdc3905
+        actionHashCodes: 73ef4a029cdc3905
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -1313,17 +1313,17 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 290000000100000027000000140000001c000000180000000f000000
+        paramDataType: 290000002700000001000000140000001c000000180000000f000000
         paramName:
         - array
-        - everyFrame
         - storeValue
+        - everyFrame
         - gameObject
         - position
         - clip
         - volume
         paramDataPos: 00000000000000000000000000000000000000000000000000000000
-        paramByteDataSize: 00000000010000000000000000000000000000000000000000000000
+        paramByteDataSize: 00000000000000000100000000000000000000000000000000000000
     - name: Instantiate Bonus UI
       description: 
       colorIndex: 0
@@ -1616,7 +1616,7 @@ MonoBehaviour:
       isGlobal: 1
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 0}
 --- !u!212 &21200000

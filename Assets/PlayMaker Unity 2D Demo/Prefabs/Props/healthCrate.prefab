@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 0
     usedInTemplate: {fileID: 0}
     name: PickUp
     startState: Check for Triggers
@@ -238,19 +239,7 @@ MonoBehaviour:
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmFloatParams: []
         fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []
@@ -258,10 +247,8 @@ MonoBehaviour:
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
-        stringParams:
-        - HIT GROUND
-        - HIT PLAYER
-        byteData: 0000000000000000
+        stringParams: []
+        byteData: 000000000000000000000000000000000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -278,8 +265,8 @@ MonoBehaviour:
         - sendEvent
         - storeCollider
         - storeForce
-        paramDataPos: 00000000000000000000000000000000000000000400000001000000010000000100000001000000
-        paramByteDataSize: 04000000000000000000000000000000000000000400000000000000000000000000000000000000
+        paramDataPos: 000000000000000004000000000000000400000009000000010000000d000000010000000d000000
+        paramByteDataSize: 04000000000000000000000000000000050000000400000000000000000000000000000005000000
     - name: Landed
       description: 
       colorIndex: 0
@@ -381,44 +368,14 @@ MonoBehaviour:
         fsmEnumParams: []
         fsmFloatParams: []
         fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 1
-          name: Has Landed
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 00
+        byteData: 0000000000000000000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -438,8 +395,8 @@ MonoBehaviour:
         - component
         - storeComponent
         - removeOnExit
-        paramDataPos: 00000000010000000000000000000000000000000100000000000000020000000300000002000000010000000000000004000000
-        paramByteDataSize: 00000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        paramDataPos: 00000000020000000400000000000000000000000100000000000000050000000700000002000000010000000000000009000000
+        paramByteDataSize: 02000000020000000100000000000000000000000000000000000000020000000200000000000000000000000000000002000000
     - name: Have you landed?
       description: 
       colorIndex: 0
@@ -494,22 +451,14 @@ MonoBehaviour:
         fsmEnumParams: []
         fsmFloatParams: []
         fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 1
-          name: Has Landed
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
-        stringParams:
-        - YES
-        - NO
-        byteData: 00
+        stringParams: []
+        byteData: 000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -520,8 +469,8 @@ MonoBehaviour:
         - isTrue
         - isFalse
         - everyFrame
-        paramDataPos: 00000000000000000100000000000000
-        paramByteDataSize: 00000000000000000000000001000000
+        paramDataPos: 00000000020000000200000002000000
+        paramByteDataSize: 02000000000000000000000001000000
     - name: play sound
       description: 
       colorIndex: 0
@@ -581,28 +530,16 @@ MonoBehaviour:
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
+        fsmFloatParams: []
         fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []
-        fsmVector3Params:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {x: 0, y: 0, z: 0}
+        fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 
+        byteData: 000000000000000000000000000000803f00
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -613,8 +550,8 @@ MonoBehaviour:
         - position
         - clip
         - volume
-        paramDataPos: 00000000000000000000000000000000
-        paramByteDataSize: 00000000000000000000000000000000
+        paramDataPos: 0000000000000000000000000d000000
+        paramByteDataSize: 000000000d0000000000000005000000
     - name: Destroy
       description: 
       colorIndex: 0
@@ -659,13 +596,7 @@ MonoBehaviour:
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmFloatParams: []
         fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []
@@ -674,7 +605,7 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 
+        byteData: 0000000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -684,7 +615,7 @@ MonoBehaviour:
         - gameObject
         - delay
         paramDataPos: 0000000000000000
-        paramByteDataSize: 0000000000000000
+        paramByteDataSize: 0000000005000000
     - name: NextFrame Event
       description: We wait one frame for other fsm on this gameObject properly react
         to player hit as well.
@@ -806,11 +737,10 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 11400000, guid: 33e8eb013e07d4685b04e7aea2945163, type: 2}
 --- !u!114 &11400002
@@ -825,6 +755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Health PickUp
     startState: Watch Player Trigger
@@ -1124,10 +1055,10 @@ MonoBehaviour:
       isGlobal: 0
     - name: PICKUP MANAGER / DELIVER
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: PLAYER / ON PICK HEALTH
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: PLAYER HIT
       isSystemEvent: 0
       isGlobal: 0
@@ -1156,11 +1087,10 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 0}
 --- !u!114 &11400004

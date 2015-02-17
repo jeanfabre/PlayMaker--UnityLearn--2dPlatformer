@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 0
     usedInTemplate: {fileID: 0}
     name: Obstacle Check
     startState: Get Parent
@@ -323,8 +324,7 @@ MonoBehaviour:
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
-        stringParams:
-        - OBSTACLE HIT
+        stringParams: []
         byteData: 00000000
         arrayParamSizes: 
         arrayParamTypes: []
@@ -336,7 +336,7 @@ MonoBehaviour:
         - collideTag
         - sendEvent
         - storeCollider
-        paramDataPos: 00000000000000000000000000000000
+        paramDataPos: 00000000000000000400000000000000
         paramByteDataSize: 04000000000000000000000000000000
     - name: Flip Event
       description: 
@@ -416,13 +416,7 @@ MonoBehaviour:
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmFloatParams: []
         fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []
@@ -430,10 +424,8 @@ MonoBehaviour:
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
-        stringParams:
-        - ENEMY / FLIP
-        - DONE
-        byteData: 00
+        stringParams: []
+        byteData: 000000000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -445,8 +437,8 @@ MonoBehaviour:
         - delay
         - everyFrame
         - sendEvent
-        paramDataPos: 0000000000000000000000000000000001000000
-        paramByteDataSize: 0000000000000000000000000100000000000000
+        paramDataPos: 0000000000000000000000000500000006000000
+        paramByteDataSize: 0000000000000000050000000100000000000000
     - name: Get Parent
       description: 
       colorIndex: 0
@@ -569,7 +561,6 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -588,6 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 0
     usedInTemplate: {fileID: 0}
     name: Enemy Movement
     startState: State 1
@@ -688,7 +680,6 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -726,6 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Enemy Health
     startState: ' '
@@ -1509,12 +1501,12 @@ MonoBehaviour:
       isGlobal: 0
     - name: ROCKET / HIT
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     globalTransitions:
     - fsmEvent:
         name: ROCKET / HIT
         isSystemEvent: 0
-        isGlobal: 1
+        isGlobal: 0
       toState: Take Damage
       linkStyle: 0
       linkConstraint: 0
@@ -1609,11 +1601,10 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents:
     - name: ROCKET / HIT
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1

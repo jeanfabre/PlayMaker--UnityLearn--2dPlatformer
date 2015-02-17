@@ -41,6 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: PlayMaker UGui
     startState: ' '
@@ -100,19 +101,19 @@ MonoBehaviour:
     events:
     - name: UGUI / ON BOOL VALUE CHANGED
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: UGUI / ON CLICK
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: UGUI / ON END EDIT
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: UGUI / ON FLOAT VALUE CHANGED
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: UGUI / ON VECTOR2 VALUE CHANGED
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     globalTransitions: []
     variables:
       floatVariables: []
@@ -138,11 +139,10 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 0}
 --- !u!114 &11400002

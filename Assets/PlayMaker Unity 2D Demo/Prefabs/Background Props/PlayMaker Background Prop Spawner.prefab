@@ -40,6 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: PlayMaker Background Prop Spawner
     startState: Random Wait
@@ -1142,11 +1143,10 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 0}
 --- !u!1001 &100100000

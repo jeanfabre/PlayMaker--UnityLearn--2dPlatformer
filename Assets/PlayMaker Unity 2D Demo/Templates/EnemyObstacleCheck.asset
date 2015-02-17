@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   category: 2D Demo Template
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 11400000}
     name: Obstacle Check
     startState: Get Parent
@@ -342,9 +343,8 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 

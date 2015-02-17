@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 0
     usedInTemplate: {fileID: 0}
     name: Enemy Health
     startState: State 1
@@ -304,11 +305,10 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 11400000, guid: a6dbda905a1f64796b7fd050ad1c3242, type: 2}
 --- !u!114 &11400002
@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 0
     usedInTemplate: {fileID: 0}
     name: Enemy Movement
     startState: State 1
@@ -423,11 +424,10 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 11400000, guid: 15349db176cab4dd7b640b1130bda060, type: 2}
 --- !u!114 &11400004
@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 0
     usedInTemplate: {fileID: 0}
     name: Obstacle Check
     startState: State 1
@@ -530,11 +531,10 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 11400000, guid: 96475948966984df0a62480e2f1abd31, type: 2}
 --- !u!114 &11400006

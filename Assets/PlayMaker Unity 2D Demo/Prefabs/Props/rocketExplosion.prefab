@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 0
     usedInTemplate: {fileID: 0}
     name: Rocket Explosion Destroyer
     startState: ' '
@@ -222,20 +223,14 @@ MonoBehaviour:
         fsmEnumParams: []
         fsmFloatParams: []
         fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 
+        byteData: 0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -244,7 +239,7 @@ MonoBehaviour:
         paramName:
         - detachChildren
         paramDataPos: 00000000
-        paramByteDataSize: 00000000
+        paramByteDataSize: 02000000
     events: []
     globalTransitions: []
     variables:
@@ -283,11 +278,10 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 11400000, guid: d47a88628ca67432fbba29883807b698, type: 2}
 --- !u!212 &21200000

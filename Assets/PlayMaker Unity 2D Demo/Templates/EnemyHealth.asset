@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   category: 2D Demo Template
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 11400000}
     name: Enemy Health
     startState: Get parent
@@ -961,7 +962,6 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents:
     - name: ROCKET / HIT
       isSystemEvent: 0

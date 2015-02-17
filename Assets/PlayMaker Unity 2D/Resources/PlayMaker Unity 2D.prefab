@@ -41,6 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: PlayMaker Unity 2D
     startState: ' '
@@ -100,22 +101,22 @@ MonoBehaviour:
     events:
     - name: COLLISION ENTER 2D
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: COLLISION EXIT 2D
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: COLLISION STAY 2D
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: TRIGGER ENTER 2D
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: TRIGGER EXIT 2D
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: TRIGGER STAY 2D
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     globalTransitions: []
     variables:
       floatVariables: []
@@ -144,11 +145,10 @@ MonoBehaviour:
     showStateLabel: 0
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 0
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 0}
 --- !u!114 &11400002

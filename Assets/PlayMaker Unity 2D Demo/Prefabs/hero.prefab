@@ -626,6 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Player Health
     startState: Find Health bar
@@ -1915,13 +1916,13 @@ MonoBehaviour:
       isGlobal: 0
     - name: PLAYER / IS DEAD
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: PLAYER / ON PICK HEALTH
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: TRIGGER 2D ENTER
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: WATCH FOR COLLISIONS
       isSystemEvent: 0
       isGlobal: 0
@@ -1940,7 +1941,7 @@ MonoBehaviour:
     - fsmEvent:
         name: PLAYER / ON PICK HEALTH
         isSystemEvent: 0
-        isGlobal: 1
+        isGlobal: 0
       toState: Add Health
       linkStyle: 0
       linkConstraint: 0
@@ -2053,7 +2054,6 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -2072,6 +2072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Jump
     startState: Check for Jump
@@ -2709,12 +2710,12 @@ MonoBehaviour:
       isGlobal: 0
     - name: PLAYER / IS DEAD
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     globalTransitions:
     - fsmEvent:
         name: PLAYER / IS DEAD
         isSystemEvent: 0
-        isGlobal: 1
+        isGlobal: 0
       toState: Disable user input
       linkStyle: 0
       linkConstraint: 0
@@ -2749,7 +2750,6 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -2768,6 +2768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Movement Animation
     startState: Animate Movement
@@ -2965,12 +2966,12 @@ MonoBehaviour:
     events:
     - name: PLAYER / IS DEAD
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     globalTransitions:
     - fsmEvent:
         name: PLAYER / IS DEAD
         isSystemEvent: 0
-        isGlobal: 1
+        isGlobal: 0
       toState: Disable user input
       linkStyle: 0
       linkConstraint: 0
@@ -3017,7 +3018,6 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -3036,6 +3036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Flip Player Direction
     startState: check for Left
@@ -3056,7 +3057,7 @@ MonoBehaviour:
       - fsmEvent:
           name: PLAYER IS FACING LEFT
           isSystemEvent: 0
-          isGlobal: 1
+          isGlobal: 0
         toState: Check for Right
         linkStyle: 0
         linkConstraint: 0
@@ -3246,7 +3247,7 @@ MonoBehaviour:
       - fsmEvent:
           name: PLAYER IS FACING RIGHT
           isSystemEvent: 0
-          isGlobal: 1
+          isGlobal: 0
         toState: check for Left
         linkStyle: 0
         linkConstraint: 0
@@ -3478,18 +3479,18 @@ MonoBehaviour:
       isGlobal: 0
     - name: PLAYER / IS DEAD
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: PLAYER IS FACING LEFT
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: PLAYER IS FACING RIGHT
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     globalTransitions:
     - fsmEvent:
         name: PLAYER / IS DEAD
         isSystemEvent: 0
-        isGlobal: 1
+        isGlobal: 0
       toState: Disable
       linkStyle: 0
       linkConstraint: 0
@@ -3530,7 +3531,6 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -3568,6 +3568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Physics Movement
     startState: Add Force and constraint speed
@@ -3868,12 +3869,12 @@ MonoBehaviour:
     events:
     - name: PLAYER / IS DEAD
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     globalTransitions:
     - fsmEvent:
         name: PLAYER / IS DEAD
         isSystemEvent: 0
-        isGlobal: 1
+        isGlobal: 0
       toState: Disable user input
       linkStyle: 0
       linkConstraint: 0
@@ -3932,7 +3933,6 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -3951,6 +3951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Taunt
     startState: ' '
@@ -4476,7 +4477,7 @@ MonoBehaviour:
       isGlobal: 0
     - name: PLAYER / TAUNT
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: YES
       isSystemEvent: 0
       isGlobal: 0
@@ -4484,7 +4485,7 @@ MonoBehaviour:
     - fsmEvent:
         name: PLAYER / TAUNT
         isSystemEvent: 0
-        isGlobal: 1
+        isGlobal: 0
       toState: random chance trigger
       linkStyle: 0
       linkConstraint: 0
@@ -4559,11 +4560,10 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents:
     - name: PLAYER / TAUNT
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
@@ -4581,6 +4581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Fire
     startState: Create Rocket Repository
@@ -5423,18 +5424,18 @@ MonoBehaviour:
       isGlobal: 0
     - name: PLAYER / IS DEAD
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: PLAYER IS FACING LEFT
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: PLAYER IS FACING RIGHT
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     globalTransitions:
     - fsmEvent:
         name: PLAYER IS FACING RIGHT
         isSystemEvent: 0
-        isGlobal: 1
+        isGlobal: 0
       toState: Set Firing direction 2
       linkStyle: 0
       linkConstraint: 0
@@ -5442,7 +5443,7 @@ MonoBehaviour:
     - fsmEvent:
         name: PLAYER IS FACING LEFT
         isSystemEvent: 0
-        isGlobal: 1
+        isGlobal: 0
       toState: Set Firing direction
       linkStyle: 0
       linkConstraint: 0
@@ -5450,7 +5451,7 @@ MonoBehaviour:
     - fsmEvent:
         name: PLAYER / IS DEAD
         isSystemEvent: 0
-        isGlobal: 1
+        isGlobal: 0
       toState: disable gun
       linkStyle: 0
       linkConstraint: 0
@@ -5515,7 +5516,6 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0

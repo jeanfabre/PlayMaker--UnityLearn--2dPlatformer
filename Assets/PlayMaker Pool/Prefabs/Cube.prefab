@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: FSM
     startState: ' '
@@ -534,10 +535,10 @@ MonoBehaviour:
       isGlobal: 0
     - name: POOL / DESPAWN
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: POOL / ITEM SPAWNED
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     globalTransitions:
     - fsmEvent:
         name: MOUSE DOWN
@@ -550,7 +551,7 @@ MonoBehaviour:
     - fsmEvent:
         name: POOL / ITEM SPAWNED
         isSystemEvent: 0
-        isGlobal: 1
+        isGlobal: 0
       toState: Get the pool
       linkStyle: 0
       linkConstraint: 0
@@ -592,11 +593,10 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
-    version: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
-    StepFrame: 0
+    EnableBreakpoints: 1
     activeStateName: 
   fsmTemplate: {fileID: 0}
 --- !u!1001 &100100000

@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
-    dataVersion: 0
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Enemy Health
     startState: State 1
@@ -257,11 +257,23 @@ MonoBehaviour:
       quaternionVariables: []
       gameObjectVariables:
       - useVariable: 1
+        name: Parent
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
         name: RewardUI
         tooltip: 
         showInInspector: 1
         networkSync: 0
         value: {fileID: 100006, guid: 862fddf6cbf0b4841a191e81006c70a4, type: 2}
+      - useVariable: 1
+        name: RewardUI Instance
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
       objectVariables:
       - useVariable: 1
         name: Collider
@@ -299,7 +311,7 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 000000000000000000000000000000000000000000000000000000000000000000000000
+      variableCategoryIDs: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 1
@@ -323,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
-    dataVersion: 0
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Enemy Movement
     startState: State 1

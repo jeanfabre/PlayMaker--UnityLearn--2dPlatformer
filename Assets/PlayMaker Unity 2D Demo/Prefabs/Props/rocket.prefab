@@ -799,7 +799,7 @@ MonoBehaviour:
       isGlobal: 0
     - name: ROCKET / HIT
       isSystemEvent: 0
-      isGlobal: 0
+      isGlobal: 1
     globalTransitions: []
     variables:
       floatVariables:

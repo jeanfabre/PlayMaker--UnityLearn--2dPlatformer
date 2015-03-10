@@ -3,6 +3,33 @@
 
 This is a 100% PlayMaker port of Unity 2d Platformer learning project 
 
+
+## Description
+
+This project is a work in progress:
+
+you need the following setup:
+
+ - Unity 4.6.3f1
+ - PlayMaker 1.8.0f18
+ 
+ A branch of this repository is available with PlayMaker Preview, which means you don't need to own PlayMaker, the preview version is a fully working PlayMaker system, but you can't edit anything.
+ 
+ Improvements over the original version:
+ 
+ - Leak with Enemies
+ The original script when enemies fall into the water has a memory leak: the enemy GameObject is not destroyed, leading a definite Memory Warning on Mobile devices and a crash.
+ 
+ - No Pooling system
+ The original system creates and destroy rockets, enemies and background props, while it runs fine on most modern platforms, it is known that creating and destroying GameObject has a performance impact. This PlayMaker version offers a simple custom Pooling solution (WIP)
+ 
+ - Bad Scene setup
+  The original version is not very clean in the way the hierarchy is organised, typically, objects are being created without proper parenting resulting in a very clunky root with constant creation and deletion of object and so it's near impossible to select a GameObject while the scene is running. The PlayMaker version parent all created object so that the initial hierarchy remains as is.
+  
+ - Old UI
+  This PlayMaker version uses the new Unity UI system, so this is an added value to this project as you can see how to integrate the new UI system in a proper project.
+    -- Health Bar is following the Player, so this demonstrate important interaction between the 3d world and the UI Canvas.
+
 ## BenchMark
 This port is published and playable online. It serves as a comparison between a 100% PlayMaker solution and 100% scripted solution. You will find below benchmarks for the web Player, the Mac Application and and the IOS apps build targets.
 
@@ -74,34 +101,7 @@ It's not really playable because of the Inputs and layout, but I made the test j
 
 Overall, this is very interesting to see that the pure PlayMaker solution doesn't expose any issues or noticeable downside on playability and performances, a 1 or 2 frame difference for the FPS isn't really an issue given that this will vary very much based on the client computer performances. If you have other states numbers, please share so we can get a sense of the variation across different computers. Noticeable, Memory allocation from Xcode debugging shows 10MB more for PlayMaker. It should be expected that more memory is allocated when using big frameWork like PlayMaker.
 
-
-## Description
-
-This project is a work in progress:
-
-you need the following setup:
-
- - Unity 4.6.1f1 at least
- - PlayMaker 1.8.0f18
- 
- A branch of this repository is available with PlayMaker Preview, which means you don't need to own PlayMaker, the preview version is a fully working PlayMaker system, but you can't edit anything.
- 
- Improvements over the original version:
- 
- - Leak with Enemies
- The original script when enemies fall into the water has a memory leak: the enemy GameObject is not destroyed, leading a definite Memory Warning on Mobile devices and a crash.
- 
- - No Pooling system
- The original system creates and destroy rockets, enemies and background props, while it runs fine on most modern platforms, it is known that creating and destroying GameObject has a performance impact. This PlayMaker version offers a simple custom Pooling solution (WIP)
- 
- - Bad Scene setup
-  The original version is not very clean in the way the hierarchy is organised, typically, objects are being created without proper parenting resulting in a very clunky root with constant creation and deletion of object and so it's near impossible to select a GameObject while the scene is running. The PlayMaker version parent all created object so that the initial hierarchy remains as is.
-  
- - Old UI
-  This PlayMaker version uses the new Unity UI system, so this is an added value to this project as you can see how to integrate the new UI system in a proper project.
-    -- Health Bar is following the Player, so this demonstrate important interaction between the 3d world and the UI Canvas.
-
-#### TODOS:
+## TODOS:
 -- The background parallax system needs porting to PlayMaker
 -- Add Touch Support
 -- Make a Networked version using Photon

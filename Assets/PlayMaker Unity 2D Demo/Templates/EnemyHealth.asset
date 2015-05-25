@@ -847,7 +847,7 @@ MonoBehaviour:
       isGlobal: 0
     - name: PLAYER / KILLED ENEMY
       isSystemEvent: 0
-      isGlobal: 0
+      isGlobal: 1
     - name: ROCKET / HIT
       isSystemEvent: 0
       isGlobal: 1
@@ -962,6 +962,9 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
+    password: 
+    locked: 0
+    preprocessed: 0
     ExposedEvents:
     - name: ROCKET / HIT
       isSystemEvent: 0
@@ -970,3 +973,13 @@ MonoBehaviour:
     EnableDebugFlow: 0
     EnableBreakpoints: 1
     activeStateName: 
+    mouseEvents: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 1
+    handleApplicationEvents: 0

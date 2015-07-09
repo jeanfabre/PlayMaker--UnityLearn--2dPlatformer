@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
-    dataVersion: 0
+    dataVersion: 1
     usedInTemplate: {fileID: 0}
     name: Obstacle Check
     startState: Get Parent
@@ -526,7 +526,7 @@ MonoBehaviour:
       isGlobal: 0
     - name: ENEMY / FLIP
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     - name: OBSTACLE HIT
       isSystemEvent: 0
       isGlobal: 0

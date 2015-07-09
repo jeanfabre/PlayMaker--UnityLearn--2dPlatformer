@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
-    dataVersion: 0
+    dataVersion: 1
     usedInTemplate: {fileID: 0}
     name: ui 100 point Destroyer
     startState: watch for animation end

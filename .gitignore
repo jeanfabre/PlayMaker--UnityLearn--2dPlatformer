@@ -34,3 +34,5 @@ CodeStage.meta
 Builds/OriginalVersion.app
 Builds/PlayMakerVersion.app
 PlayMaker.dll
+PlayMaker.dll.mdb
+PlayMaker.dll.mdb.meta

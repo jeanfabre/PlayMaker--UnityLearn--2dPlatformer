@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
-    dataVersion: 0
+    dataVersion: 1
     usedInTemplate: {fileID: 0}
     name: Rocket Explosion Destroyer
     startState: ' '

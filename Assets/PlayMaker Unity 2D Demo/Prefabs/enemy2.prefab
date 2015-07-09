@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
-    dataVersion: 0
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Obstacle Check
     startState: State 1

@@ -15357,9 +15357,9 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams:
+        - 
+        - 
         - HEALTH IS GOOD
-        - 
-        - 
         - 
         - HEALTH IS BAD
         - 
@@ -15858,8 +15858,8 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
-        - useVariable: 0
-          name: 
+        - useVariable: 1
+          name: Owner
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -16127,7 +16127,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1291448697}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 13.8000002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -22982,7 +22982,6 @@ GameObject:
   - 20: {fileID: 1972830851}
   - 92: {fileID: 1972830850}
   - 124: {fileID: 1972830849}
-  - 114: {fileID: 1972830848}
   - 81: {fileID: 1972830847}
   - 114: {fileID: 1972830853}
   m_Layer: 0
@@ -23000,24 +22999,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 191434942}
   m_GameObject: {fileID: 1972830846}
   m_Enabled: 1
---- !u!114 &1972830848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 398543b9d2b6b41b896563ebb1f64f1f,
-    type: 2}
-  m_PrefabInternal: {fileID: 191434942}
-  m_GameObject: {fileID: 1972830846}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a1ff7ff4ce484f1aad8887efed74b11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xMargin: 2
-  yMargin: 2
-  xSmooth: 2
-  ySmooth: 2
-  maxXAndY: {x: 5, y: 5}
-  minXAndY: {x: -5, y: -5}
 --- !u!124 &1972830849
 Behaviour:
   m_ObjectHideFlags: 0

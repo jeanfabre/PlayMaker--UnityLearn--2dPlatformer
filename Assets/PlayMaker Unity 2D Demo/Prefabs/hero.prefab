@@ -1916,7 +1916,7 @@ MonoBehaviour:
       isGlobal: 0
     - name: PLAYER / IS DEAD
       isSystemEvent: 0
-      isGlobal: 0
+      isGlobal: 1
     - name: PLAYER / ON PICK HEALTH
       isSystemEvent: 0
       isGlobal: 0
@@ -2054,12 +2054,26 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
+    password: 
+    locked: 0
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
     activeStateName: 
+    mouseEvents: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleApplicationEvents: 0
   fsmTemplate: {fileID: 0}
+  eventHandlerComponentsAdded: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2750,12 +2764,26 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
+    password: 
+    locked: 0
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
     activeStateName: 
+    mouseEvents: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleApplicationEvents: 0
   fsmTemplate: {fileID: 0}
+  eventHandlerComponentsAdded: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3018,12 +3046,26 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
+    password: 
+    locked: 0
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
     activeStateName: 
+    mouseEvents: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleApplicationEvents: 0
   fsmTemplate: {fileID: 0}
+  eventHandlerComponentsAdded: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3057,7 +3099,7 @@ MonoBehaviour:
       - fsmEvent:
           name: PLAYER IS FACING LEFT
           isSystemEvent: 0
-          isGlobal: 0
+          isGlobal: 1
         toState: Check for Right
         linkStyle: 0
         linkConstraint: 0
@@ -3247,7 +3289,7 @@ MonoBehaviour:
       - fsmEvent:
           name: PLAYER IS FACING RIGHT
           isSystemEvent: 0
-          isGlobal: 0
+          isGlobal: 1
         toState: check for Left
         linkStyle: 0
         linkConstraint: 0
@@ -3479,18 +3521,18 @@ MonoBehaviour:
       isGlobal: 0
     - name: PLAYER / IS DEAD
       isSystemEvent: 0
-      isGlobal: 0
+      isGlobal: 1
     - name: PLAYER IS FACING LEFT
       isSystemEvent: 0
-      isGlobal: 0
+      isGlobal: 1
     - name: PLAYER IS FACING RIGHT
       isSystemEvent: 0
-      isGlobal: 0
+      isGlobal: 1
     globalTransitions:
     - fsmEvent:
         name: PLAYER / IS DEAD
         isSystemEvent: 0
-        isGlobal: 0
+        isGlobal: 1
       toState: Disable
       linkStyle: 0
       linkConstraint: 0
@@ -3531,12 +3573,26 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
+    password: 
+    locked: 0
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
     activeStateName: 
+    mouseEvents: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleApplicationEvents: 0
   fsmTemplate: {fileID: 0}
+  eventHandlerComponentsAdded: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3933,12 +3989,26 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
+    password: 
+    locked: 0
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
     activeStateName: 
+    mouseEvents: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleApplicationEvents: 0
   fsmTemplate: {fileID: 0}
+  eventHandlerComponentsAdded: 0
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4560,6 +4630,9 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
+    password: 
+    locked: 0
+    preprocessed: 0
     ExposedEvents:
     - name: PLAYER / TAUNT
       isSystemEvent: 0
@@ -4568,7 +4641,18 @@ MonoBehaviour:
     EnableDebugFlow: 0
     EnableBreakpoints: 1
     activeStateName: 
+    mouseEvents: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleApplicationEvents: 0
   fsmTemplate: {fileID: 0}
+  eventHandlerComponentsAdded: 0
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5516,12 +5600,26 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
+    password: 
+    locked: 0
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
     activeStateName: 
+    mouseEvents: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleApplicationEvents: 0
   fsmTemplate: {fileID: 0}
+  eventHandlerComponentsAdded: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

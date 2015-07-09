@@ -156,488 +156,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
-    dataVersion: 0
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: PickUp
-    startState: Check for Triggers
+    startState: State 1
     states:
-    - name: Check for Triggers
+    - name: State 1
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 58
-        y: 115
-        width: 136
-        height: 48
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: HIT GROUND
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Have you landed?
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      - fsmEvent:
-          name: HIT PLAYER
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: play sound
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.Collision2dEvent
-        - HutongGames.PlayMaker.Actions.Collision2dEvent
-        customNames:
-        - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000005000000
-        actionHashCodes: 8265820082658200
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: ground
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Player
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 000000000000000000000000000000000000
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 070000001200000017000000130000000f000000070000001200000017000000130000000f000000
-        paramName:
-        - collision
-        - collideTag
-        - sendEvent
-        - storeCollider
-        - storeForce
-        - collision
-        - collideTag
-        - sendEvent
-        - storeCollider
-        - storeForce
-        paramDataPos: 000000000000000004000000000000000400000009000000010000000d000000010000000d000000
-        paramByteDataSize: 04000000000000000000000000000000050000000400000000000000000000000000000005000000
-    - name: Landed
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 291
-        y: 172.992188
-        width: 100
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Check for Triggers
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SetBoolValue
-        - HutongGames.PlayMaker.Actions.SetAnimatorTrigger
-        - HutongGames.PlayMaker.Actions.SetParent
-        - HutongGames.PlayMaker.Actions.AddComponent
-        customNames:
-        - 
-        - 
-        - 
-        - 
-        actionEnabled: 01010101
-        actionIsOpen: 01010101
-        actionStartIndex: 00000000030000000500000009000000
-        actionHashCodes: 27fbe1039bd6f801ea32a10578cc4c02
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 100004, guid: c0151e3347e874fa0b2edef1654dc4b7, type: 2}
-        - ownerOption: 0
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        - ownerOption: 0
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Land
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Rigidbody2D
-        fsmObjectParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          typeName: UnityEngine.Object
-          value: {fileID: 0}
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 0000000000000000000000
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 11000000110000000100000014000000120000001400000013000000110000001100000014000000120000001800000011000000
-        paramName:
-        - boolVariable
-        - boolValue
-        - everyFrame
-        - gameObject
-        - trigger
-        - gameObject
-        - parent
-        - resetLocalPosition
-        - resetLocalRotation
-        - gameObject
-        - component
-        - storeComponent
-        - removeOnExit
-        paramDataPos: 00000000020000000400000000000000000000000100000000000000050000000700000002000000010000000000000009000000
-        paramByteDataSize: 02000000020000000100000000000000000000000000000000000000020000000200000000000000000000000000000002000000
-    - name: Have you landed?
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 275
-        y: 113
-        width: 129
-        height: 48
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: YES
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Check for Triggers
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      - fsmEvent:
-          name: NO
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Landed
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.BoolTest
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: a4c8bf00
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 000000
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 11000000170000001700000001000000
-        paramName:
-        - boolVariable
-        - isTrue
-        - isFalse
-        - everyFrame
-        paramDataPos: 00000000020000000200000002000000
-        paramByteDataSize: 02000000000000000000000001000000
-    - name: play sound
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 236
-        y: 247
-        width: 100
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Destroy
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.PlaySound
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 9cdc3905
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 0
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams:
-        - useVariable: 1
-          name: Pickup AudioClip
-          tooltip: 
-          showInInspector: 1
-          networkSync: 0
-          typeName: UnityEngine.AudioClip
-          value: {fileID: 8300000, guid: 986fa1b8984964da79d1be0597332fb2, type: 3}
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 000000000000000000000000000000803f00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 140000001c000000180000000f000000
-        paramName:
-        - gameObject
-        - position
-        - clip
-        - volume
-        paramDataPos: 0000000000000000000000000d000000
-        paramByteDataSize: 000000000d0000000000000005000000
-    - name: Destroy
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 227
-        y: 392.023438
+        x: 50
+        y: 100
         width: 100
         height: 16
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions: []
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.DestroyRoot
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: e8ea3902
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 0
-          gameObject:
-            useVariable: 1
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 0000000000
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 140000000f000000
-        paramName:
-        - gameObject
-        - delay
-        paramDataPos: 0000000000000000
-        paramByteDataSize: 0000000005000000
-    - name: NextFrame Event
-      description: We wait one frame for other fsm on this gameObject properly react
-        to player hit as well.
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 231
-        y: 298
-        width: 346
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Destroy
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
       actionData:
         actionNames: []
         customNames: []
@@ -677,22 +213,7 @@ MonoBehaviour:
         paramName: []
         paramDataPos: 
         paramByteDataSize: 
-    events:
-    - name: HIT GROUND
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: HIT PLAYER
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: FINISHED
-      isSystemEvent: 1
-      isGlobal: 0
-    - name: YES
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: NO
-      isSystemEvent: 0
-      isGlobal: 0
+    events: []
     globalTransitions: []
     variables:
       floatVariables: []
@@ -737,12 +258,26 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
+    password: 
+    locked: 0
+    preprocessed: 1
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
     activeStateName: 
+    mouseEvents: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleApplicationEvents: 0
   fsmTemplate: {fileID: 11400000, guid: 33e8eb013e07d4685b04e7aea2945163, type: 2}
+  eventHandlerComponentsAdded: 1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1055,10 +590,10 @@ MonoBehaviour:
       isGlobal: 0
     - name: PICKUP MANAGER / DELIVER
       isSystemEvent: 0
-      isGlobal: 0
+      isGlobal: 1
     - name: PLAYER / ON PICK HEALTH
       isSystemEvent: 0
-      isGlobal: 0
+      isGlobal: 1
     - name: PLAYER HIT
       isSystemEvent: 0
       isGlobal: 0
@@ -1087,12 +622,26 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
+    password: 
+    locked: 0
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
     activeStateName: 
+    mouseEvents: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleApplicationEvents: 0
   fsmTemplate: {fileID: 0}
+  eventHandlerComponentsAdded: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

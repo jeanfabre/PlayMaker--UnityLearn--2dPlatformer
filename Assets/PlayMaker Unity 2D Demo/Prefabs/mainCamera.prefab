@@ -11,7 +11,6 @@ GameObject:
   - 20: {fileID: 2000000}
   - 92: {fileID: 9200000}
   - 124: {fileID: 12400000}
-  - 114: {fileID: 11400000}
   - 81: {fileID: 8100000}
   - 114: {fileID: 11400002}
   m_Layer: 0
@@ -79,23 +78,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a1ff7ff4ce484f1aad8887efed74b11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xMargin: 2
-  yMargin: 2
-  xSmooth: 2
-  ySmooth: 2
-  maxXAndY: {x: 5, y: 5}
-  minXAndY: {x: -5, y: -5}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -581,12 +563,26 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
+    password: 
+    locked: 0
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
     activeStateName: 
+    mouseEvents: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleApplicationEvents: 0
   fsmTemplate: {fileID: 0}
+  eventHandlerComponentsAdded: 0
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

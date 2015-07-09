@@ -30,3 +30,7 @@ net.fabrejean.meta
 PlayMaker Internal tools.meta
 PlayMakerInternalTools.unitypackage
 Assets/CodeStage
+CodeStage.meta
+Builds/OriginalVersion.app
+Builds/PlayMakerVersion.app
+PlayMaker.dll

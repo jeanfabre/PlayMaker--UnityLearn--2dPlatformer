@@ -317,12 +317,26 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
+    password: 
+    locked: 0
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
     activeStateName: 
+    mouseEvents: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleApplicationEvents: 0
   fsmTemplate: {fileID: 11400000, guid: a6dbda905a1f64796b7fd050ad1c3242, type: 2}
+  eventHandlerComponentsAdded: 1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -436,12 +450,26 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
+    password: 
+    locked: 0
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
     activeStateName: 
+    mouseEvents: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleApplicationEvents: 0
   fsmTemplate: {fileID: 11400000, guid: 15349db176cab4dd7b640b1130bda060, type: 2}
+  eventHandlerComponentsAdded: 1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -543,12 +571,26 @@ MonoBehaviour:
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
+    password: 
+    locked: 0
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
     activeStateName: 
+    mouseEvents: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleApplicationEvents: 0
   fsmTemplate: {fileID: 11400000, guid: 96475948966984df0a62480e2f1abd31, type: 2}
+  eventHandlerComponentsAdded: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

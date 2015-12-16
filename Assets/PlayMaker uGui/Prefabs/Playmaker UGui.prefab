@@ -99,16 +99,43 @@ MonoBehaviour:
         paramDataPos: 
         paramByteDataSize: 
     events:
+    - name: UGUI / ON BEGIN DRAG
+      isSystemEvent: 0
+      isGlobal: 0
     - name: UGUI / ON BOOL VALUE CHANGED
       isSystemEvent: 0
       isGlobal: 0
     - name: UGUI / ON CLICK
       isSystemEvent: 0
       isGlobal: 0
+    - name: UGUI / ON DRAG
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: UGUI / ON DROP
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: UGUI / ON END DRAG
+      isSystemEvent: 0
+      isGlobal: 0
     - name: UGUI / ON END EDIT
       isSystemEvent: 0
       isGlobal: 0
     - name: UGUI / ON FLOAT VALUE CHANGED
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: UGUI / ON POINTER CLICK
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: UGUI / ON POINTER DOWN
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: UGUI / ON POINTER ENTER
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: UGUI / ON POINTER EXIT
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: UGUI / ON POINTER UP
       isSystemEvent: 0
       isGlobal: 0
     - name: UGUI / ON VECTOR2 VALUE CHANGED

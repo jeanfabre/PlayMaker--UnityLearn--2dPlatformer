@@ -15,6 +15,7 @@ public class PlayMakerUGuiComponentProxyInspector : Editor {
 
 	public override void OnInspectorGUI()
 	{
+
 		_target = (PlayMakerUGuiComponentProxy)target;
 
 		// let the user select the target for the ui component

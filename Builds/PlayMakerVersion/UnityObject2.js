@@ -92,7 +92,7 @@ var UnityObject2 = function (config) {
         kJava = "java",
         kClickOnce = "clickonce", //not used anymore?
         wasMissing = false,             //identifies if this is a install attempt, or if the plugin was already installed
-		unityObject = null,				//The <embed> or <object> for the webplayer. This can be used for webPlayer communication.
+        unityObject = null,             //The <embed> or <object> for the webplayer. This can be used for webPlayer communication.
         //kApplet = "_applet",
         //kBanner = "_banner",
 
@@ -110,7 +110,12 @@ var UnityObject2 = function (config) {
             params                  : {},
             attributes              : {},
             referrer                : null,
-            debugLevel              : 0
+            debugLevel              : 0,
+            pluginVersionChecker    : {
+                container   : jQuery("body")[0],
+                hide        : true,
+                id          : "version-checker"
+            }
         };
 
     // Merge in the given configuration and override defaults.
@@ -196,27 +201,20 @@ var UnityObject2 = function (config) {
      */
     function _getPluginVersion(callback, versions) {
         
-        var b = doc.getElementsByTagName("body")[0];
+        var b = cfg.pluginVersionChecker.container;
         var ue = doc.createElement("object");
         var i = 0;
         
         if (b && ue) {
             ue.setAttribute("type", cfg.pluginMimeType);
-            ue.style.visibility = "hidden";
+            ue.setAttribute("id", cfg.pluginVersionChecker.id);
+            if (cfg.pluginVersionChecker.hide)
+                ue.style.visibility = "hidden";
             b.appendChild(ue);
-            var count = 0;
             
             (function () {
                 if (typeof ue.GetPluginVersion === "undefined") {
-                    
-                    if (count++ < 10) {
-                        
-                        setTimeout(arguments.callee, 10);
-                    } else {
-                        
-                        b.removeChild(ue);
-                        callback(null);
-                    }
+                    setTimeout(arguments.callee, 100);
                 } else {
                     
                     var v = {};
@@ -1079,7 +1077,145 @@ var UnityObject2 = function (config) {
 		return value;
 	}
 
+    /**
+     * detects unity web player.
+     * @public
+     * callback - accepts two parameters.
+     *            first one contains "installed", "missing", "broken" or "unsupported" value.
+     *            second one returns requested unity versions. plugin version is included as well.
+     * versions - array of unity versions to detect.
+     */
+    function _detectUnityInternal (callback, versions) {
 
+       // console.debug('detectUnity this:', this);
+        var self = this;
+
+        var status = kMissing;
+        var data;
+        nav.plugins.refresh();
+        
+        if (ua.clientBrand === "??" || ua.clientPlatform === "???" || ua.mobile ) {
+            status = kUnsupported;
+        } else if (ua.op && ua.mac) { // Opera on MAC is unsupported
+
+            status = kUnsupported;
+            data = "OPERA-MAC";
+        } else if (
+            typeof nav.plugins != "undefined" 
+            && nav.plugins[cfg.pluginName] 
+            && typeof nav.mimeTypes != "undefined" 
+            && nav.mimeTypes[cfg.pluginMimeType] 
+            && nav.mimeTypes[cfg.pluginMimeType].enabledPlugin
+        ) {
+
+            status = kInstalled;
+
+            // make sure web player is compatible with 64-bit safari
+            if (ua.sf && /Mac OS X 10_6/.test(nav.appVersion)) {
+
+                _getPluginVersion(function (version) {
+
+                    if (!version || !version.plugin) {
+
+                        status = kBroken;
+                        data = "OSX10.6-SFx64";
+                    }
+
+                    callback(status, lastType, data, version);
+                }, versions);
+
+                return;
+            } else if (ua.mac && ua.ch) { // older versions have issues on chrome
+
+                    _getPluginVersion(function (version) {
+
+                        if (version && (_getNumericUnityVersion(version.plugin) <= _getNumericUnityVersion("2.6.1f3"))) {
+                            status = kBroken;
+                            data = "OSX-CH-U<=2.6.1f3";
+                        }
+
+                        callback(status, lastType, data, version);
+                    }, versions);
+
+                    return;
+            } else if (versions) {
+
+                    _getPluginVersion(function (version) {
+                        callback(status, lastType, data, version);
+                    }, versions);
+                    return;
+            }
+        } else if (ua.ie) {
+            var activeXSupported = false;
+            try {
+                if (ActiveXObject.prototype != null) {
+                    activeXSupported = true;
+                }
+            } catch(e) {}
+
+            if (!activeXSupported) {
+                status = kUnsupported;
+                data = "ActiveXFailed";
+            } else {
+                status = kMissing;
+                try {
+                    var uo = new ActiveXObject("UnityWebPlayer.UnityWebPlayer.1");
+                    var pv = uo.GetPluginVersion();
+
+                    if (versions) {
+                        var v = {};
+                        for (var i = 0; i < versions.length; ++i) {
+                            v[versions[i]] = uo.GetUnityVersion(versions[i]);
+                        }
+                        v.plugin = pv;
+                    }
+
+                    status = kInstalled;
+                    // 2.5.0 auto update has issues on vista and later
+                    if (pv == "2.5.0f5") {
+                        var m = /Windows NT \d+\.\d+/.exec(nav.userAgent);
+                        if (m && m.length > 0) {
+                            var wv = parseFloat(m[0].split(' ')[2]);
+                            if (wv >= 6) {
+                                status = kBroken;
+                                data = "WIN-U2.5.0f5";
+                            }
+                        }
+                    }
+                } catch(e) {}
+            }
+        }
+        callback(status, lastType, data, v);
+    }
+
+    /**
+     * Detects unity web player. But doesn't modify the current UnityObject instance, and doesn't send analytics.
+     * @public
+     * callback - accepts two parameters.
+     *            first one contains "installed", "missing", "broken" or "unsupported" value.
+     *            second one returns requested unity versions. plugin version is included as well.
+     * versions - array of unity versions to detect.
+     */
+    function _detectUnityNoAnalytics (callback, versions) {
+        _detectUnityInternal(function(status, lastType, data, v){
+            callback(status, v);
+        }, versions);
+    }
+
+    /**
+     * Detects unity web player. Also modify the current UnityObject instance, and sends analytics.
+     * @public
+     * callback - accepts two parameters.
+     *            first one contains "installed", "missing", "broken" or "unsupported" value.
+     *            second one returns requested unity versions. plugin version is included as well.
+     * versions - array of unity versions to detect.
+     */
+    function _detectUnityWithAnalytics (callback, versions) {
+        _detectUnityInternal(function(status, lastType, data, v){
+            _setPluginStatus(status, lastType, data);
+            callback(status, v);
+        }, versions);
+    }
     
 
     var publicAPI = /** @lends UnityObject2.prototype */ {
@@ -1127,7 +1263,11 @@ var UnityObject2 = function (config) {
 
             debug('ua:', ua);
             //console.debug('initPlugin this:', this);
-            this.detectUnity(this.handlePluginStatus);  
+            //_detectUnityWithAnalytics(this.handlePluginStatus);
+            var self = this;
+            _detectUnityWithAnalytics(function(status, v){
+                self.handlePluginStatus(status, v);
+            });
         },        
      
 
@@ -1140,112 +1280,10 @@ var UnityObject2 = function (config) {
          * versions - optional array of unity versions to detect.
          */
         detectUnity: function (callback, versions) {
-
-           // console.debug('detectUnity this:', this);
             var self = this;
-
-            var status = kMissing;
-            var data;
-            nav.plugins.refresh();
-			
-			if (ua.clientBrand === "??" || ua.clientPlatform === "???" || ua.mobile ) {
-				status = kUnsupported;
-			} else if (ua.op && ua.mac) { // Opera on MAC is unsupported
-
-                status = kUnsupported;
-                data = "OPERA-MAC";
-            } else if (
-                typeof nav.plugins != "undefined" 
-                && nav.plugins[cfg.pluginName] 
-                && typeof nav.mimeTypes != "undefined" 
-                && nav.mimeTypes[cfg.pluginMimeType] 
-                && nav.mimeTypes[cfg.pluginMimeType].enabledPlugin
-            ) {
-
-                status = kInstalled;
-
-                // make sure web player is compatible with 64-bit safari
-                if (ua.sf && /Mac OS X 10_6/.test(nav.appVersion)) {
-
-                    _getPluginVersion(function (version) {
-
-                        if (!version || !version.plugin) {
-
-                            status = kBroken;
-                            data = "OSX10.6-SFx64";
-                        }
-
-                        _setPluginStatus(status, lastType, data);
-                        callback.call(self, status, version);
-                    }, versions);
-
-                    return;
-                } else if (ua.mac && ua.ch) { // older versions have issues on chrome
-
-                        _getPluginVersion(function (version) {
-
-                            if (version && (_getNumericUnityVersion(version.plugin) <= _getNumericUnityVersion("2.6.1f3"))) {
-                                status = kBroken;
-                                data = "OSX-CH-U<=2.6.1f3";
-                            }
-
-                            _setPluginStatus(status, lastType, data);
-                            callback.call(self, status, version);
-                        }, versions);
-
-                        return;
-                } else if (versions) {
-
-                        _getPluginVersion(function (version) {
-
-                            _setPluginStatus(status, lastType, data);
-                            callback.call(self, status, version);
-                        }, versions);
-                        return;
-                }
-            } else if (ua.ie) {
-                var activeXSupported = false;
-                try {
-                    if (ActiveXObject.prototype != null) {
-                        activeXSupported = true;
-                    }
-                } catch(e) {}
-
-                if (!activeXSupported) {
-                    status = kUnsupported;
-                    data = "ActiveXFailed";
-                } else {
-                    status = kMissing;
-                    try {
-                        var uo = new ActiveXObject("UnityWebPlayer.UnityWebPlayer.1");
-                        var pv = uo.GetPluginVersion();
-
-                        if (versions) {
-                            var v = {};
-                            for (var i = 0; i < versions.length; ++i) {
-                                v[versions[i]] = uo.GetUnityVersion(versions[i]);
-                            }
-                            v.plugin = pv;
-                        }
-
-                        status = kInstalled;
-                        // 2.5.0 auto update has issues on vista and later
-                        if (pv == "2.5.0f5") {
-                            var m = /Windows NT \d+\.\d+/.exec(nav.userAgent);
-                            if (m && m.length > 0) {
-                                var wv = parseFloat(m[0].split(' ')[2]);
-                                if (wv >= 6) {
-                                    status = kBroken;
-                                    data = "WIN-U2.5.0f5";
-                                }
-                            }
-                        }
-                    } catch(e) {}
-                }
-            }
-
-            _setPluginStatus(status, lastType, data);
-            callback.call(self, status, v);
+            _detectUnityNoAnalytics(function(status, v){
+                callback.call(self, status, v);
+            }, versions);
         },
 
 

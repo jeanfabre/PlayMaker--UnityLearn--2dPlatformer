@@ -198,7 +198,7 @@ MonoBehaviour:
           name: FIRE
           isSystemEvent: 0
           isGlobal: 0
-        toState: Trigger Shoot Animation
+        toState: Is Pointer Over UI?
         linkStyle: 0
         linkConstraint: 0
         colorIndex: 0
@@ -461,8 +461,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 512
-        y: 288
+        x: 741
+        y: 236
         width: 174
         height: 32
       isBreakpoint: 0
@@ -539,8 +539,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 576
-        y: 336
+        x: 805
+        y: 284
         width: 100
         height: 32
       isBreakpoint: 0
@@ -672,8 +672,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 576
-        y: 400
+        x: 805
+        y: 348
         width: 113
         height: 32
       isBreakpoint: 0
@@ -1010,11 +1010,103 @@ MonoBehaviour:
         - name
         paramDataPos: 00000000010000000000000001000000020000000000000000000000
         paramByteDataSize: 00000000000000000000000000000000000000000000000000000000
+    - name: Is Pointer Over UI?
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 534
+        y: 201
+        width: 135
+        height: 48
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: YES
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Check Fire Input
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: NO
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Trigger Shoot Animation
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.IsPointerOverUiObject
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: e8173701
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - YES
+        - NO
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1000000017000000170000001100000001000000
+        paramName:
+        - pointerId
+        - pointerOverUI
+        - pointerNotOverUI
+        - isPointerOverUI
+        - everyFrame
+        paramDataPos: 0000000000000000010000000000000000000000
+        paramByteDataSize: 0000000000000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
     - name: FIRE
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: NO
       isSystemEvent: 0
       isGlobal: 0
     - name: PLAYER / IS DEAD
@@ -1026,6 +1118,9 @@ MonoBehaviour:
     - name: PLAYER IS FACING RIGHT
       isSystemEvent: 0
       isGlobal: 1
+    - name: YES
+      isSystemEvent: 0
+      isGlobal: 0
     globalTransitions:
     - fsmEvent:
         name: PLAYER IS FACING RIGHT
@@ -1127,7 +1222,7 @@ MonoBehaviour:
     handleCollisionExit: 0
     handleCollisionStay: 0
     handleOnGUI: 0
-    handleFixedUpdate: 0
+    handleFixedUpdate: 1
     handleApplicationEvents: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
@@ -1498,6 +1593,7 @@ GameObject:
   - 222: {fileID: 160681988}
   - 114: {fileID: 160681987}
   - 114: {fileID: 160681986}
+  - 114: {fileID: 160681989}
   m_Layer: 5
   m_Name: Score Label
   m_TagString: Untagged
@@ -1520,7 +1616,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: 1}
   m_AnchorMax: {x: .5, y: 1}
   m_AnchoredPosition: {x: 0, y: -58.1000366}
-  m_SizeDelta: {x: 339, y: 466}
+  m_SizeDelta: {x: 339, y: 467.269989}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &160681986
 MonoBehaviour:
@@ -1568,6 +1664,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 160681984}
+--- !u!114 &160681989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 160681984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19abf3b131ecc40c2abfc2160c5b92fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RayCastingEnabled: 0
 --- !u!1 &170912982
 GameObject:
   m_ObjectHideFlags: 0
@@ -4230,6 +4338,7 @@ GameObject:
   - 114: {fileID: 282796880}
   - 114: {fileID: 282796879}
   - 114: {fileID: 282796883}
+  - 114: {fileID: 282796884}
   m_Layer: 5
   m_Name: Health Display
   m_TagString: Untagged
@@ -4623,7 +4732,7 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -5038,7 +5147,7 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -5056,6 +5165,18 @@ MonoBehaviour:
     handleApplicationEvents: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
+--- !u!114 &282796884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 282796877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19abf3b131ecc40c2abfc2160c5b92fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RayCastingEnabled: 0
 --- !u!1 &317295698
 GameObject:
   m_ObjectHideFlags: 0
@@ -6297,6 +6418,7 @@ RectTransform:
   - {fileID: 160681985}
   - {fileID: 282796878}
   - {fileID: 1854335791}
+  - {fileID: 1767132707}
   m_Father: {fileID: 26257255}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -8672,7 +8794,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 317552566dd1ff9488d5d34e0c3ba4f4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .0799999982
+  m_Volume: .00999999978
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9029,7 +9151,7 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -13413,16 +13535,43 @@ MonoBehaviour:
         paramDataPos: 
         paramByteDataSize: 
     events:
+    - name: UGUI / ON BEGIN DRAG
+      isSystemEvent: 0
+      isGlobal: 0
     - name: UGUI / ON BOOL VALUE CHANGED
       isSystemEvent: 0
       isGlobal: 0
     - name: UGUI / ON CLICK
       isSystemEvent: 0
       isGlobal: 0
+    - name: UGUI / ON DRAG
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: UGUI / ON DROP
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: UGUI / ON END DRAG
+      isSystemEvent: 0
+      isGlobal: 0
     - name: UGUI / ON END EDIT
       isSystemEvent: 0
       isGlobal: 0
     - name: UGUI / ON FLOAT VALUE CHANGED
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: UGUI / ON POINTER CLICK
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: UGUI / ON POINTER DOWN
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: UGUI / ON POINTER ENTER
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: UGUI / ON POINTER EXIT
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: UGUI / ON POINTER UP
       isSystemEvent: 0
       isGlobal: 0
     - name: UGUI / ON VECTOR2 VALUE CHANGED
@@ -21054,53 +21203,6 @@ Prefab:
   m_RootGameObject: {fileID: 722028546}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &1536292585
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1536292587}
-  - 114: {fileID: 1536292586}
-  m_Layer: 0
-  m_Name: PlayMakerGUI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1536292586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1536292585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -73581967, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  previewOnGUI: 1
-  enableGUILayout: 1
-  drawStateLabels: 0
-  GUITextureStateLabels: 1
-  GUITextStateLabels: 1
-  filterLabelsWithDistance: 0
-  maxLabelDistance: 10
-  controlMouseCursor: 1
---- !u!4 &1536292587
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1536292585}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
 --- !u!1 &1540617082
 GameObject:
   m_ObjectHideFlags: 0
@@ -21928,6 +22030,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1337614680}
   m_RootOrder: 9
+--- !u!1 &1767132706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1767132707}
+  - 114: {fileID: 1767132708}
+  m_Layer: 5
+  m_Name: PlayMaker Credits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1767132707
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1767132706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2122249984}
+  - {fileID: 2033821625}
+  m_Father: {fileID: 359499337}
+  m_RootOrder: 4
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &1767132708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1767132706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19abf3b131ecc40c2abfc2160c5b92fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RayCastingEnabled: 0
 --- !u!1 &1774251796
 GameObject:
   m_ObjectHideFlags: 0
@@ -22256,7 +22405,7 @@ GameObject:
   - 114: {fileID: 1854335787}
   - 114: {fileID: 1854335792}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Music Button Toggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22286,7 +22435,7 @@ MonoBehaviour:
     variableType: 0
     variableName: 
   fsmEventSetup:
-    target: 2
+    target: 0
     gameObject: {fileID: 0}
     fsmComponent: {fileID: 0}
     customEventName: MUSIC / TOGGLE
@@ -22713,7 +22862,7 @@ MonoBehaviour:
       isGlobal: 0
     - name: MUSIC / TOGGLE
       isSystemEvent: 0
-      isGlobal: 0
+      isGlobal: 1
     - name: MUSIC / TURN OFF
       isSystemEvent: 0
       isGlobal: 1
@@ -22724,7 +22873,7 @@ MonoBehaviour:
     - fsmEvent:
         name: MUSIC / TOGGLE
         isSystemEvent: 0
-        isGlobal: 0
+        isGlobal: 1
       toState: Toggle and dispatch events
       linkStyle: 0
       linkConstraint: 0
@@ -22789,7 +22938,7 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -23670,6 +23819,87 @@ Prefab:
   m_RootGameObject: {fileID: 1752247963}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &2033821624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 2033821625}
+  - 222: {fileID: 2033821628}
+  - 114: {fileID: 2033821627}
+  - 114: {fileID: 2033821626}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2033821625
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2033821624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1767132707}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -62.25, y: 9.93000031}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &2033821626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2033821624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!114 &2033821627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2033821624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Made with PlayMaker
+--- !u!222 &2033821628
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2033821624}
 --- !u!1 &2066781760
 GameObject:
   m_ObjectHideFlags: 0
@@ -24582,6 +24812,67 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: f0f4795699aef47bfb00f17982e8d17c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &2122249983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 2122249984}
+  - 222: {fileID: 2122249986}
+  - 114: {fileID: 2122249985}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2122249984
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2122249983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1767132707}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &2122249985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2122249983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b2ee88446d9d546ad959d9633d8dc388, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2122249986
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2122249983}
 --- !u!1 &2124016710
 GameObject:
   m_ObjectHideFlags: 0

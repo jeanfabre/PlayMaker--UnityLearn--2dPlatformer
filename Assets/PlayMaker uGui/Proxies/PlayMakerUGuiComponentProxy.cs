@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using uUI = UnityEngine.UI;
 using UnityEngine.Events;
 
 using System.Collections;
@@ -61,7 +61,7 @@ public class PlayMakerUGuiComponentProxy : MonoBehaviour {
 	FsmEventTarget fsmEventTarget;	
 
 	bool WatchInputField;
-	InputField inputField;
+	uUI.InputField inputField;
 	string lastInputFieldValue;
 
 	#endregion
@@ -252,55 +252,55 @@ public class PlayMakerUGuiComponentProxy : MonoBehaviour {
 
 	void SetupUiListeners()
 	{
-		if (UiTarget.GetComponent<Button>()!=null)
+		if (UiTarget.GetComponent<uUI.Button>()!=null)
 		{
-			UiTarget.GetComponent<Button>().onClick.AddListener(OnClick);
+			UiTarget.GetComponent<uUI.Button>().onClick.AddListener(OnClick);
 		}
 
-		if (UiTarget.GetComponent<Toggle>()!=null)
+		if (UiTarget.GetComponent<uUI.Toggle>()!=null)
 		{
-			UiTarget.GetComponent<Toggle>().onValueChanged.AddListener(OnValueChanged);
+			UiTarget.GetComponent<uUI.Toggle>().onValueChanged.AddListener(OnValueChanged);
 			// force the value because it's not fired when starting ( Unity said they may implement it)
 			if (action== ActionType.SetFsmVariable)
 			{
-				SetFsmVariable(UiTarget.GetComponent<Toggle>().isOn);
+				SetFsmVariable(UiTarget.GetComponent<uUI.Toggle>().isOn);
 			}
 		}
-		if (UiTarget.GetComponent<Slider>()!=null)
+		if (UiTarget.GetComponent<uUI.Slider>()!=null)
 		{
-			UiTarget.GetComponent<Slider>().onValueChanged.AddListener(OnValueChanged);
+			UiTarget.GetComponent<uUI.Slider>().onValueChanged.AddListener(OnValueChanged);
 			
 			// force the value because it's not fired when starting ( Unity said they may implement it)
 			if (action== ActionType.SetFsmVariable)
 			{
-				SetFsmVariable(UiTarget.GetComponent<Slider>().value);
+				SetFsmVariable(UiTarget.GetComponent<uUI.Slider>().value);
 			}
 		}
-		if (UiTarget.GetComponent<Scrollbar>()!=null)
+		if (UiTarget.GetComponent<uUI.Scrollbar>()!=null)
 		{
-			UiTarget.GetComponent<Scrollbar>().onValueChanged.AddListener(OnValueChanged);
+			UiTarget.GetComponent<uUI.Scrollbar>().onValueChanged.AddListener(OnValueChanged);
 			// force the value because it's not fired when starting ( Unity said they may implement it)
 			if (action== ActionType.SetFsmVariable)
 			{
-				SetFsmVariable(UiTarget.GetComponent<Scrollbar>().value);
+				SetFsmVariable(UiTarget.GetComponent<uUI.Scrollbar>().value);
 			}
 		}
-		if (UiTarget.GetComponent<ScrollRect>()!=null)
+		if (UiTarget.GetComponent<uUI.ScrollRect>()!=null)
 		{
-			UiTarget.GetComponent<ScrollRect>().onValueChanged.AddListener(OnValueChanged);
+			UiTarget.GetComponent<uUI.ScrollRect>().onValueChanged.AddListener(OnValueChanged);
 			// force the value because it's not fired when starting ( Unity said they may implement it)
 			if (action== ActionType.SetFsmVariable)
 			{
-				SetFsmVariable(UiTarget.GetComponent<ScrollRect>().normalizedPosition);
+				SetFsmVariable(UiTarget.GetComponent<uUI.ScrollRect>().normalizedPosition);
 			}
 		}
-		if (UiTarget.GetComponent<InputField>()!=null)
+		if (UiTarget.GetComponent<uUI.InputField>()!=null)
 		{
-			UiTarget.GetComponent<InputField>().onEndEdit.AddListener(onEndEdit);
+			UiTarget.GetComponent<uUI.InputField>().onEndEdit.AddListener(onEndEdit);
 			if (action== ActionType.SetFsmVariable)
 			{
 				WatchInputField = true;
-				inputField = UiTarget.GetComponent<InputField>();
+				inputField = UiTarget.GetComponent<uUI.InputField>();
 				lastInputFieldValue = "";
 			}
 		}

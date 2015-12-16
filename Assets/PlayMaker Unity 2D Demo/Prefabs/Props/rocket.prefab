@@ -886,7 +886,7 @@ MonoBehaviour:
     handleFixedUpdate: 0
     handleApplicationEvents: 0
   fsmTemplate: {fileID: 0}
-  eventHandlerComponentsAdded: 0
+  eventHandlerComponentsAdded: 1
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

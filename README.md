@@ -9,8 +9,8 @@ This project is a work in progress:
 
 you need the following setup:
 
- - Unity 4.6.1f1 at least
- - PlayMaker 1.8.0f31
+ - Unity 4.6.7p2 at least
+ - PlayMaker 1.8.0f37 (public beta from the Asset store)
  
  A branch of this repository is available with PlayMaker Preview, which means you don't need to own PlayMaker, the preview version is a fully working PlayMaker system, but you can't edit anything.
  

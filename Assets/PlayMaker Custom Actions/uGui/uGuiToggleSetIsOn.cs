@@ -7,7 +7,7 @@ namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("uGui")]
 	[Tooltip("Sets the isOn property of a UGui Toggle component.")]
-	public class uGuiSliderSetIsOn : FsmStateAction
+	public class uGuiToggleSetIsOn : FsmStateAction
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(UnityEngine.UI.Toggle))]

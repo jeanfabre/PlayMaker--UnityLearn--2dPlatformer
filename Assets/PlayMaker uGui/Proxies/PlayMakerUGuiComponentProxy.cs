@@ -296,11 +296,11 @@ public class PlayMakerUGuiComponentProxy : MonoBehaviour {
 		}
 		if (UiTarget.GetComponent<uUI.InputField>()!=null)
 		{
+			inputField = UiTarget.GetComponent<uUI.InputField>();
 			UiTarget.GetComponent<uUI.InputField>().onEndEdit.AddListener(onEndEdit);
 			if (action== ActionType.SetFsmVariable)
 			{
 				WatchInputField = true;
-				inputField = UiTarget.GetComponent<uUI.InputField>();
 				lastInputFieldValue = "";
 			}
 		}
@@ -373,6 +373,7 @@ public class PlayMakerUGuiComponentProxy : MonoBehaviour {
 		{
 			FsmEventData _eventData = new FsmEventData();
 			_eventData.StringData = value;
+			_eventData.BoolData = inputField.wasCanceled;
 			FirePlayMakerEvent(_eventData);
 		}else
 		{

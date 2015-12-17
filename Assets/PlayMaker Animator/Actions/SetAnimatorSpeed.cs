@@ -1,4 +1,4 @@
-// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
 
 using UnityEngine;
 
@@ -7,15 +7,15 @@ namespace HutongGames.PlayMaker.Actions
 	[ActionCategory("Animator")]
 	[Tooltip("Sets the playback speed of the Animator. 1 is normal playback speed")]
 	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1072")]
-	public class SetAnimatorSpeed: FsmStateAction
+	public class SetAnimatorPlayBackSpeed: FsmStateAction
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(Animator))]
 		[Tooltip("The Target. An Animator component is required")]
 		public FsmOwnerDefault gameObject;
 		
-		[Tooltip("The playBack speed")]
-		public FsmFloat speed;
+		[Tooltip("If true, automaticly stabilize feet during transition and blending")]
+		public FsmFloat playBackSpeed;
 		
 		[Tooltip("Repeat every frame. Useful for changing over time.")]
 		public bool everyFrame;
@@ -25,7 +25,7 @@ namespace HutongGames.PlayMaker.Actions
 		public override void Reset()
 		{
 			gameObject = null;
-			speed= null;
+			playBackSpeed= null;
 			everyFrame = false;
 		}
 		
@@ -48,7 +48,7 @@ namespace HutongGames.PlayMaker.Actions
 				return;
 			}
 			
-			DoPlaybackSpeed();
+			DoPlayBackSpeed();
 			
 			if (!everyFrame) 
 			{
@@ -58,18 +58,18 @@ namespace HutongGames.PlayMaker.Actions
 	
 		public override void OnUpdate()
 		{
-			DoPlaybackSpeed();
+			DoPlayBackSpeed();
 		}
 		
 	
-		void DoPlaybackSpeed()
+		void DoPlayBackSpeed()
 		{		
 			if (_animator==null)
 			{
 				return;
 			}
 			
-			_animator.speed = speed.Value;
+			_animator.speed = playBackSpeed.Value;
 			
 		}
 		

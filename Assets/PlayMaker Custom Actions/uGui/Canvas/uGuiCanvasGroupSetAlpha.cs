@@ -1,4 +1,5 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
+// based on Sebastio work: http://hutonggames.com/playmakerforum/index.php?topic=8452.msg42858#msg42858
 //--- __ECO__ __ACTION__ ---//
 
 using UnityEngine;
@@ -6,83 +7,84 @@ using UnityEngine;
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("uGui")]
-	[Tooltip("Sets the text value of a UGui InputField component.")]
-	public class uGuiInputFieldSetText : FsmStateAction
+	[Tooltip("Set Group Alpha.")]
+	public class uGuiCanvasGroupSetAlpha : FsmStateAction
 	{
 		[RequiredField]
-		[CheckForComponent(typeof(UnityEngine.UI.InputField))]
-		[Tooltip("The GameObject with the InputField ui component.")]
+		[CheckForComponent(typeof(CanvasGroup))]
+		[Tooltip("The GameObject with an Unity UI CanvasGroup component.")]
 		public FsmOwnerDefault gameObject;
 
-		[UIHint(UIHint.TextArea)]
-		[Tooltip("The text of the UGui InputField component.")]
-		public FsmString text;
-
+		[RequiredField]
+		[Tooltip("The alpha of the UI component.")]
+		public FsmFloat alpha;
+		
 		[Tooltip("Reset when exiting this state.")]
 		public FsmBool resetOnExit;
-
-		[Tooltip("Repeats every frame")]
+		
+		[Tooltip("Repeats every frame, useful for animation")]
 		public bool everyFrame;
 
-		private UnityEngine.UI.InputField _inputField;
+		CanvasGroup _component;
 
-		string _originalString;
+		float _originalValue;
 
 		public override void Reset()
 		{
 			gameObject = null;
-			text = null;
+			alpha = null;
+			
 			resetOnExit = null;
 			everyFrame = false;
 		}
 		
 		public override void OnEnter()
 		{
-
+			
 			GameObject _go = Fsm.GetOwnerDefaultTarget(gameObject);
 			if (_go!=null)
 			{
-				_inputField = _go.GetComponent<UnityEngine.UI.InputField>();
+				_component = _go.GetComponent<CanvasGroup>();
 			}
 
 			if (resetOnExit.Value)
 			{
-				_originalString = _inputField.text;
+				_originalValue = _component.alpha;
 			}
 
-			DoSetTextValue();
-			
+			DoSetValue();
+
 			if (!everyFrame)
 			{
 				Finish();
 			}
 		}
-		
+
 		public override void OnUpdate()
 		{
-			DoSetTextValue();
+			DoSetValue();
 		}
-		
-		void DoSetTextValue()
-		{
 
-			if (_inputField!=null)
+		void DoSetValue()
+		{
+			if (_component!=null)
 			{
-				_inputField.text = text.Value;
+				_component.alpha = alpha.Value;
 			}
 		}
 
 		public override void OnExit()
 		{
-			if (_inputField==null)
+			if (_component==null)
 			{
 				return;
 			}
 			
 			if (resetOnExit.Value)
 			{
-				_inputField.text = _originalString;
+				_component.alpha = _originalValue;
 			}
 		}
+		
 	}
 }

@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11401392}
   m_Layer: 0
   m_Name: Playmaker UGui
   m_TagString: Untagged
@@ -161,7 +162,7 @@ MonoBehaviour:
       categories:
       - 
       variableCategoryIDs: 
-    description: 
+    description: -- This Fsm takes care of declaring the UGUI /XXX global events.
     docUrl: 
     showStateLabel: 1
     maxLoopCount: 0
@@ -197,6 +198,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ff64b61e4bd345b991b6be7f2daf559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11401392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e5e1b70122804f9f8d103864cae8c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Make sure this Prefab is in your scene for all uGui related proxies and custom
+    actions
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

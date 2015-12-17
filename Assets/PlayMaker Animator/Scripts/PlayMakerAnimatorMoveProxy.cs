@@ -1,3 +1,5 @@
+// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
+
 using UnityEngine;
 using System;
 using System.Collections;
@@ -5,12 +7,26 @@ using System.Collections.Generic;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayMakerFSM))]
-public class PlayMakerAnimatorMoveProxy : MonoBehaviour 
-{
+public class PlayMakerAnimatorMoveProxy : MonoBehaviour {
+	
+	public bool applyRootMotion;
+	
+	public event Action OnAnimatorMoveEvent;
 
-	public delegate void EventHandler();
+//	private Animator _animator;
+	
+//	private Vector3 gravityVelocity;
+	
+	void Start()
+	{
+	//	_animator = gameObject.GetComponent<Animator>();
+	}
+	
+	void Update() {
 
-	public event EventHandler OnAnimatorMoveEvent; // it was before event Action, but that generates now a CS0066 error. Very odd. it seems that it's because it doesn't have a return type, OnAnimatorIKEvent.cs is ok.
+    	//gravityVelocity += Physics.gravity * Time.deltaTime;
+
+	}
 
 	void OnAnimatorMove()
 	{

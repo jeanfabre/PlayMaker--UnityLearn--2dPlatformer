@@ -6,8 +6,8 @@ using UnityEngine;
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("uGui")]
-	[Tooltip("Gets the hide Mobile Input value of a UGui InputField component.")]
-	public class uGuiInputFieldGetHideMobileInput : FsmStateAction
+	[Tooltip("Gets the cancel state of a UGui InputField component. This relates to the last onEndEdit Event")]
+	public class uGuiInputFieldGetWasCanceled : FsmStateAction
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(UnityEngine.UI.InputField))]
@@ -15,22 +15,22 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmOwnerDefault gameObject;
 
 		[UIHint(UIHint.Variable)]
-		[Tooltip("The hide Mobile flag value of the UGui InputField component.")]
-		public FsmBool hideMobileInput;
+		[Tooltip("The was canceled flag value of the UGui InputField component.")]
+		public FsmBool wasCanceled;
 
-		[Tooltip("Event sent if hide mobile input property is true")]
-		public FsmEvent mobileInputHiddenEvent;
+		[Tooltip("Event sent if inputField was canceled")]
+		public FsmEvent wasCanceledEvent;
 
-		[Tooltip("Event sent if hide mobile input property is false")]
-		public FsmEvent mobileInputShownEvent;
+		[Tooltip("Event sent if inputField was not canceled")]
+		public FsmEvent wasNotCanceledEvent;
 		
 		private UnityEngine.UI.InputField _inputField;
 		
 		public override void Reset()
 		{
-			hideMobileInput = null;
-			mobileInputHiddenEvent = null;
-			mobileInputShownEvent = null;
+			wasCanceled = null;
+			wasCanceledEvent = null;
+			wasNotCanceledEvent = null;
 		}
 		
 		public override void OnEnter()
@@ -51,13 +51,13 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			if (_inputField!=null)
 			{
-				hideMobileInput.Value = _inputField.shouldHideMobileInput;
+				wasCanceled.Value = _inputField.wasCanceled;
 
-				if (_inputField.shouldHideMobileInput)
+				if (_inputField.wasCanceled)
 				{
-					Fsm.Event(mobileInputHiddenEvent);
+					Fsm.Event(wasCanceledEvent);
 				}else{
-					Fsm.Event(mobileInputShownEvent);
+					Fsm.Event(wasNotCanceledEvent);
 				}
 			}
 		}

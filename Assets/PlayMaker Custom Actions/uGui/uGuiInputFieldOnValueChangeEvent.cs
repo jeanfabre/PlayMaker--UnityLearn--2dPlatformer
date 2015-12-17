@@ -33,7 +33,11 @@ namespace HutongGames.PlayMaker.Actions
 				_inputField = go.GetComponent<UnityEngine.UI.InputField>();
 				if (_inputField!=null)
 				{
+					#if UNITY_4_6 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 					_inputField.onValueChange.AddListener(DoOnValueChange);
+					#else
+					_inputField.onValueChanged.AddListener(DoOnValueChange);
+					#endif
 				}else{
 					LogError("Missing UI.InputField on "+go.name);
 				}
@@ -47,7 +51,11 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			if (_inputField!=null)
 			{
-				_inputField.onValueChange.RemoveListener(DoOnValueChange);
+				#if UNITY_4_6 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
+					_inputField.onValueChange.RemoveListener(DoOnValueChange);
+				#else
+					_inputField.onValueChanged.RemoveListener(DoOnValueChange);
+				#endif
 			}
 		}
 

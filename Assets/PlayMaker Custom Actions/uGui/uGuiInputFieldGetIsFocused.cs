@@ -6,8 +6,8 @@ using UnityEngine;
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("uGui")]
-	[Tooltip("Gets the hide Mobile Input value of a UGui InputField component.")]
-	public class uGuiInputFieldGetHideMobileInput : FsmStateAction
+	[Tooltip("Gets the focused state of a UGui InputField component.")]
+	public class uGuiInputFieldGetIsFocused : FsmStateAction
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(UnityEngine.UI.InputField))]
@@ -15,22 +15,22 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmOwnerDefault gameObject;
 
 		[UIHint(UIHint.Variable)]
-		[Tooltip("The hide Mobile flag value of the UGui InputField component.")]
-		public FsmBool hideMobileInput;
+		[Tooltip("The is focused flag value of the UGui InputField component.")]
+		public FsmBool isFocused;
 
-		[Tooltip("Event sent if hide mobile input property is true")]
-		public FsmEvent mobileInputHiddenEvent;
+		[Tooltip("Event sent if inputField is focused")]
+		public FsmEvent isfocusedEvent;
 
-		[Tooltip("Event sent if hide mobile input property is false")]
-		public FsmEvent mobileInputShownEvent;
+		[Tooltip("Event sent if nputField is not focused")]
+		public FsmEvent isNotFocusedEvent;
 		
 		private UnityEngine.UI.InputField _inputField;
 		
 		public override void Reset()
 		{
-			hideMobileInput = null;
-			mobileInputHiddenEvent = null;
-			mobileInputShownEvent = null;
+			isFocused = null;
+			isfocusedEvent = null;
+			isNotFocusedEvent = null;
 		}
 		
 		public override void OnEnter()
@@ -51,13 +51,13 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			if (_inputField!=null)
 			{
-				hideMobileInput.Value = _inputField.shouldHideMobileInput;
+				isFocused.Value = _inputField.isFocused;
 
-				if (_inputField.shouldHideMobileInput)
+				if (_inputField.isFocused)
 				{
-					Fsm.Event(mobileInputHiddenEvent);
+					Fsm.Event(isfocusedEvent);
 				}else{
-					Fsm.Event(mobileInputShownEvent);
+					Fsm.Event(isNotFocusedEvent);
 				}
 			}
 		}

@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("uGUI")]
+	[ActionCategory("uGui")]
 	[Tooltip("Gets pointer data on the last System event.")]
 	public class GetLastPointerDataInfo : FsmStateAction
 	{
@@ -218,13 +218,14 @@ namespace HutongGames.PlayMaker.Actions
 
 			if (!worldNormal.IsNone)
 			{
-				worldNormal.Value =  lastPointeEventData.worldNormal;
+				worldNormal.Value =  lastPointeEventData.pointerCurrentRaycast.worldNormal;
 			}
 
 			if (!worldPosition.IsNone)
 			{
-				worldPosition.Value =  lastPointeEventData.worldPosition;
+				worldPosition.Value =  lastPointeEventData.pointerCurrentRaycast.worldPosition;
 			}
+
 
 			Finish();
 		}

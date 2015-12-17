@@ -4291,9 +4291,9 @@ MonoBehaviour:
     allocated: 1
     monoUsage: 0
   deviceInfoCounter:
-    enabled: 0
-    anchor: 2
-    color: {r: .674509823, g: .674509823, b: .674509823, a: 1}
+    enabled: 1
+    anchor: 1
+    color: {r: 1, g: 0, b: 0, a: 1}
     lastValue: 
     cpuModel: 1
     gpuModel: 1
@@ -4311,7 +4311,7 @@ MonoBehaviour:
   countersSpacing: 0
   fpsGroupToggle: 0
   memoryGroupToggle: 0
-  deviceGroupToggle: 0
+  deviceGroupToggle: 1
   lookAndFeelToggle: 1
 --- !u!4 &257356252
 Transform:
@@ -9108,7 +9108,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: e84b65f6b68cbca4a9a9c63e390ea836, type: 2}
       propertyPath: deviceInfoCounter.enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: e84b65f6b68cbca4a9a9c63e390ea836, type: 2}
       propertyPath: forceFrameRate
@@ -9116,6 +9116,26 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: e84b65f6b68cbca4a9a9c63e390ea836, type: 2}
       propertyPath: lookAndFeelToggle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e84b65f6b68cbca4a9a9c63e390ea836, type: 2}
+      propertyPath: deviceGroupToggle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e84b65f6b68cbca4a9a9c63e390ea836, type: 2}
+      propertyPath: deviceInfoCounter.color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e84b65f6b68cbca4a9a9c63e390ea836, type: 2}
+      propertyPath: deviceInfoCounter.color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e84b65f6b68cbca4a9a9c63e390ea836, type: 2}
+      propertyPath: deviceInfoCounter.color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e84b65f6b68cbca4a9a9c63e390ea836, type: 2}
+      propertyPath: deviceInfoCounter.anchor
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -15656,6 +15676,7 @@ GameObject:
   - 4: {fileID: 1110989402}
   - 114: {fileID: 1110989404}
   - 114: {fileID: 1110989403}
+  - 114: {fileID: 1110989405}
   m_Layer: 0
   m_Name: Playmaker UGui
   m_TagString: Untagged
@@ -15820,7 +15841,7 @@ MonoBehaviour:
       categories:
       - 
       variableCategoryIDs: 
-    description: 
+    description: -- This Fsm takes care of declaring the UGUI /XXX global events.
     docUrl: 
     showStateLabel: 1
     maxLoopCount: 0
@@ -15845,6 +15866,20 @@ MonoBehaviour:
     handleApplicationEvents: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
+--- !u!114 &1110989405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11401392, guid: 914cb9bed4dd94a2390aa682cede3b50,
+    type: 2}
+  m_PrefabInternal: {fileID: 1766339889}
+  m_GameObject: {fileID: 1110989401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e5e1b70122804f9f8d103864cae8c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Make sure this Prefab is in your scene for all uGui related proxies and custom
+    actions
 --- !u!1 &1111615627
 GameObject:
   m_ObjectHideFlags: 0
@@ -23478,11 +23513,11 @@ RectTransform:
   - {fileID: 1697741699}
   m_Father: {fileID: 359499337}
   m_RootOrder: 3
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -64.2999878, y: -14.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -5.34000015, y: 89.7799988}
   m_SizeDelta: {x: 100, y: 22}
-  m_Pivot: {x: .5, y: .5}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &1854335792
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
 
 using UnityEngine;
 
@@ -10,6 +10,7 @@ namespace HutongGames.PlayMaker.Actions
 	public class AnimatorFollow : FsmStateAction
 	{
 		[RequiredField]
+		//[CheckForComponent(typeof(PlayMakerAnimatorProxy))]
 		[CheckForComponent(typeof(Animator))]
 		[Tooltip("The GameObject. An Animator component and a PlayMakerAnimatorProxy component are required")]
 		public FsmOwnerDefault gameObject;
@@ -17,10 +18,6 @@ namespace HutongGames.PlayMaker.Actions
 		[RequiredField]
 		[Tooltip("The Game Object to target.")]
 		public FsmGameObject target;
-		
-		
-		[Tooltip("The speed to follow target")]
-		public FsmFloat speed;
 		
 		[Tooltip("The minimum distance to follow.")]
 		public FsmFloat minimumDistance;
@@ -40,7 +37,6 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			gameObject = null;
 			target = null;
-			speed = 1f;
 			speedDampTime = 0.25f;
 			directionDampTime = 0.25f;
 			minimumDistance = 1f;
@@ -66,7 +62,7 @@ namespace HutongGames.PlayMaker.Actions
 			avatar = _go.GetComponent<Animator>();
 			controller = _go.GetComponent<CharacterController>();
 
-			
+			avatar.speed = 1 + UnityEngine.Random.Range(-0.4f, 0.4f);	
 		}
 		
 		public override void OnUpdate()
@@ -81,8 +77,7 @@ namespace HutongGames.PlayMaker.Actions
 			{			
 				if(Vector3.Distance(_target.transform.position,avatar.rootPosition) > _minimumDistance)
 				{
-					avatar.speed = speed.Value;
-					avatar.SetFloat("Speed",1f,_speedDampTime, Time.deltaTime);
+					avatar.SetFloat("Speed",1,_speedDampTime, Time.deltaTime);
 					
 					Vector3 currentDir = avatar.rootRotation * Vector3.forward;
 					Vector3 wantedDir = (_target.transform.position - avatar.rootPosition).normalized;

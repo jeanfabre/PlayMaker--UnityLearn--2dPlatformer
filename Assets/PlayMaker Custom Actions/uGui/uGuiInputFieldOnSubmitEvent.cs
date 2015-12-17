@@ -6,8 +6,10 @@ using UnityEngine;
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("uGui")]
-	[Tooltip("Fires an event when editing ended for a UGui InputField component. Event string data will feature the text value, and the boolean will be true is it was a cancel action")]
-	public class uGuiInputFieldOnEndEditEvent : FsmStateAction
+	[Tooltip("Fires an event when user submits for a UGui InputField component. \n" +
+		"This only fires if the user press Enter, not when field looses focus or user escaped the field.\n" +
+		"Event string data will feature the text value")]
+	public class uGuiInputFieldOnSubmitEvent : FsmStateAction
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(UnityEngine.UI.InputField))]
@@ -17,13 +19,10 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("Send this event when editing ended.")]
 		public FsmEvent sendEvent;
 
-		[Tooltip("The content of the InputField when edited ended")]
+		[Tooltip("The content of the InputField when submitting")]
 		[UIHint(UIHint.Variable)]
 		public FsmString text;
 
-		[Tooltip("The canceled state of the InputField when edited ended")]
-		[UIHint(UIHint.Variable)]
-		public FsmBool wasCanceled;
 
 		private UnityEngine.UI.InputField _inputField;
 		
@@ -32,7 +31,6 @@ namespace HutongGames.PlayMaker.Actions
 			gameObject = null;
 			sendEvent = null;
 			text = null;
-			wasCanceled = null;
 		}
 		
 		public override void OnEnter()
@@ -63,11 +61,14 @@ namespace HutongGames.PlayMaker.Actions
 
 		public void DoOnEndEdit(string value)
 		{
-			text.Value = value;
-			wasCanceled.Value = _inputField.wasCanceled;
-			Fsm.EventData.StringData = value;
-			Fsm.EventData.BoolData = _inputField.wasCanceled;
-			Fsm.Event(sendEvent);
+
+			if (!_inputField.wasCanceled)
+			{
+				text.Value = value;
+				Fsm.EventData.StringData = value;
+				Fsm.Event(sendEvent);
+				Finish();
+			}
 		}
 	}
 }

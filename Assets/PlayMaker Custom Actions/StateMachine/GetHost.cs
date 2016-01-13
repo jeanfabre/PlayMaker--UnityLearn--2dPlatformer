@@ -1,11 +1,12 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
+/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory(ActionCategory.GameObject)]
-	[Tooltip("Gets the fsm name and or component that hosts this FSM when ran as a sub Fsm")]
+	[Tooltip("Gets the fsm name of the host  when runnin as a sub Fsm")]
 	public class GetHost : FsmStateAction
 	{
 		[RequiredField]

@@ -1,10 +1,11 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
+/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory(ActionCategory.GameObject)]
+	[ActionCategory(ActionCategory.Audio)]
 	[Tooltip("Check if an AudioSource is playing.")]
 	public class GetAudioIsPlaying : FsmStateAction
 	{
@@ -21,7 +22,9 @@ namespace HutongGames.PlayMaker.Actions
 		
 		[Tooltip("Event to send if the audioSource is not playing")]
 		public FsmEvent isNotPlayingEvent;
-
+		
+		AudioSource _comp;
+		
 		public override void Reset()
 		{ 
 			gameObject = null;
@@ -35,14 +38,14 @@ namespace HutongGames.PlayMaker.Actions
 			GameObject go = Fsm.GetOwnerDefaultTarget(gameObject);
 			if (go == null) return;
 			
-
-			if (go.audio == null)
+			_comp = go.GetComponent<AudioSource>();
+			if (_comp == null)
 			{
-				LogError("SwapSingleSprite: Missing AudioSource!");
+				LogError("GetAudioIsPlaying: Missing AudioSource!");
 				return;
 			}
 
-			bool _isPlaying = go.audio.isPlaying;
+			bool _isPlaying = _comp.isPlaying;
 			isPlaying.Value = _isPlaying;
 
 			Fsm.Event(_isPlaying ? isPlayingEvent : isNotPlayingEvent);

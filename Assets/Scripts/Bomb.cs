@@ -63,7 +63,7 @@ public class Bomb : MonoBehaviour
 		foreach(Collider2D en in enemies)
 		{
 			// Check if it has a rigidbody (since there is only one per enemy, on the parent).
-			Rigidbody2D rb = en.rigidbody2D;
+			Rigidbody2D rb = en.GetComponent<Rigidbody2D>();
 			if(rb != null && rb.tag == "Enemy")
 			{
 				// Find the Enemy script and set the enemy's health to zero.

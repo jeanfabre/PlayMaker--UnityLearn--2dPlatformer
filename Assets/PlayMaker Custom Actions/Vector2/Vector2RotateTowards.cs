@@ -1,12 +1,11 @@
-// (c) Copyright HutongGames, LLC 2010-2012. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Vector2")]
+	[ActionCategory(ActionCategory.Vector2)]
 	[Tooltip("Rotates a Vector2 direction from Current towards Target.")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1022")]
 	public class Vector2RotateTowards : FsmStateAction
 	{
 		[RequiredField]

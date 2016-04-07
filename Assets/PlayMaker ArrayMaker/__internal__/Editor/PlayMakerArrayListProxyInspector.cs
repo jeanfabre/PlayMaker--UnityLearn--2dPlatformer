@@ -17,7 +17,7 @@ public class PlayMakerArrayListProxyInspector : PlayMakerCollectionProxyInspecto
     [MenuItem ("PlayMaker/Addons/ArrayMaker/Add ArrayList Proxy to selected Objects")]
     static void AddPlayMakerArrayListProxyComponent () {
 			 foreach (GameObject go in Selection.gameObjects) {
-                go.AddComponent("PlayMakerArrayListProxy");
+                go.AddComponent<PlayMakerArrayListProxy>();
             }
     }
 

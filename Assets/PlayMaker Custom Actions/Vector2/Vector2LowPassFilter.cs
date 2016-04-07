@@ -1,12 +1,11 @@
-// (c) Copyright HutongGames, LLC 2010-2012. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Vector2")]
+	[ActionCategory(ActionCategory.Vector2)]
 	[Tooltip("Use a low pass filter to reduce the influence of sudden changes in a Vector2 Variable.")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1017")]
 	public class Vector2LowPassFilter : FsmStateAction
 	{
 		[RequiredField]

@@ -84,7 +84,7 @@ public class PlayerHealth : MonoBehaviour
 		Vector3 hurtVector = transform.position - enemy.position + Vector3.up * 5f;
 
 		// Add a force to the player in the direction of the vector and multiply by the hurtForce.
-		rigidbody2D.AddForce(hurtVector * hurtForce);
+		GetComponent<Rigidbody2D>().AddForce(hurtVector * hurtForce);
 
 		// Reduce the player's health by 10.
 		health -= damageAmount;

@@ -20,7 +20,7 @@ public class Score : MonoBehaviour
 	void Update ()
 	{
 		// Set the score text.
-		guiText.text = "Score: " + score;
+		GetComponent<GUIText>().text = "Score: " + score;
 
 		// If the score has changed...
 		if(previousScore != score)

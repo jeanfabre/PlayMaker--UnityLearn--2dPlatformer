@@ -52,14 +52,14 @@ public class PlayerControl : MonoBehaviour
 		anim.SetFloat("Speed", Mathf.Abs(h));
 
 		// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
-		if(h * rigidbody2D.velocity.x < maxSpeed)
+		if(h * GetComponent<Rigidbody2D>().velocity.x < maxSpeed)
 			// ... add a force to the player.
-			rigidbody2D.AddForce(Vector2.right * h * moveForce);
+			GetComponent<Rigidbody2D>().AddForce(Vector2.right * h * moveForce);
 
 		// If the player's horizontal velocity is greater than the maxSpeed...
-		if(Mathf.Abs(rigidbody2D.velocity.x) > maxSpeed)
+		if(Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > maxSpeed)
 			// ... set the player's velocity to the maxSpeed in the x axis.
-			rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
+			GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
 		// If the input is moving the player right and the player is facing left...
 		if(h > 0 && !facingRight)
@@ -81,7 +81,7 @@ public class PlayerControl : MonoBehaviour
 			AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
 
 			// Add a vertical force to the player.
-			rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+			GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
 
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 			jump = false;
@@ -111,14 +111,14 @@ public class PlayerControl : MonoBehaviour
 			yield return new WaitForSeconds(tauntDelay);
 
 			// If there is no clip currently playing.
-			if(!audio.isPlaying)
+			if(!GetComponent<AudioSource>().isPlaying)
 			{
 				// Choose a random, but different taunt.
 				tauntIndex = TauntRandom();
 
 				// Play the new taunt.
-				audio.clip = taunts[tauntIndex];
-				audio.Play();
+				GetComponent<AudioSource>().clip = taunts[tauntIndex];
+				GetComponent<AudioSource>().Play();
 			}
 		}
 	}

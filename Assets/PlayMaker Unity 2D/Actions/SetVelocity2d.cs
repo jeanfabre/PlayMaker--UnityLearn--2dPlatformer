@@ -1,23 +1,28 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Sets the 2d Velocity of a Game Object. To leave any axis unchanged, set variable to 'None'. NOTE: Game object must have a rigidbody 2D.")]
-	public class SetVelocity2d : RigidBody2dActionBase
+    public class SetVelocity2d : ComponentAction<Rigidbody2D>
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(Rigidbody2D))]
+		[Tooltip("The GameObject with the Rigidbody2D attached")]
 		public FsmOwnerDefault gameObject;
-		
-		[UIHint(UIHint.Variable)]
+
+		[Tooltip("A Vector2 value for the velocity")]
 		public FsmVector2 vector;
-		
+
+		[Tooltip("The y value of the velocity. Overrides 'Vector' x value if set")]
 		public FsmFloat x;
+
+		[Tooltip("The y value of the velocity. Overrides 'Vector' y value if set")]
 		public FsmFloat y;
-		
+
+		[Tooltip("Repeat every frame.")]
 		public bool everyFrame;
 		
 		public override void Reset()
@@ -40,8 +45,6 @@ namespace HutongGames.PlayMaker.Actions
 		// TODO: test this works in OnEnter!
 		public override void OnEnter()
 		{
-			CacheRigidBody2d(Fsm.GetOwnerDefaultTarget(gameObject));
-
 			DoSetVelocity();
 			
 			if (!everyFrame)
@@ -53,17 +56,20 @@ namespace HutongGames.PlayMaker.Actions
 		public override void OnFixedUpdate()
 		{
 			DoSetVelocity();
-			
-			if (!everyFrame)
-				Finish();
+
+		    if (!everyFrame)
+		    {
+		        Finish();
+		    }
 		}
 		
 		void DoSetVelocity()
 		{
-			if (rb2d == null)
-			{
-				return;
-			}
+            var go = Fsm.GetOwnerDefaultTarget(gameObject);
+            if (!UpdateCache(go))
+            {
+                return;
+            }
 			
 			// init position
 			
@@ -71,7 +77,7 @@ namespace HutongGames.PlayMaker.Actions
 			
 			if (vector.IsNone)
 			{
-				velocity = rb2d.velocity;
+                velocity = rigidbody2d.velocity;
 
 			}
 			else
@@ -85,8 +91,8 @@ namespace HutongGames.PlayMaker.Actions
 			if (!y.IsNone) velocity.y = y.Value;
 			
 			// apply
-			
-			rb2d.velocity = velocity;
+
+            rigidbody2d.velocity = velocity;
 		}
 	}
 }

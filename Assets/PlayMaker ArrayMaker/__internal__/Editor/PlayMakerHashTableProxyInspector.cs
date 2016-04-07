@@ -17,7 +17,7 @@ public class PlayMakerHashTableProxyInspector : PlayMakerCollectionProxyInspecto
     [MenuItem ("PlayMaker/Addons/ArrayMaker/Add HashTable Proxy to selected Objects")]
     static void AddPlayMakerHashTableProxyComponent () {
 			 foreach (Transform transform in Selection.transforms) {
-                transform.gameObject.AddComponent("PlayMakerHashTableProxy");
+                transform.gameObject.AddComponent<PlayMakerHashTableProxy>();
             }
     }
 	

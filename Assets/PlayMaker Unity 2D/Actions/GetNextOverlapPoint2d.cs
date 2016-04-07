@@ -1,10 +1,10 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Iterate through a list of all colliders that overlap a point in space." +
 	         "The colliders iterated are sorted in order of increasing Z coordinate. No iteration will take place if there are no colliders overlap this point.")]
 	public class GetNextOverlapPoint2d : FsmStateAction
@@ -89,8 +89,8 @@ namespace HutongGames.PlayMaker.Actions
 			Finish();
 			
 		}
-		
-		void DoGetNextCollider()
+
+	    private void DoGetNextCollider()
 		{
 			
 			// no more colliders?
@@ -127,13 +127,13 @@ namespace HutongGames.PlayMaker.Actions
 				Fsm.Event(loopEvent);
 			}
 		}
-		
-		
-		Collider2D[] GetOverlapPointAll()
+
+
+	    private Collider2D[] GetOverlapPointAll()
 		{
-			GameObject go = Fsm.GetOwnerDefaultTarget(gameObject);
+			var go = Fsm.GetOwnerDefaultTarget(gameObject);
 			
-			Vector2 pos = position.Value;
+			var pos = position.Value;
 			
 			if (go!=null)
 			{
@@ -146,8 +146,8 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				return Physics2D.OverlapPointAll(pos,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value));
 			}else{
-				float _minDepth = minDepth.IsNone? Mathf.NegativeInfinity:minDepth.Value;
-				float _maxDepth = maxDepth.IsNone? Mathf.Infinity:maxDepth.Value;
+				var _minDepth = minDepth.IsNone? Mathf.NegativeInfinity:minDepth.Value;
+				var _maxDepth = maxDepth.IsNone? Mathf.Infinity:maxDepth.Value;
 				return Physics2D.OverlapPointAll(pos,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value),_minDepth,_maxDepth);
 			}
 		}

@@ -1,10 +1,11 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
+using System;
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Iterate through a list of all colliders detected by a RayCast" +
 	         "The colliders iterated are sorted in order of increasing Z coordinate. No iteration will take place if there are no colliders within the area.")]
 	public class GetNextRayCast2d: FsmStateAction
@@ -113,8 +114,8 @@ namespace HutongGames.PlayMaker.Actions
 			Finish();
 			
 		}
-		
-		void DoGetNextCollider()
+
+	    private void DoGetNextCollider()
 		{
 			
 			// no more colliders?
@@ -129,7 +130,7 @@ namespace HutongGames.PlayMaker.Actions
 			}
 			
 			// get next collider
-			PlayMakerUnity2d.RecordLastRaycastHitInfo(this.Fsm,hits[nextColliderIndex]);
+            Fsm.RecordLastRaycastHit2DInfo(Fsm, hits[nextColliderIndex]);
 			storeNextCollider.Value = hits[nextColliderIndex].collider.gameObject;
 			storeNextHitPoint.Value = hits[nextColliderIndex].point;
 			storeNextHitNormal.Value = hits[nextColliderIndex].normal;
@@ -155,19 +156,18 @@ namespace HutongGames.PlayMaker.Actions
 				Fsm.Event(loopEvent);
 			}
 		}
-		
-		
-		RaycastHit2D[] GetRayCastAll()
-		{
 
-			if (distance.Value == 0)
+
+	    private RaycastHit2D[] GetRayCastAll()
+		{
+			if (Math.Abs(distance.Value) < Mathf.Epsilon)
 			{
 				return new RaycastHit2D[0];
 			}
 
-			GameObject go = Fsm.GetOwnerDefaultTarget(fromGameObject);
+			var go = Fsm.GetOwnerDefaultTarget(fromGameObject);
 
-			Vector2 originPos = fromPosition.Value;
+			var originPos = fromPosition.Value;
 			
 			if (go!=null)
 			{
@@ -175,18 +175,18 @@ namespace HutongGames.PlayMaker.Actions
 				originPos.y += go.transform.position.y;
 			}
 			
-			float rayLength = Mathf.Infinity;
+			var rayLength = Mathf.Infinity;
 			if (distance.Value > 0 )
 			{
 				rayLength = distance.Value;
 			}
 			
-			Vector2 dirVector2 = direction.Value.normalized; // normalized to get the proper distance later using fraction from the rayCastHitinfo.
+			var dirVector2 = direction.Value.normalized; // normalized to get the proper distance later using fraction from the rayCastHitinfo.
 			
 			if(go != null && space == Space.Self)
 			{
 				
-				Vector3 dirVector = go.transform.TransformDirection(new Vector3(direction.Value.x,direction.Value.y,0f));
+				var dirVector = go.transform.TransformDirection(new Vector3(direction.Value.x,direction.Value.y,0f));
 				dirVector2.x = dirVector.x;
 				dirVector2.y = dirVector.y;
 			}
@@ -195,8 +195,8 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				return Physics2D.RaycastAll(originPos,dirVector2,rayLength,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value));
 			}else{
-				float _minDepth = minDepth.IsNone? Mathf.NegativeInfinity : minDepth.Value;
-				float _maxDepth = maxDepth.IsNone? Mathf.Infinity : maxDepth.Value;
+				var _minDepth = minDepth.IsNone? Mathf.NegativeInfinity : minDepth.Value;
+				var _maxDepth = maxDepth.IsNone? Mathf.Infinity : maxDepth.Value;
 				return Physics2D.RaycastAll(originPos,dirVector2,rayLength,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value),_minDepth,_maxDepth);
 			}
 

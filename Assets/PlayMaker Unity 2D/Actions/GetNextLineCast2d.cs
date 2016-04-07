@@ -1,10 +1,10 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Iterate through a list of all colliders detected by a LineCast" +
 	         "The colliders iterated are sorted in order of increasing Z coordinate. No iteration will take place if there are no colliders within the area.")]
 	public class GetNextLineCast2d: FsmStateAction
@@ -109,8 +109,8 @@ namespace HutongGames.PlayMaker.Actions
 			Finish();
 			
 		}
-		
-		void DoGetNextCollider()
+
+	    private void DoGetNextCollider()
 		{
 			
 			// no more colliders?
@@ -125,7 +125,7 @@ namespace HutongGames.PlayMaker.Actions
 			}
 			
 			// get next collider
-			PlayMakerUnity2d.RecordLastRaycastHitInfo(this.Fsm,hits[nextColliderIndex]);
+            Fsm.RecordLastRaycastHit2DInfo(Fsm, hits[nextColliderIndex]);
 			storeNextCollider.Value = hits[nextColliderIndex].collider.gameObject;
 			storeNextHitPoint.Value = hits[nextColliderIndex].point;
 			storeNextHitNormal.Value = hits[nextColliderIndex].normal;
@@ -151,14 +151,14 @@ namespace HutongGames.PlayMaker.Actions
 				Fsm.Event(loopEvent);
 			}
 		}
-		
-		
-		RaycastHit2D[] GetLineCastAll()
+
+
+	    private RaycastHit2D[] GetLineCastAll()
 		{
 
-			Vector2 fromPos = fromPosition.Value;
+			var fromPos = fromPosition.Value;
 
-			GameObject fromGo = Fsm.GetOwnerDefaultTarget(fromGameObject);
+			var fromGo = Fsm.GetOwnerDefaultTarget(fromGameObject);
 			
 			if (fromGo!=null)
 			{
@@ -166,9 +166,9 @@ namespace HutongGames.PlayMaker.Actions
 				fromPos.y += fromGo.transform.position.y;
 			}
 
-			Vector2 toPos = toPosition.Value;
+			var toPos = toPosition.Value;
 
-			GameObject toGo = toGameObject.Value;
+			var toGo = toGameObject.Value;
 			
 			if (toGo!=null)
 			{
@@ -181,8 +181,8 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				return Physics2D.LinecastAll(fromPos,toPos,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value));
 			}else{
-				float _minDepth = minDepth.IsNone? Mathf.NegativeInfinity : minDepth.Value;
-				float _maxDepth = maxDepth.IsNone? Mathf.Infinity : maxDepth.Value;
+				var _minDepth = minDepth.IsNone? Mathf.NegativeInfinity : minDepth.Value;
+				var _maxDepth = maxDepth.IsNone? Mathf.Infinity : maxDepth.Value;
 				return Physics2D.LinecastAll(fromPos,toPos,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value),_minDepth,_maxDepth);
 			}
 			

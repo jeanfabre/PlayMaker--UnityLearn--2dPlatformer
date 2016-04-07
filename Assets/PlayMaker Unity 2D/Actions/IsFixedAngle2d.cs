@@ -1,25 +1,31 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using System;
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Should the rigidbody2D be prevented from rotating?")]
-	public class IsFixedAngle2d : RigidBody2dActionBase
+    public class IsFixedAngle2d : ComponentAction<Rigidbody2D>
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(Rigidbody2D))]
+		[Tooltip("The GameObject with the Rigidbody2D attached")]
 		public FsmOwnerDefault gameObject;
-		
+
+		[Tooltip("Event sent if the Rigidbody2D does have fixed angle")]
 		public FsmEvent trueEvent;
-		
+
+		[Tooltip("Event sent if the Rigidbody2D doesn't have fixed angle")]
 		public FsmEvent falseEvent;
 		
 		[UIHint(UIHint.Variable)]
+		[Tooltip("Store the fixedAngle flag")]
 		public FsmBool store;
-		
+
+		[Tooltip("Repeat every frame.")]
 		public bool everyFrame;
 		
 		public override void Reset()
@@ -33,8 +39,6 @@ namespace HutongGames.PlayMaker.Actions
 		
 		public override void OnEnter()
 		{
-			CacheRigidBody2d(Fsm.GetOwnerDefaultTarget(gameObject));
-			
 			DoIsFixedAngle();
 			
 			if (!everyFrame)
@@ -50,15 +54,17 @@ namespace HutongGames.PlayMaker.Actions
 		
 		void DoIsFixedAngle()
 		{
-			
-			if (rb2d == null)
-			{
-				return;
-			}
-			
-			var isfixedAngle = rb2d.fixedAngle;
+            var go = Fsm.GetOwnerDefaultTarget(gameObject);
+
+            if (!UpdateCache(go))
+            {
+                return;
+            }
+
+			bool isfixedAngle =  (rigidbody2d.constraints & RigidbodyConstraints2D.FreezeRotation) == RigidbodyConstraints2D.FreezeRotation;
+
 			store.Value = isfixedAngle;
-			
+
 			Fsm.Event(isfixedAngle ? trueEvent : falseEvent);
 		}
 	}

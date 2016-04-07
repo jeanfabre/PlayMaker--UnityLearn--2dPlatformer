@@ -1,12 +1,11 @@
-// (c) Copyright HutongGames, LLC 2010-2012. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Vector2")]
+	[ActionCategory(ActionCategory.Vector2)]
 	[Tooltip("Performs most possible operations on 2 Vector2: Dot product, Distance, Angle, Add, Subtract, Multiply, Divide, Min, Max")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1020")]
 	public class Vector2Operator : FsmStateAction
 	{
 		

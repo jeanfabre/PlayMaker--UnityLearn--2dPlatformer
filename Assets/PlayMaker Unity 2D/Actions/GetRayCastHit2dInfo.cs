@@ -1,10 +1,8 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
-
-using UnityEngine;
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Gets info on the last 2d Raycast or LineCast and store in variables.")]
 	public class GetRayCastHit2dInfo : FsmStateAction
 	{
@@ -37,19 +35,6 @@ namespace HutongGames.PlayMaker.Actions
 			everyFrame = false;
 		}
 		
-		void StoreRaycastInfo()
-		{
-			RaycastHit2D _info = PlayMakerUnity2d.GetLastRaycastHitInfo(this.Fsm);
-
-			if (_info.collider != null)
-			{
-				gameObjectHit.Value =_info.collider.gameObject;
-				point.Value = _info.point;
-				normal.Value = _info.normal;
-				distance.Value = _info.fraction;
-			}
-		}
-		
 		public override void OnEnter()
 		{
 			StoreRaycastInfo();
@@ -64,5 +49,17 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			StoreRaycastInfo();
 		}
+
+        private void StoreRaycastInfo()
+        {
+            var _info = Fsm.GetLastRaycastHit2DInfo(Fsm);
+            if (_info.collider != null)
+            {
+                gameObjectHit.Value = _info.collider.gameObject;
+                point.Value = _info.point;
+                normal.Value = _info.normal;
+                distance.Value = _info.fraction;
+            }
+        }
 	}
 }

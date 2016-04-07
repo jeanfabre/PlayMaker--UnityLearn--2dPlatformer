@@ -1,10 +1,9 @@
-// (c) Copyright HutongGames, LLC 2010-2012. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Vector2")]
+	[ActionCategory(ActionCategory.Vector2)]
 	[Tooltip("Sets the value of a Vector2 Variable.")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1008")]
 	public class SetVector2Value : FsmStateAction
 	{
 		[RequiredField]
@@ -15,6 +14,8 @@ namespace HutongGames.PlayMaker.Actions
 		[RequiredField]
 		[Tooltip("The vector2 source")]
 		public FsmVector2 vector2Value;
+
+		[Tooltip("Repeat every frame.")]
 		public bool everyFrame;
 
 		public override void Reset()

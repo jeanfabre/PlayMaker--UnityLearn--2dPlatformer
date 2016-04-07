@@ -1,10 +1,9 @@
-// (c) Copyright HutongGames, LLC 2010-2012. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Vector2")]
+	[ActionCategory(ActionCategory.Vector2)]
 	[Tooltip("Multiplies a Vector2 variable by a Float.")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1018")]
 	public class Vector2Multiply : FsmStateAction
 	{
 		[RequiredField]

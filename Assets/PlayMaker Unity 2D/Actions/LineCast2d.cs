@@ -1,10 +1,10 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Casts a Ray against all Colliders in the scene." +
 		"A linecast is an imaginary line between two points in world space. Any object making contact with the beam can be detected and reported. This differs from the similar raycast in that raycasting specifies the line using an origin and direction." +
 		"Use GetRaycastHit2dInfo to get more detailed info.")]
@@ -75,12 +75,12 @@ namespace HutongGames.PlayMaker.Actions
 		
 		[Tooltip("Draw a debug line. Note: Check Gizmos in the Game View to see it in game.")]
 		public FsmBool debug;
-		
-		
-		Transform _fromTrans;
-		Transform _toTrans;
 
-		int repeat;
+
+	    private Transform _fromTrans;
+	    private Transform _toTrans;
+
+	    private int repeat;
 		
 		public override void Reset()
 		{
@@ -105,15 +105,13 @@ namespace HutongGames.PlayMaker.Actions
 		
 		public override void OnEnter()
 		{
-			GameObject fromGo = Fsm.GetOwnerDefaultTarget(fromGameObject);
-			
+			var fromGo = Fsm.GetOwnerDefaultTarget(fromGameObject);			
 			if (fromGo!=null)
 			{
 				_fromTrans = fromGo.transform;
 			}
 
-			GameObject toGo = toGameObject.Value;
-			
+			var toGo = toGameObject.Value;		
 			if (toGo!=null)
 			{
 				_toTrans = toGo.transform;
@@ -136,12 +134,12 @@ namespace HutongGames.PlayMaker.Actions
 				DoRaycast();
 			}
 		}
-		
-		void DoRaycast()
+
+	    private void DoRaycast()
 		{
 			repeat = repeatInterval.Value;
 			
-			Vector2 fromPos = fromPosition.Value;
+			var fromPos = fromPosition.Value;
 			
 			if (_fromTrans!=null)
 			{
@@ -149,7 +147,7 @@ namespace HutongGames.PlayMaker.Actions
 				fromPos.y += _fromTrans.position.y;
 			}
 
-			Vector2 toPos = toPosition.Value;
+			var toPos = toPosition.Value;
 			
 			if (_toTrans!=null)
 			{
@@ -163,15 +161,17 @@ namespace HutongGames.PlayMaker.Actions
 			if (minDepth.IsNone && maxDepth.IsNone)
 			{
 				hitInfo = Physics2D.Linecast(fromPos,toPos,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value));
-			}else{
-				float _minDepth = minDepth.IsNone? Mathf.NegativeInfinity : minDepth.Value;
-				float _maxDepth = maxDepth.IsNone? Mathf.Infinity : maxDepth.Value;
+			}
+            else
+            {
+				var _minDepth = minDepth.IsNone? Mathf.NegativeInfinity : minDepth.Value;
+				var _maxDepth = maxDepth.IsNone? Mathf.Infinity : maxDepth.Value;
 				hitInfo = Physics2D.Linecast(fromPos,toPos,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value),_minDepth,_maxDepth);
 			}
 
-			PlayMakerUnity2d.RecordLastRaycastHitInfo(this.Fsm,hitInfo);
+			Fsm.RecordLastRaycastHit2DInfo(Fsm,hitInfo);
 
-			bool didHit = hitInfo.collider != null;
+			var didHit = hitInfo.collider != null;
 			
 			storeDidHit.Value = didHit;
 			
@@ -186,8 +186,8 @@ namespace HutongGames.PlayMaker.Actions
 			
 			if (debug.Value)
 			{
-				Vector3 start = new Vector3(fromPos.x,fromPos.y,0);
-				Vector3 end = new Vector3(toPos.x,toPos.y,0);
+				var start = new Vector3(fromPos.x,fromPos.y,0);
+				var end = new Vector3(toPos.x,toPos.y,0);
 				
 				Debug.DrawLine(start,end, debugColor.Value);
 			}

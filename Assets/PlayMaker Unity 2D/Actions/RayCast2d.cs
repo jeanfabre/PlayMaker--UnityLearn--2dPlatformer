@@ -1,10 +1,11 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
+using System;
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Casts a Ray against all Colliders in the scene. " +
 		"A raycast is conceptually like a laser beam that is fired from a point in space along a particular direction. Any object making contact with the beam can be detected and reported. " +
 		"Use GetRaycastHit2dInfo to get more detailed info.")]
@@ -79,10 +80,8 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("Draw a debug line. Note: Check Gizmos in the Game View to see it in game.")]
 		public FsmBool debug;
 
-
-		Transform _trans;
-
-		int repeat;
+	    private Transform _transform;
+	    private int repeat;
 		
 		public override void Reset()
 		{
@@ -111,11 +110,10 @@ namespace HutongGames.PlayMaker.Actions
 		
 		public override void OnEnter()
 		{
-			GameObject go = Fsm.GetOwnerDefaultTarget(fromGameObject);
-
-			if (go!=null)
+			var go = Fsm.GetOwnerDefaultTarget(fromGameObject);
+            if (go!=null)
 			{
-				_trans = go.transform;
+				_transform = go.transform;
 			}
 
 			DoRaycast();
@@ -135,36 +133,36 @@ namespace HutongGames.PlayMaker.Actions
 				DoRaycast();
 			}
 		}
-		
-		void DoRaycast()
+
+	    private void DoRaycast()
 		{
 			repeat = repeatInterval.Value;
 			
-			if (distance.Value == 0)
+			if (Math.Abs(distance.Value) < Mathf.Epsilon)
 			{
 				return;
 			}
 
-			Vector2 originPos = fromPosition.Value;
+			var originPos = fromPosition.Value;
 
-			if (_trans!=null)
+			if (_transform!=null)
 			{
-				originPos.x += _trans.position.x;
-				originPos.y += _trans.position.y;
+				originPos.x += _transform.position.x;
+				originPos.y += _transform.position.y;
 			}
 
-			float rayLength = Mathf.Infinity;
+			var rayLength = Mathf.Infinity;
 			if (distance.Value > 0 )
 			{
 				rayLength = distance.Value;
 			}
 			
-			Vector2 dirVector2 = direction.Value.normalized; // normalized to get the proper distance later using fraction from the rayCastHitinfo.
+			var dirVector2 = direction.Value.normalized; // normalized to get the proper distance later using fraction from the rayCastHitinfo.
 
-			if(_trans != null && space == Space.Self)
+			if(_transform != null && space == Space.Self)
 			{
 
-				Vector3 dirVector = _trans.TransformDirection(new Vector3(direction.Value.x,direction.Value.y,0f));
+				var dirVector = _transform.TransformDirection(new Vector3(direction.Value.x,direction.Value.y,0f));
 				dirVector2.x = dirVector.x;
 				dirVector2.y = dirVector.y;
 			}
@@ -174,15 +172,17 @@ namespace HutongGames.PlayMaker.Actions
 			if (minDepth.IsNone && maxDepth.IsNone)
 			{
 				hitInfo = Physics2D.Raycast(originPos,dirVector2,rayLength,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value));
-			}else{
-				float _minDepth = minDepth.IsNone? Mathf.NegativeInfinity : minDepth.Value;
-				float _maxDepth = maxDepth.IsNone? Mathf.Infinity : maxDepth.Value;
+			}
+            else
+            {
+				var _minDepth = minDepth.IsNone? Mathf.NegativeInfinity : minDepth.Value;
+				var _maxDepth = maxDepth.IsNone? Mathf.Infinity : maxDepth.Value;
 				hitInfo = Physics2D.Raycast(originPos,dirVector2,rayLength,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value),_minDepth,_maxDepth);
 			}
 
-			PlayMakerUnity2d.RecordLastRaycastHitInfo(this.Fsm,hitInfo);
+            Fsm.RecordLastRaycastHit2DInfo(Fsm, hitInfo);
 			
-			bool didHit = hitInfo.collider != null;
+			var didHit = hitInfo.collider != null;
 			
 			storeDidHit.Value = didHit;
 			
@@ -198,9 +198,9 @@ namespace HutongGames.PlayMaker.Actions
 			if (debug.Value)
 			{
 				var debugRayLength = Mathf.Min(rayLength, 1000);
-				Vector3 start = new Vector3(originPos.x,originPos.y,0);
-				Vector3 dirVector3 = new Vector3(dirVector2.x,dirVector2.y,0);
-				Vector3 end = start + dirVector3 * debugRayLength;
+				var start = new Vector3(originPos.x,originPos.y,0);
+				var dirVector3 = new Vector3(dirVector2.x,dirVector2.y,0);
+				var end = start + dirVector3 * debugRayLength;
 
 				Debug.DrawLine(start,end, debugColor.Value);
 			}

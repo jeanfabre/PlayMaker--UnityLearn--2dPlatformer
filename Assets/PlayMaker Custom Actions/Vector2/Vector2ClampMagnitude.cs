@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Vector2")]
+	[ActionCategory(ActionCategory.Vector2)]
 	[Tooltip("Clamps the Magnitude of Vector2 Variable.")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1012")]
 	public class Vector2ClampMagnitude : FsmStateAction
 	{
 		[RequiredField]

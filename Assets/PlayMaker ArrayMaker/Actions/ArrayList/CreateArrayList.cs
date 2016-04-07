@@ -72,7 +72,7 @@ namespace HutongGames.PlayMaker.Actions
 				Fsm.Event(alreadyExistsEvent);
 			}else{
 				
-				addedComponent = (PlayMakerArrayListProxy)go.AddComponent("PlayMakerArrayListProxy");
+				addedComponent = (PlayMakerArrayListProxy)go.AddComponent<PlayMakerArrayListProxy>();
 	
 				if (addedComponent == null)
 				{

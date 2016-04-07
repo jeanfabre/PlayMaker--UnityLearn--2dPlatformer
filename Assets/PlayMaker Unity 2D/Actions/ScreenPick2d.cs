@@ -1,4 +1,4 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
@@ -10,25 +10,37 @@ namespace HutongGames.PlayMaker.Actions
 	{
 		[Tooltip("A Vector3 screen position. Commonly stored by other actions.")]
 		public FsmVector3 screenVector;
-		[Tooltip ("X position on screen.")]
+		
+        [Tooltip ("X position on screen.")]
 		public FsmFloat screenX;
-		[Tooltip ("Y position on screen.")]
+		
+        [Tooltip ("Y position on screen.")]
 		public FsmFloat screenY;
-		[Tooltip("Are the supplied screen coordinates normalized (0-1), or in pixels.")]
+		
+        [Tooltip("Are the supplied screen coordinates normalized (0-1), or in pixels.")]
 		public FsmBool normalized;
 
 		[UIHint(UIHint.Variable)]
+		[Tooltip("Store whether the Screen pick did pick a GameObject")]
 		public FsmBool storeDidPickObject;
-		[UIHint(UIHint.Variable)]
+		
+        [UIHint(UIHint.Variable)]
+		[Tooltip("Store the picked GameObject")]
 		public FsmGameObject storeGameObject;
-		[UIHint(UIHint.Variable)]
+		
+        [UIHint(UIHint.Variable)]
+		[Tooltip("Store the picked position in world Space")]
 		public FsmVector3 storePoint;
-		[UIHint(UIHint.Layer)]
+		
+        [UIHint(UIHint.Layer)]
 		[Tooltip("Pick only from these layers.")]
 		public FsmInt[] layerMask;
-		[Tooltip("Invert the mask, so you pick from all layers except those defined above.")]
+		
+        [Tooltip("Invert the mask, so you pick from all layers except those defined above.")]
 		public FsmBool invertMask;
-		public bool everyFrame;
+		
+        [Tooltip("Repeat every frame.")]
+        public bool everyFrame;
 		
 		public override void Reset()
 		{
@@ -81,7 +93,7 @@ namespace HutongGames.PlayMaker.Actions
 				rayStart.y *= Screen.height;
 			}
 			
-			RaycastHit2D hitInfo = Physics2D.GetRayIntersection(
+			var hitInfo = Physics2D.GetRayIntersection(
 				Camera.main.ScreenPointToRay(rayStart), 
 				Mathf.Infinity, 
 				ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value));

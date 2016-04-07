@@ -1,12 +1,11 @@
-// (c) Copyright HutongGames, LLC 2010-2012. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Vector2")]
+	[ActionCategory(ActionCategory.Vector2)]
 	[Tooltip("Adds a XY values to Vector2 Variable.")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1011")]
 	public class Vector2AddXY : FsmStateAction
 	{
 		[RequiredField]

@@ -1,10 +1,10 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Iterate through a list of all colliders that fall within a circular area." +
 	         "The colliders iterated are sorted in order of increasing Z coordinate. No iteration will take place if there are no colliders within the area.")]
 	public class GetNextOverlapCircle2d: FsmStateAction
@@ -95,7 +95,7 @@ namespace HutongGames.PlayMaker.Actions
 
 		}
 
-		void DoGetNextCollider()
+	    private void DoGetNextCollider()
 		{
 
 			// no more colliders?
@@ -134,12 +134,12 @@ namespace HutongGames.PlayMaker.Actions
 			}
 		}
 
-		
-		Collider2D[] GetOverlapCircleAll()
-		{
-			GameObject fromGo = Fsm.GetOwnerDefaultTarget(fromGameObject);
 
-			Vector2 fromPos = fromPosition.Value;
+	    private Collider2D[] GetOverlapCircleAll()
+		{
+			var fromGo = Fsm.GetOwnerDefaultTarget(fromGameObject);
+
+			var fromPos = fromPosition.Value;
 			
 			if (fromGo!=null)
 			{
@@ -151,13 +151,12 @@ namespace HutongGames.PlayMaker.Actions
 			if (minDepth.IsNone && maxDepth.IsNone)
 			{
 				return Physics2D.OverlapCircleAll(fromPos,radius.Value,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value));
-			}else{
-				float _minDepth = minDepth.IsNone? Mathf.NegativeInfinity:minDepth.Value;
-				float _maxDepth = maxDepth.IsNone? Mathf.Infinity:maxDepth.Value;
-				return Physics2D.OverlapCircleAll(fromPos,radius.Value,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value),_minDepth,_maxDepth);
 			}
+
+	        var _minDepth = minDepth.IsNone? Mathf.NegativeInfinity:minDepth.Value;
+	        var _maxDepth = maxDepth.IsNone? Mathf.Infinity:maxDepth.Value;
+	        return Physics2D.OverlapCircleAll(fromPos,radius.Value,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value),_minDepth,_maxDepth);
 		}
 
 	}
 }
-

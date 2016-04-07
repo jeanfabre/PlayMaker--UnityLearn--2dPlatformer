@@ -17,7 +17,7 @@ namespace HutongGames.PlayMaker.Actions
 				return;
 			}
 			
-			rb2d = go.rigidbody2D ;
+			rb2d = go.GetComponent<Rigidbody2D>() ;
 			
 			if (rb2d == null)
 			{

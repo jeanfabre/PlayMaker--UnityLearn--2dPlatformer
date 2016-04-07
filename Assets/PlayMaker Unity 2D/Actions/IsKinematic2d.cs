@@ -1,25 +1,30 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using System;
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Tests if a Game Object's Rigid Body 2D is Kinematic.")]
-	public class IsKinematic2d : RigidBody2dActionBase
+    public class IsKinematic2d : ComponentAction<Rigidbody2D>
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(Rigidbody2D))]
+		[Tooltip("the GameObject with a Rigidbody2D attached")]
 		public FsmOwnerDefault gameObject;
-		
+
+		[Tooltip("Event Sent if Kinematic")]
 		public FsmEvent trueEvent;
-		
+
+		[Tooltip("Event sent if not Kinematic")]
 		public FsmEvent falseEvent;
 		
 		[UIHint(UIHint.Variable)]
+		[Tooltip("Store the Kinematic state")]
 		public FsmBool store;
-		
+
+		[Tooltip("Repeat every frame")]
 		public bool everyFrame;
 		
 		public override void Reset()
@@ -33,8 +38,6 @@ namespace HutongGames.PlayMaker.Actions
 		
 		public override void OnEnter()
 		{
-			CacheRigidBody2d(Fsm.GetOwnerDefaultTarget(gameObject));
-
 			DoIsKinematic();
 			
 			if (!everyFrame)
@@ -50,13 +53,13 @@ namespace HutongGames.PlayMaker.Actions
 		
 		void DoIsKinematic()
 		{
-
-			if (rb2d == null)
-			{
-				return;
-			}
+            var go = Fsm.GetOwnerDefaultTarget(gameObject);
+            if (!UpdateCache(go))
+            {
+                return;
+            }
 			
-			var isKinematic = rb2d.isKinematic;
+			var isKinematic = rigidbody2d.isKinematic;
 			store.Value = isKinematic;
 			
 			Fsm.Event(isKinematic ? trueEvent : falseEvent);

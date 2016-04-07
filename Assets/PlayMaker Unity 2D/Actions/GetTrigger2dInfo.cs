@@ -1,12 +1,11 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Gets info on the last Trigger 2d event and store in variables.  See Unity and PlayMaker docs on Unity 2D physics.")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1152")]
 	public class GetTrigger2dInfo : FsmStateAction
 	{
 		[UIHint(UIHint.Variable)]
@@ -30,16 +29,11 @@ namespace HutongGames.PlayMaker.Actions
 		
 		void StoreTriggerInfo()
 		{
-			PlayMakerUnity2DProxy _proxy = Fsm.GameObject.GetComponent<PlayMakerUnity2DProxy>();
-			
-			if (_proxy == null || _proxy.lastTrigger2DInfo == null)
-			{
-				return;
-			}
-			
-			gameObjectHit.Value = _proxy.lastTrigger2DInfo.gameObject;
-			shapeCount.Value = _proxy.lastTrigger2DInfo.shapeCount;
-			physics2dMaterialName.Value = _proxy.lastTrigger2DInfo.sharedMaterial!=null?_proxy.lastTrigger2DInfo.sharedMaterial.name:"";
+            if (Fsm.TriggerCollider2D == null) return;
+
+            gameObjectHit.Value = Fsm.TriggerCollider2D.gameObject;
+            shapeCount.Value = Fsm.TriggerCollider2D.shapeCount;
+            physics2dMaterialName.Value = Fsm.TriggerCollider2D.sharedMaterial != null ? Fsm.TriggerCollider2D.sharedMaterial.name : "";
 		}
 		
 		public override void OnEnter()

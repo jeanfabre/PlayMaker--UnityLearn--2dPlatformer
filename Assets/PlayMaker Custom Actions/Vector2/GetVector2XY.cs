@@ -1,12 +1,11 @@
-// (c) Copyright HutongGames, LLC 2010-2012. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Vector2")]
-	[Tooltip("Get the XY channels of a Vector2 Variable and storew them in Float Variables.")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1006")]
+	[ActionCategory(ActionCategory.Vector2)]
+	[Tooltip("Get the XY channels of a Vector2 Variable and store them in Float Variables.")]
 	public class GetVector2XY : FsmStateAction
 	{
 		[RequiredField]

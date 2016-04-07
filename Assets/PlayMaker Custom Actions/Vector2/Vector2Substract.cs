@@ -1,10 +1,9 @@
-// (c) Copyright HutongGames, LLC 2010-2012. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Vector2")]
+	[ActionCategory(ActionCategory.Vector2)]
 	[Tooltip("Subtracts a Vector2 value from a Vector2 variable.")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1023")]
 	public class Vector2Subtract : FsmStateAction
 	{
 		[RequiredField]

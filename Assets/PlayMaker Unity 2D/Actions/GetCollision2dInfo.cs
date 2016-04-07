@@ -1,12 +1,11 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Gets info on the last collision 2D event and store in variables. See Unity and PlayMaker docs on Unity 2D physics.")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1151")]
 	public class GetCollision2dInfo : FsmStateAction
 	{
 		[UIHint(UIHint.Variable)]
@@ -50,24 +49,19 @@ namespace HutongGames.PlayMaker.Actions
 		
 		void StoreCollisionInfo()
 		{
-			PlayMakerUnity2DProxy _proxy = Fsm.GameObject.GetComponent<PlayMakerUnity2DProxy>();
+		    if (Fsm.Collision2DInfo == null) return;
 
-			if (_proxy == null || _proxy.lastCollision2DInfo == null)
+			gameObjectHit.Value = Fsm.Collision2DInfo.gameObject;
+            relativeSpeed.Value = Fsm.Collision2DInfo.relativeVelocity.magnitude;
+            relativeVelocity.Value = Fsm.Collision2DInfo.relativeVelocity;
+            physics2dMaterialName.Value = Fsm.Collision2DInfo.collider.sharedMaterial != null ? Fsm.Collision2DInfo.collider.sharedMaterial.name : "";
+
+            shapeCount.Value = Fsm.Collision2DInfo.collider.shapeCount;
+
+            if (Fsm.Collision2DInfo.contacts != null && Fsm.Collision2DInfo.contacts.Length > 0)
 			{
-				return;
-			}
-			
-			gameObjectHit.Value = _proxy.lastCollision2DInfo.gameObject;
-			relativeSpeed.Value = _proxy.lastCollision2DInfo.relativeVelocity.magnitude;
-			relativeVelocity.Value = _proxy.lastCollision2DInfo.relativeVelocity;
-			physics2dMaterialName.Value = _proxy.lastCollision2DInfo.collider.sharedMaterial!=null?_proxy.lastCollision2DInfo.collider.sharedMaterial.name:"";
-
-			shapeCount.Value = _proxy.lastCollision2DInfo.collider.shapeCount;
-
-			if (_proxy.lastCollision2DInfo.contacts != null && _proxy.lastCollision2DInfo.contacts.Length > 0)
-			{
-				contactPoint.Value = _proxy.lastCollision2DInfo.contacts[0].point;
-				contactNormal.Value = _proxy.lastCollision2DInfo.contacts[0].normal;
+                contactPoint.Value = Fsm.Collision2DInfo.contacts[0].point;
+                contactNormal.Value = Fsm.Collision2DInfo.contacts[0].normal;
 			}
 		}
 		

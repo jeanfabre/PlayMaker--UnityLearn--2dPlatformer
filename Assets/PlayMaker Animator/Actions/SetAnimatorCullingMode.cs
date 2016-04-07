@@ -59,7 +59,7 @@ namespace HutongGames.PlayMaker.Actions
 				return;
 			}
 			
-			_animator.cullingMode = alwaysAnimate.Value?AnimatorCullingMode.AlwaysAnimate:AnimatorCullingMode.BasedOnRenderers;
+			_animator.cullingMode = alwaysAnimate.Value?AnimatorCullingMode.AlwaysAnimate:AnimatorCullingMode.CullUpdateTransforms;
 			
 		}
 		

@@ -1,4 +1,4 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
@@ -9,6 +9,7 @@ namespace HutongGames.PlayMaker.Actions
 	public class MousePick2dEvent : FsmStateAction
 	{
 		[CheckForComponent(typeof(Collider2D))]
+		[Tooltip("The GameObject with a Collider2D attached.")]
 		public FsmOwnerDefault GameObject;
 		
 		[Tooltip("Event to send when the mouse is over the GameObject.")]
@@ -64,9 +65,7 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			// Do the raycast
 			
-			bool isMouseOver = DoRaycast();
-			
-
+			var isMouseOver = DoRaycast();
 			
 			// Send events based on the raycast and mouse buttons
 			
@@ -98,13 +97,13 @@ namespace HutongGames.PlayMaker.Actions
 		
 		bool DoRaycast()
 		{
-			GameObject testObject = GameObject.OwnerOption == OwnerDefaultOption.UseOwner ? Owner : GameObject.GameObject.Value;
+			var testObject = GameObject.OwnerOption == OwnerDefaultOption.UseOwner ? Owner : GameObject.GameObject.Value;
 			
 			// ActionHelpers uses a cache to try and minimize Raycasts
-			RaycastHit2D hitInfo = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition),Mathf.Infinity,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value));
+			var hitInfo = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition),Mathf.Infinity,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value));
 
 			// Store mouse pick info so it can be seen by Get Raycast Hit Info action
-			PlayMakerUnity2d.RecordLastRaycastHitInfo(this.Fsm,hitInfo);
+			Fsm.RecordLastRaycastHit2DInfo(Fsm,hitInfo);
 
 			if (hitInfo.transform != null)
 			{

@@ -1,18 +1,21 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Sets the Mass of a Game Object's Rigid Body 2D.")]
-	public class SetMass2d : FsmStateAction
+    public class SetMass2d : ComponentAction<Rigidbody2D>
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(Rigidbody2D))]
+		[Tooltip("The GameObject with the Rigidbody2D attached")]
 		public FsmOwnerDefault gameObject;
+
 		[RequiredField]
 		[HasFloatSlider(0.1f,10f)]
+		[Tooltip("The Mass")]
 		public FsmFloat mass;
 		
 		public override void Reset()
@@ -30,11 +33,13 @@ namespace HutongGames.PlayMaker.Actions
 		
 		void DoSetMass()
 		{
-			GameObject go = Fsm.GetOwnerDefaultTarget(gameObject);
-			if (go == null) return;
-			if (go.rigidbody2D == null) return;
+			var go = Fsm.GetOwnerDefaultTarget(gameObject);
+            if (!UpdateCache(go))
+            {
+                return;
+            }	
 			
-			go.rigidbody2D.mass = mass.Value;
+			rigidbody2d.mass = mass.Value;
 		}
 	}
 }

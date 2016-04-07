@@ -1,10 +1,10 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Iterate through a list of all colliders that fall within a rectangular area." +
 	         "The colliders iterated are sorted in order of increasing Z coordinate. No iteration will take place if there are no colliders within the area.")]
 	public class GetNextOverlapArea2d : FsmStateAction
@@ -99,8 +99,8 @@ namespace HutongGames.PlayMaker.Actions
 			Finish();
 			
 		}
-		
-		void DoGetNextCollider()
+
+	    private void DoGetNextCollider()
 		{
 			
 			// no more colliders?
@@ -137,13 +137,13 @@ namespace HutongGames.PlayMaker.Actions
 				Fsm.Event(loopEvent);
 			}
 		}
-		
-		
-		Collider2D[] GetOverlapAreaAll()
+
+
+	    private Collider2D[] GetOverlapAreaAll()
 		{
-			GameObject firstGo = Fsm.GetOwnerDefaultTarget(firstCornerGameObject);
+			var firstGo = Fsm.GetOwnerDefaultTarget(firstCornerGameObject);
 			
-			Vector2 firstCornerPos = firstCornerPosition.Value;
+			var firstCornerPos = firstCornerPosition.Value;
 			
 			if (firstGo!=null)
 			{
@@ -151,9 +151,9 @@ namespace HutongGames.PlayMaker.Actions
 				firstCornerPos.y += firstGo.transform.position.y;
 			}
 
-			GameObject secondGo = secondCornerGameObject.Value;
+			var secondGo = secondCornerGameObject.Value;
 			
-			Vector2 secondCornerPos = secondCornerPosition.Value;
+			var secondCornerPos = secondCornerPosition.Value;
 			
 			if (secondGo!=null)
 			{
@@ -165,12 +165,11 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				return Physics2D.OverlapAreaAll(firstCornerPos,secondCornerPos,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value));
 			}else{
-				float _minDepth = minDepth.IsNone? Mathf.NegativeInfinity:minDepth.Value;
-				float _maxDepth = maxDepth.IsNone? Mathf.Infinity:maxDepth.Value;
+				var _minDepth = minDepth.IsNone? Mathf.NegativeInfinity:minDepth.Value;
+				var _maxDepth = maxDepth.IsNone? Mathf.Infinity:maxDepth.Value;
 				return Physics2D.OverlapAreaAll(firstCornerPos,secondCornerPos,ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value),_minDepth,_maxDepth);
 			}
 		}
 		
 	}
 }
-

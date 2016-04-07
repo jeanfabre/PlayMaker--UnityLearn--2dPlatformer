@@ -1,12 +1,11 @@
-// (c) Copyright HutongGames, LLC 2010-2012. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Vector2")]
+	[ActionCategory(ActionCategory.Vector2)]
 	[Tooltip("Get Vector2 Length.")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1005")]
 	public class GetVector2Length : FsmStateAction
 	{
 		[Tooltip("The Vector2 to get the length from")]

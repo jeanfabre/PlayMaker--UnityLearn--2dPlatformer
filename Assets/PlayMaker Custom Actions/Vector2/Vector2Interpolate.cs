@@ -1,15 +1,14 @@
-// (c) Copyright HutongGames, LLC 2010-2012. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Vector2")]
+	[ActionCategory(ActionCategory.Vector2)]
 	[Tooltip("Interpolates between 2 Vector2 values over a specified Time.")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1014")]
 	public class Vector2Interpolate : FsmStateAction
 	{
-		[Tooltip("The interpolcation type")]
+		[Tooltip("The interpolation type")]
 		public InterpolationType mode;
 		
 		[RequiredField]

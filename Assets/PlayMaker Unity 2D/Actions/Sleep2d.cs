@@ -1,15 +1,16 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Forces a Game Object's Rigid Body 2D to Sleep at least one frame.")]
-	public class Sleep2d : FsmStateAction
+    public class Sleep2d : ComponentAction<Rigidbody2D>
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(Rigidbody2D))]
+		[Tooltip("The GameObject with a Rigidbody2d attached")]
 		public FsmOwnerDefault gameObject;
 		
 		public override void Reset()
@@ -25,11 +26,13 @@ namespace HutongGames.PlayMaker.Actions
 		
 		void DoSleep()
 		{
-			GameObject go = Fsm.GetOwnerDefaultTarget(gameObject);
-			if (go == null) return;
-			if (go.rigidbody2D == null) return;
-			
-			go.rigidbody2D.Sleep();
+            var go = Fsm.GetOwnerDefaultTarget(gameObject);
+            if (!UpdateCache(go))
+            {
+                return;
+            }
+
+            rigidbody2d.Sleep();
 		}
 	}
 }

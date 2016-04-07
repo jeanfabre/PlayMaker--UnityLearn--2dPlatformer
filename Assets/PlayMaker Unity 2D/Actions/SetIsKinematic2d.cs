@@ -1,17 +1,20 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Controls whether 2D physics affects the Game Object.")]
-	public class SetIsKinematic2d : FsmStateAction
+    public class SetIsKinematic2d : ComponentAction<Rigidbody2D>
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(Rigidbody2D))]
+		[Tooltip("The GameObject with the Rigidbody2D attached")]
 		public FsmOwnerDefault gameObject;
+
 		[RequiredField]
+		[Tooltip("The isKinematic value")]
 		public FsmBool isKinematic;
 		
 		public override void Reset()
@@ -28,11 +31,13 @@ namespace HutongGames.PlayMaker.Actions
 		
 		void DoSetIsKinematic()
 		{
-			GameObject go = Fsm.GetOwnerDefaultTarget(gameObject);
-			if (go == null) return;
-			if (go.rigidbody2D == null) return;
+			var go = Fsm.GetOwnerDefaultTarget(gameObject);
+            if (!UpdateCache(go))
+            {
+                return;
+            }
 			
-			go.rigidbody2D.isKinematic = isKinematic.Value;
+			rigidbody2d.isKinematic = isKinematic.Value;
 		}
 	}
 }

@@ -1,6 +1,5 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
-using System;
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
@@ -82,11 +81,11 @@ namespace HutongGames.PlayMaker.Actions
 					{
 						var screenPos = touch.position;
 						
-						RaycastHit2D hitInfo = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(screenPos),Mathf.Infinity);
+						var hitInfo = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(screenPos),Mathf.Infinity);
 						
 						// Store hitInfo so it can be accessed by other actions
 						// E.g., Get Raycast Hit 2d Info
-						PlayMakerUnity2d.RecordLastRaycastHitInfo(this.Fsm,hitInfo);
+						Fsm.RecordLastRaycastHit2DInfo(Fsm,hitInfo);
 						
 						if (hitInfo.transform != null)
 						{

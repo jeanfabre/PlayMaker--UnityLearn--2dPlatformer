@@ -71,7 +71,7 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				Fsm.Event(alreadyExistsEvent);
 			}else{
-				addedComponent = (PlayMakerHashTableProxy)go.AddComponent("PlayMakerHashTableProxy");
+				addedComponent = (PlayMakerHashTableProxy)go.AddComponent<PlayMakerHashTableProxy>();
 
 				if (addedComponent == null)
 				{

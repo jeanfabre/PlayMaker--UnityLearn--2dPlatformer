@@ -1,4 +1,4 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
@@ -9,17 +9,26 @@ namespace HutongGames.PlayMaker.Actions
 	public class MousePick2d : FsmStateAction
 	{
 		[UIHint(UIHint.Variable)]
+        [Tooltip("Store if a GameObject was picked in a Bool variable. True if a GameObject was picked, otherwise false.")]
 		public FsmBool storeDidPickObject;
-		[UIHint(UIHint.Variable)]
+		
+        [UIHint(UIHint.Variable)]
+        [Tooltip("Store the picked GameObject in a variable.")]
 		public FsmGameObject storeGameObject;
-		[UIHint(UIHint.Variable)]
+		
+        [UIHint(UIHint.Variable)]
+        [Tooltip("Store the picked point in a variable.")]
 		public FsmVector2 storePoint;
-		[UIHint(UIHint.Layer)]
+		
+        [UIHint(UIHint.Layer)]
 		[Tooltip("Pick only from these layers.")]
 		public FsmInt[] layerMask;
-		[Tooltip("Invert the mask, so you pick from all layers except those defined above.")]
+		
+        [Tooltip("Invert the mask, so you pick from all layers except those defined above.")]
 		public FsmBool invertMask;
-		public bool everyFrame;
+		
+        [Tooltip("Repeat every frame.")]
+        public bool everyFrame;
 		
 		public override void Reset()
 		{
@@ -34,9 +43,11 @@ namespace HutongGames.PlayMaker.Actions
 		public override void OnEnter()
 		{
 			DoMousePick2d();
-			
-			if (!everyFrame)
-				Finish();
+
+		    if (!everyFrame)
+		    {
+		        Finish();
+		    }
 		}
 		
 		public override void OnUpdate()
@@ -47,12 +58,12 @@ namespace HutongGames.PlayMaker.Actions
 		void DoMousePick2d()
 		{
 
-			RaycastHit2D hitInfo = Physics2D.GetRayIntersection(
+			var hitInfo = Physics2D.GetRayIntersection(
 				Camera.main.ScreenPointToRay(Input.mousePosition),
 				Mathf.Infinity,
 				ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value));
 
-			bool didPick = hitInfo.collider != null;
+			var didPick = hitInfo.collider != null;
 			storeDidPickObject.Value = didPick;
 			
 			if (didPick)

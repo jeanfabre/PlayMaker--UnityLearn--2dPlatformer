@@ -1,10 +1,9 @@
-// (c) Copyright HutongGames, LLC 2010-2012. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Vector2")]
+	[ActionCategory(ActionCategory.Vector2)]
 	[Tooltip("Normalizes a Vector2 Variable.")]
-	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1019")]
 	public class Vector2Normalize : FsmStateAction
 	{
 		[RequiredField]

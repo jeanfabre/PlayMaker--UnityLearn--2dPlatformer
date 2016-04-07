@@ -1,15 +1,16 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	[ActionCategory(ActionCategory.Physics2D)]
 	[Tooltip("Forces a Game Object's Rigid Body 2D to wake up.")]
-	public class WakeUp2d : FsmStateAction
-	{
+	public class WakeUp2d : ComponentAction<Rigidbody2D>
+    {
 		[RequiredField]
 		[CheckForComponent(typeof(Rigidbody2D))]
+		[Tooltip("The GameObject with a Rigidbody2d attached")]
 		public FsmOwnerDefault gameObject;
 		
 		public override void Reset()
@@ -25,11 +26,13 @@ namespace HutongGames.PlayMaker.Actions
 		
 		void DoWakeUp()
 		{
-			GameObject go = gameObject.OwnerOption == OwnerDefaultOption.UseOwner ? Owner : gameObject.GameObject.Value;
-			if (go == null) return;
-			if (go.rigidbody2D == null) return;
+            var go = Fsm.GetOwnerDefaultTarget(gameObject);
+            if (!UpdateCache(go))
+            {
+                return;
+            }
 			
-			go.rigidbody2D.WakeUp();
+			rigidbody2d.WakeUp();
 		}
 	}
 }

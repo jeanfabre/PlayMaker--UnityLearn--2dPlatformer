@@ -1,5 +1,20 @@
 #PlayMaker uGui Change log
 
+###1.1.8
+**Fix** fixed obsolete action `uGuiInputFieldScreenToLocal` for Unity 5.3+
+
+###1.1.7
+**Fix** Fixed `uGuiImageGetSprite`
+
+###1.1.6
+**Fix** Fixed `uGuiToggleGetIsOn`
+
+###1.1.5
+**new**
+- Fixed `radialLayout` plublishing issues with missing onValidate() overide  
+- Fixed 4.7 compile flags within PlayMaker Utils  
+
+
 ###1.1.4
 **new**
 - Fixed `uGuiToggleSetIsOn` bad class name  

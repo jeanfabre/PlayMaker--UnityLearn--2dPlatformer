@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 400000}
   - 58: {fileID: 5800002}
   - 114: {fileID: 11400000}
-  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: frontCheck
   m_TagString: Untagged
@@ -256,237 +255,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
-    dataVersion: 1
+    dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Obstacle Check
-    startState: Get Parent
+    startState: State 1
     states:
-    - name: trigger check
+    - name: State 1
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 208
-        y: 112
-        width: 110
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: OBSTACLE HIT
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Flip Event
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.Trigger2dEvent
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: a0670702
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Obstacle
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 00000000
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 07000000120000001700000013000000
-        paramName:
-        - trigger
-        - collideTag
-        - sendEvent
-        - storeCollider
-        paramDataPos: 00000000000000000400000000000000
-        paramByteDataSize: 04000000000000000000000000000000
-    - name: Flip Event
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 384
-        y: 112
+        x: 50
+        y: 100
         width: 100
-        height: 32
+        height: 16
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: DONE
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: trigger check
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
+      transitions: []
       actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SendEvent
-        - HutongGames.PlayMaker.Actions.NextFrameEvent
-        customNames:
-        - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000004000000
-        actionHashCodes: 5e69bb0488611604
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams:
-        - target: 1
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 0
-            gameObject:
-              useVariable: 0
-              name: 
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 000000000000
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1f000000170000000f0000000100000017000000
-        paramName:
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        - sendEvent
-        paramDataPos: 0000000000000000000000000500000006000000
-        paramByteDataSize: 0000000000000000050000000100000000000000
-    - name: Get Parent
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 64
-        y: 112
-        width: 100
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: trigger check
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.GetParent
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: d97b7202
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: Parent
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams:
-        - ownerOption: 0
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
@@ -512,25 +308,11 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000013000000
-        paramName:
-        - gameObject
-        - storeResult
-        paramDataPos: 0000000000000000
-        paramByteDataSize: 0000000000000000
-    events:
-    - name: FINISHED
-      isSystemEvent: 1
-      isGlobal: 0
-    - name: DONE
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: ENEMY / FLIP
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: OBSTACLE HIT
-      isSystemEvent: 0
-      isGlobal: 0
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
+    events: []
     globalTransitions: []
     variables:
       floatVariables: []
@@ -564,24 +346,36 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
-    preprocessed: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
+    preprocessed: 1
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
+    editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleControllerColliderHit: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
     handleApplicationEvents: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0
   fsmTemplate: {fileID: 11400000, guid: 96475948966984df0a62480e2f1abd31, type: 2}
-  eventHandlerComponentsAdded: 0
+  eventHandlerComponentsAdded: 1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -697,43 +491,36 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
+    editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleControllerColliderHit: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
     handleApplicationEvents: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0
   fsmTemplate: {fileID: 11400000, guid: 15349db176cab4dd7b640b1130bda060, type: 2}
   eventHandlerComponentsAdded: 1
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c5a163466769484fb2c52cdc4b51276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debug: 0
-  HandleCollisionEnter2D: 0
-  HandleCollisionExit2D: 0
-  HandleCollisionStay2D: 0
-  HandleTriggerEnter2D: 0
-  HandleTriggerExit2D: 0
-  HandleTriggerStay2D: 0
-  lastTrigger2DInfo: {fileID: 0}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -909,22 +696,34 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
+    editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleControllerColliderHit: 0
     handleOnGUI: 0
     handleFixedUpdate: 1
     handleApplicationEvents: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0
   fsmTemplate: {fileID: 11400000, guid: a6dbda905a1f64796b7fd050ad1c3242, type: 2}
   eventHandlerComponentsAdded: 1
 --- !u!114 &11483698

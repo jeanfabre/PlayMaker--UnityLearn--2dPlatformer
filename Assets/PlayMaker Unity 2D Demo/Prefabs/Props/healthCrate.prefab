@@ -260,22 +260,34 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
+    editorFlags: 3
     activeStateName: 
     mouseEvents: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleControllerColliderHit: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
     handleApplicationEvents: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0
   fsmTemplate: {fileID: 11400000, guid: 33e8eb013e07d4685b04e7aea2945163, type: 2}
   eventHandlerComponentsAdded: 1
 --- !u!114 &11400002
@@ -324,7 +336,7 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: a0670702
+        actionHashCodes: 1b61eb00
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -624,22 +636,34 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
+    editorFlags: 3
     activeStateName: 
     mouseEvents: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleControllerColliderHit: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
     handleApplicationEvents: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
 --- !u!114 &11400004

@@ -405,7 +405,7 @@ MonoBehaviour:
         actionEnabled: 010101
         actionIsOpen: 010101
         actionStartIndex: 000000000300000005000000
-        actionHashCodes: 2ee0170415264c0132d59402
+        actionHashCodes: 2ee0170415264c01dfe6ff01
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -475,12 +475,12 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 00
+        byteData: 0000000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 0f0000000f0000000f0000001400000011000000140000000f00000001000000
+        paramDataType: 0f0000000f0000000f000000140000001100000014000000070000000f00000001000000
         paramName:
         - min
         - max
@@ -488,10 +488,11 @@ MonoBehaviour:
         - gameObject
         - isFixedAngle
         - gameObject
+        - forceMode
         - torque
         - everyFrame
-        paramDataPos: 0000000001000000020000000000000000000000010000000300000000000000
-        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000001000000
+        paramDataPos: 000000000100000002000000000000000000000001000000000000000300000004000000
+        paramByteDataSize: 000000000000000000000000000000000000000000000000040000000000000001000000
     - name: Play Random Sound
       description: 
       colorIndex: 0
@@ -1245,7 +1246,7 @@ MonoBehaviour:
         actionEnabled: 0101
         actionIsOpen: 0101
         actionStartIndex: 0000000003000000
-        actionHashCodes: bbee8e0355645004
+        actionHashCodes: bbee8e03d596ab02
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -1319,25 +1320,26 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 0000
+        byteData: 000000000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1c0000000f000000010000001400000025000000250000000f0000000f0000001c00000001000000
+        paramDataType: 1c0000000f00000001000000140000000700000025000000250000000f0000000f0000001c00000001000000
         paramName:
         - vector3Variable
         - multiplyBy
         - everyFrame
         - gameObject
+        - forceMode
         - atPosition
         - vector
         - x
         - y
         - vector3
         - everyFrame
-        paramDataPos: 00000000000000000000000000000000000000000100000001000000020000000100000001000000
-        paramByteDataSize: 00000000000000000100000000000000000000000000000000000000000000000000000001000000
+        paramDataPos: 0000000000000000000000000000000001000000000000000100000001000000020000000100000005000000
+        paramByteDataSize: 0000000000000000010000000000000004000000000000000000000000000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -1499,6 +1501,8 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents:
     - name: ROCKET / HIT
@@ -1507,14 +1511,24 @@ MonoBehaviour:
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
+    editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleControllerColliderHit: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
     handleApplicationEvents: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0

@@ -33,7 +33,7 @@ namespace HutongGames.PlayMaker.Actions
 				_inputField = go.GetComponent<UnityEngine.UI.InputField>();
 				if (_inputField!=null)
 				{
-					#if UNITY_4_6 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
+					#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 					_inputField.onValueChange.AddListener(DoOnValueChange);
 					#else
 					_inputField.onValueChanged.AddListener(DoOnValueChange);
@@ -51,7 +51,7 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			if (_inputField!=null)
 			{
-				#if UNITY_4_6 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
+				#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 					_inputField.onValueChange.RemoveListener(DoOnValueChange);
 				#else
 					_inputField.onValueChanged.RemoveListener(DoOnValueChange);

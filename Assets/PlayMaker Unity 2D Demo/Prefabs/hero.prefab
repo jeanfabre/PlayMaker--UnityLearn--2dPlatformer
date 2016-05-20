@@ -206,7 +206,6 @@ GameObject:
   - 58: {fileID: 5800000}
   - 95: {fileID: 9500000}
   - 82: {fileID: 8200004}
-  - 114: {fileID: 11400008}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400006}
@@ -743,7 +742,7 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 82658200
+        actionHashCodes: add95a03
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -1235,7 +1234,7 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 55645004
+        actionHashCodes: d596ab02
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -1297,22 +1296,23 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 00
+        byteData: 0000000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000025000000250000000f0000000f0000001c00000001000000
+        paramDataType: 140000000700000025000000250000000f0000000f0000001c00000001000000
         paramName:
         - gameObject
+        - forceMode
         - atPosition
         - vector
         - x
         - y
         - vector3
         - everyFrame
-        paramDataPos: 00000000000000000100000000000000010000000000000000000000
-        paramByteDataSize: 00000000000000000000000000000000000000000000000001000000
+        paramDataPos: 0000000000000000000000000100000000000000010000000000000004000000
+        paramByteDataSize: 0000000004000000000000000000000000000000000000000000000001000000
     - name: wait for timeout
       description: 
       colorIndex: 0
@@ -2056,22 +2056,34 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
+    editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleControllerColliderHit: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
     handleApplicationEvents: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
 --- !u!114 &11400002
@@ -2580,7 +2592,7 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 55645004
+        actionHashCodes: d596ab02
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -2642,22 +2654,23 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 00
+        byteData: 0000000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000025000000250000000f0000000f0000001c00000001000000
+        paramDataType: 140000000700000025000000250000000f0000000f0000001c00000001000000
         paramName:
         - gameObject
+        - forceMode
         - atPosition
         - vector
         - x
         - y
         - vector3
         - everyFrame
-        paramDataPos: 00000000000000000100000000000000010000000000000000000000
-        paramByteDataSize: 00000000000000000000000000000000000000000000000001000000
+        paramDataPos: 0000000000000000000000000100000000000000010000000000000004000000
+        paramByteDataSize: 0000000004000000000000000000000000000000000000000000000001000000
     - name: Disable user input
       description: 'By coming here we prevent the start state to operate
 
@@ -2766,22 +2779,34 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
+    editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleControllerColliderHit: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
     handleApplicationEvents: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
 --- !u!114 &11400004
@@ -2828,7 +2853,7 @@ MonoBehaviour:
         actionEnabled: 01010101
         actionIsOpen: 01010101
         actionStartIndex: 00000000040000000700000009000000
-        actionHashCodes: 3fb24c039845b30544e7c204ce8ec802
+        actionHashCodes: 3fb24c039845b30544e7c204f9cb7200
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -2914,12 +2939,12 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 01010101
+        byteData: 0101010100000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 120000000f0000000f000000010000000f0000000f000000010000000f0000000100000014000000120000000f0000000f00000001000000
+        paramDataType: 120000000f0000000f000000010000000f0000000f000000010000000f0000000100000014000000120000000f0000000f0000000100000007000000
         paramName:
         - axisName
         - multiplier
@@ -2935,8 +2960,9 @@ MonoBehaviour:
         - Value
         - dampTime
         - everyFrame
-        paramDataPos: 0000000000000000010000000000000002000000030000000100000004000000020000000000000001000000050000000600000003000000
-        paramByteDataSize: 0000000000000000000000000100000000000000000000000100000000000000010000000000000000000000000000000000000001000000
+        - everyFrameOption
+        paramDataPos: 000000000000000001000000000000000200000003000000010000000400000002000000000000000100000005000000060000000300000004000000
+        paramByteDataSize: 000000000000000000000000010000000000000000000000010000000000000001000000000000000000000000000000000000000100000004000000
     - name: Disable user input
       description: 'By coming here we prevent the start state to operate
 
@@ -3048,22 +3074,34 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
+    editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleControllerColliderHit: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
     handleApplicationEvents: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
 --- !u!114 &11400006
@@ -3575,43 +3613,36 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
+    editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleControllerColliderHit: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
     handleApplicationEvents: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
---- !u!114 &11400008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c5a163466769484fb2c52cdc4b51276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debug: 0
-  HandleCollisionEnter2D: 0
-  HandleCollisionExit2D: 0
-  HandleCollisionStay2D: 0
-  HandleTriggerEnter2D: 0
-  HandleTriggerExit2D: 0
-  HandleTriggerStay2D: 0
-  lastTrigger2DInfo: {fileID: 0}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3659,8 +3690,8 @@ MonoBehaviour:
         - 
         actionEnabled: 010101010101
         actionIsOpen: 010101010101
-        actionStartIndex: 00000000050000000900000010000000160000001a000000
-        actionHashCodes: 0cdb04053fb24c035564500468fde3040c8bc100efa8d304
+        actionStartIndex: 00000000050000000900000011000000170000001b000000
+        actionHashCodes: 0cdb04053fb24c03d596ab0268fde3040c8bc100efa8d304
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -3828,12 +3859,12 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 0200000000010100000000010101
+        byteData: 020000000001000000000100000000010101
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 0f0000000f000000070000000f00000001000000120000000f0000000f000000010000001400000025000000250000000f0000000f0000001c0000000100000014000000250000000f0000000f00000007000000010000000f0000000f0000000f0000000100000014000000250000000f0000000f00000001000000
+        paramDataType: 0f0000000f000000070000000f00000001000000120000000f0000000f00000001000000140000000700000025000000250000000f0000000f0000001c0000000100000014000000250000000f0000000f00000007000000010000000f0000000f0000000f0000000100000014000000250000000f0000000f00000001000000
         paramName:
         - float1
         - float2
@@ -3845,6 +3876,7 @@ MonoBehaviour:
         - store
         - everyFrame
         - gameObject
+        - forceMode
         - atPosition
         - vector
         - x
@@ -3866,8 +3898,8 @@ MonoBehaviour:
         - x
         - y
         - everyFrame
-        paramDataPos: 0000000001000000000000000200000004000000000000000300000004000000050000000000000000000000010000000500000006000000000000000600000001000000020000000700000008000000070000000b000000090000000a0000000b0000000c00000002000000030000000c0000000d0000000d000000
-        paramByteDataSize: 00000000000000000400000000000000010000000000000000000000000000000100000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000400000001000000000000000000000000000000010000000000000000000000000000000000000001000000
+        paramDataPos: 000000000100000000000000020000000400000000000000030000000400000005000000000000000600000000000000010000000500000006000000000000000a000000010000000200000007000000080000000b0000000f000000090000000a0000000b0000001000000002000000030000000c0000000d00000011000000
+        paramByteDataSize: 0000000000000000040000000000000001000000000000000000000000000000010000000000000004000000000000000000000000000000000000000000000001000000000000000000000000000000000000000400000001000000000000000000000000000000010000000000000000000000000000000000000001000000
     - name: Disable user input
       description: 'By coming here we prevent the start state to operate
 
@@ -3991,22 +4023,34 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
+    editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleControllerColliderHit: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
     handleApplicationEvents: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
 --- !u!114 &11400012
@@ -4632,6 +4676,8 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents:
     - name: PLAYER / TAUNT
@@ -4640,17 +4686,27 @@ MonoBehaviour:
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
+    editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleControllerColliderHit: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
     handleApplicationEvents: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
 --- !u!114 &11400014
@@ -5697,22 +5753,34 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
+    editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleControllerColliderHit: 0
     handleOnGUI: 0
     handleFixedUpdate: 1
     handleApplicationEvents: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
 --- !u!212 &21200000

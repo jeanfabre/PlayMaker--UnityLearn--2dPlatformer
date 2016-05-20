@@ -48,8 +48,8 @@ MonoBehaviour:
         - 
         actionEnabled: 0101
         actionIsOpen: 0101
-        actionStartIndex: 000000000b000000
-        actionHashCodes: 01c679011bcdca04
+        actionStartIndex: 000000000c000000
+        actionHashCodes: 8637ed041bcdca04
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -156,16 +156,15 @@ MonoBehaviour:
         - 
         - 
         - ANIMATION ENDED
-        byteData: 0101
+        byteData: 010000000001
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001000000001000000120000001000000010000000110000000f0000000f000000100000000f0000000f0000000f0000000f00000017000000170000001700000001000000
+        paramDataType: 1400000010000000120000001000000010000000110000000f0000000f000000100000000f00000001000000070000000f0000000f0000000f00000017000000170000001700000001000000
         paramName:
         - gameObject
         - layerIndex
-        - everyFrame
         - name
         - nameHash
         - tagHash
@@ -174,6 +173,8 @@ MonoBehaviour:
         - normalizedTime
         - loopCount
         - currentLoopProgress
+        - everyFrame
+        - everyFrameOption
         - float1
         - float2
         - tolerance
@@ -181,8 +182,8 @@ MonoBehaviour:
         - lessThan
         - greaterThan
         - everyFrame
-        paramDataPos: 000000000000000000000000000000000100000002000000000000000000000001000000030000000200000003000000040000000500000000000000010000000200000001000000
-        paramByteDataSize: 000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000
+        paramDataPos: 00000000000000000000000001000000020000000000000000000000010000000300000002000000000000000100000003000000040000000500000000000000010000000200000005000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000000000000010000000400000000000000000000000000000000000000000000000000000001000000
     - name: destroy self
       description: 
       colorIndex: 0
@@ -287,19 +288,31 @@ MonoBehaviour:
     watermark: 
     password: 
     locked: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
     EnableBreakpoints: 1
+    editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleControllerColliderHit: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
     handleApplicationEvents: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0

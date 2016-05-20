@@ -45,7 +45,7 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			if (_image!=null)
 			{
-				_image.sprite = (UnityEngine.Sprite)sprite.Value;
+				sprite.Value = (Sprite)_image.sprite;
 			}
 
 		}

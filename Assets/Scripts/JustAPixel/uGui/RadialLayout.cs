@@ -41,11 +41,13 @@ public class RadialLayout : LayoutGroup {
     { 
         CalculateRadial();
     }
+	#if UNITY_EDITOR
     protected override void OnValidate()
     {
         base.OnValidate();
         CalculateRadial();
     }
+	#endif
     void CalculateRadial()
     {
         m_Tracker.Clear();

@@ -355,7 +355,7 @@ MonoBehaviour:
         actionEnabled: 0101
         actionIsOpen: 0101
         actionStartIndex: 0000000002000000
-        actionHashCodes: 6513a7017dd6b201
+        actionHashCodes: 6513a701e688d305
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -404,12 +404,13 @@ MonoBehaviour:
         fsmQuaternionParams: []
         stringParams:
         - 
+        - 
         byteData: 0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 12000000100000001200000001000000010000001700000011000000
+        paramDataType: 1200000010000000120000000100000001000000170000001100000017000000
         paramName:
         - levelName
         - level
@@ -418,8 +419,9 @@ MonoBehaviour:
         - async
         - loadedEvent
         - dontDestroyOnLoad
-        paramDataPos: 00000000000000000100000000000000010000000000000000000000
-        paramByteDataSize: 00000000000000000000000001000000010000000000000000000000
+        - failedEvent
+        paramDataPos: 0000000000000000010000000000000001000000000000000000000001000000
+        paramByteDataSize: 0000000000000000000000000100000001000000000000000000000000000000
     - name: Destroy
       description: 
       colorIndex: 0
@@ -732,7 +734,7 @@ MonoBehaviour:
     locked: 0
     manualUpdate: 0
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -740,6 +742,7 @@ MonoBehaviour:
     editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleLevelLoaded: 0
     handleTriggerEnter2D: 1
     handleTriggerExit2D: 0
     handleTriggerStay2D: 0
@@ -752,7 +755,10 @@ MonoBehaviour:
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleParticleCollision: 0
     handleControllerColliderHit: 0
+    handleJointBreak: 0
+    handleJointBreak2D: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
     handleApplicationEvents: 0

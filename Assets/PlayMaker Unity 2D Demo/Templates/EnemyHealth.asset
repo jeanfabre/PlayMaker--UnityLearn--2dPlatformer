@@ -404,8 +404,8 @@ MonoBehaviour:
         - 
         actionEnabled: 010101
         actionIsOpen: 010101
-        actionStartIndex: 000000000300000005000000
-        actionHashCodes: 2ee0170415264c01dfe6ff01
+        actionStartIndex: 000000000300000006000000
+        actionHashCodes: 2ee017048d1e8803dfe6ff01
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -475,24 +475,25 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 0000000000
+        byteData: 000000000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 0f0000000f0000000f000000140000001100000014000000070000000f00000001000000
+        paramDataType: 0f0000000f0000000f00000014000000110000000100000014000000070000000f00000001000000
         paramName:
         - min
         - max
         - storeResult
         - gameObject
         - isFixedAngle
+        - everyFrame
         - gameObject
         - forceMode
         - torque
         - everyFrame
-        paramDataPos: 000000000100000002000000000000000000000001000000000000000300000004000000
-        paramByteDataSize: 000000000000000000000000000000000000000000000000040000000000000001000000
+        paramDataPos: 00000000010000000200000000000000000000000000000001000000010000000300000005000000
+        paramByteDataSize: 00000000000000000000000000000000000000000100000000000000040000000000000001000000
     - name: Play Random Sound
       description: 
       colorIndex: 0
@@ -1514,6 +1515,7 @@ MonoBehaviour:
     editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleLevelLoaded: 0
     handleTriggerEnter2D: 0
     handleTriggerExit2D: 0
     handleTriggerStay2D: 0
@@ -1526,7 +1528,10 @@ MonoBehaviour:
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleParticleCollision: 0
     handleControllerColliderHit: 0
+    handleJointBreak: 0
+    handleJointBreak2D: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
     handleApplicationEvents: 0

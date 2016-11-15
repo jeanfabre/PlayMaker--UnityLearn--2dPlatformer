@@ -49,6 +49,9 @@ MonoBehaviour:
   - useExpression: 0
     expression: 
     propertyValue: PlayMaker Animation/**
+  - useExpression: 0
+    expression: 
+    propertyValue: Physics Materials/**
   excludes: []
   includeDependencies:
     useExpression: 0

@@ -1,34 +1,56 @@
 # UnityLearn 2dPlatformer PlayMaker
 
 
-This is a 100% PlayMaker port of Unity 2d Platformer learning project 
+This is a 100% PlayMaker port of [Unity](https://unity3d.com) [2d Platformer learning project](https://www.assetstore.unity3d.com/en/#!/content/11228) 
 
-This project is a work in progress:
 
 ## Description
 
 you need the following setup:
 
- - Unity 4.7.1 at least
- - PlayMaker 1.8.1f10
+ - [Unity](https://unity3d.com) 4.7.2 at least ( works all the way to Unity 5.4)
+ - [PlayMaker](https://www.assetstore.unity3d.com/en/#!/content/368) 1.8.3
+
+### Download
  
- Improvements over the original version:
+ you can either clone this repository, or download the [Test package directly](https://github.com/jeanfabre/PlayMaker--UnityLearn--2dPlatformer/blob/master/Test.unitypackage).
  
- - Leak with Enemies
+###Improvements over the original version:
+ 
+ - Leak with Enemies  
  The original script when enemies fall into the water has a memory leak: the enemy GameObject is not destroyed, leading a definite Memory Warning on Mobile devices and a crash.
  
- - No Pooling system
+ - No Pooling system  
  The original system creates and destroy rockets, enemies and background props, while it runs fine on most modern platforms, it is known that creating and destroying GameObject has a performance impact. This PlayMaker version offers a simple custom Pooling solution (WIP)
  
- - Bad Scene setup
+ - Bad Scene setup  
   The original version is not very clean in the way the hierarchy is organised, typically, objects are being created without proper parenting resulting in a very clunky root with constant creation and deletion of object and so it's near impossible to select a GameObject while the scene is running. The PlayMaker version parent all created object so that the initial hierarchy remains as is.
   
- - Old UI
-  This PlayMaker version uses the new Unity UI system, so this is an added value to this project as you can see how to integrate the new UI system in a proper project.
-    -- Health Bar is following the Player, so this demonstrate important interaction between the 3d world and the UI Canvas.
+ - Old UI  
+  This PlayMaker version uses the new Unity UI system, so this is an added value to this project as you can see how to integrate the new UI system in a proper project. Health Bar is following the Player, so this demonstrate important interaction between the 3d world and the UI Canvas.
 
 ## BenchMark
-This port is published and playable online. It serves as a comparison between a 100% PlayMaker solution and 100% scripted solution. You will find below benchmarks for the web Player, the Mac Application and and the IOS apps build targets.
+This port is published on many platforms and playable online. It serves as a comparison between a 100% PlayMaker solution and 100% scripted solution. You will find below benchmarks for the WebGL, web Player (deprecated), the Mac Application and the IOS apps build targets.
+
+Test on Computers are done on an mid-2009 (!!) mac book pro, so a very average configuration, far from game Spec standards...
+
+### 100% PlayMaker WebGL
+Test where done using Firefox, which gaves better result than with Chrome.
+
+You can play this version [here](http://fabrejean.net/projects/PlayMaker/Platformer2D_PlayMaker/index.html)
+
+- Average FPS: 56
+- Memory Total: 5.95MB  
+- Memory allocation: 4.01MB
+- Build Size: 9.1MB
+
+### 100% Scripted WebGL
+You can play this version [here](http://fabrejean.net/projects/Unity/Platformer2D_Source/index.html)
+
+- Average FPS: 58
+- Memory Total: 4.95MB  
+- Memory allocation: 3.24MB
+- Build Size: 8MB
 
 
 ### 100% PlayMaker WebPlayer
@@ -96,7 +118,7 @@ It's not really playable because of the Inputs and layout, but I made the test j
 
 **Notes:**
 
-Overall, this is very interesting to see that the pure PlayMaker solution doesn't expose any issues or noticeable downside on playability and performances, a 1 or 2 frame difference for the FPS isn't really an issue given that this will vary very much based on the client computer performances. If you have other states numbers, please share so we can get a sense of the variation across different computers. Noticeable, Memory allocation from Xcode debugging shows 10MB more for PlayMaker. It should be expected that more memory is allocated when using big frameWork like PlayMaker.
+Overall, this is very interesting to see that the pure PlayMaker solution doesn't expose any issues or noticeable downside on playability and performances, a 1 or 2 frame difference for the FPS isn't really an issue given that this will vary very much based on the client computer performances. If you have other stats numbers, please share so we can get a sense of the variation across different computers. Noticeable, Memory allocation from Xcode debugging shows 10MB more for PlayMaker. It should be expected that more memory is allocated when using big frameWork like PlayMaker.
 
 #### TODOS:
 -- The background parallax system needs porting to PlayMaker

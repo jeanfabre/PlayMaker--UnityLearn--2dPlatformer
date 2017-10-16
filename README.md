@@ -123,6 +123,6 @@ It's not really playable because of the Inputs and layout, but I made the test j
 Overall, this is very interesting to see that the pure PlayMaker solution doesn't expose any issues or noticeable downside on playability and performances, a 1 or 2 frame difference for the FPS isn't really an issue given that this will vary very much based on the client computer performances. If you have other stats numbers, please share so we can get a sense of the variation across different computers. Noticeable, Memory allocation from Xcode debugging shows 10MB more for PlayMaker. It should be expected that more memory is allocated when using big frameWork like PlayMaker.
 
 #### TODOS:
--- The background parallax system needs porting to PlayMaker
--- Add Touch Support
--- Make a Networked version using Photon
+- The background parallax system needs porting to PlayMaker. 
+- Add Touch Support. 
+- Make a Networked version using Photon. 

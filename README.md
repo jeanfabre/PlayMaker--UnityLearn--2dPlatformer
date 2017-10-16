@@ -8,12 +8,12 @@ This is a 100% PlayMaker port of [Unity](https://unity3d.com) [2d Platformer lea
 
 you need the following setup:
 
- - [Unity](https://unity3d.com) Compatible from 5.3.8 to 2017.1
+ - [Unity](https://unity3d.com) Compatible from 5.3.8 to 2017.2
  - [PlayMaker](https://www.assetstore.unity3d.com/en/#!/content/368) 1.8.5
 
 ### Download
  
- you can either clone this repository, or download the [Test package directly](https://github.com/jeanfabre/PlayMaker--UnityLearn--2dPlatformer/blob/master/Test.unitypackage).
+ you can either clone this repository, or download the [Test package directly](https://github.com/jeanfabre/PlayMaker--UnityLearn--2dPlatformer/blob/master/Packages/PlayMaker2dPlatformer.unitypackage).
  
 ###Improvements over the original version:
  

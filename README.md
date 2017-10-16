@@ -8,7 +8,7 @@ This is a 100% PlayMaker port of [Unity](https://unity3d.com) [2d Platformer lea
 
 you need the following setup:
 
- - [Unity](https://unity3d.com) Compatible from 5.3.8 to 2017.2
+ - [Unity](https://unity3d.com) Compatible from 5.3.8 to 2017.1
  - [PlayMaker](https://www.assetstore.unity3d.com/en/#!/content/368) 1.8.5
 
 ### Download

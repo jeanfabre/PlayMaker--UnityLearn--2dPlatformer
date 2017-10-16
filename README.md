@@ -15,9 +15,9 @@ you need the following setup:
  
  you can either clone this repository, or download the [Full Package directly](https://github.com/jeanfabre/PlayMaker--UnityLearn--2dPlatformer/blob/master/Packages/PlayMaker2dPlatformer.unitypackage).
  
-Install tip: Import PlayMaker First then import the [package](https://github.com/jeanfabre/PlayMaker--UnityLearn--2dPlatformer/blob/master/Packages/PlayMaker2dPlatformer.unitypackage) it will prevent errors while PlayMaker is imported.
+Install tip: Import PlayMaker First then import the [package](https://github.com/jeanfabre/PlayMaker--UnityLearn--2dPlatformer/blob/master/Packages/PlayMaker2dPlatformer.unitypackage) it will prevent errors while PlayMaker is imported.  
  
-###Improvements over the original version:
+### Improvements over the original version:
  
  - Leak with Enemies  
  The original script when enemies fall into the water has a memory leak: the enemy GameObject is not destroyed, leading a definite Memory Warning on Mobile devices and a crash.

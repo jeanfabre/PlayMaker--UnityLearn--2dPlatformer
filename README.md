@@ -8,8 +8,8 @@ This is a 100% PlayMaker port of [Unity](https://unity3d.com) [2d Platformer lea
 
 you need the following setup:
 
- - [Unity](https://unity3d.com) 4.7.2 at least ( works all the way to Unity 5.4)
- - [PlayMaker](https://www.assetstore.unity3d.com/en/#!/content/368) 1.8.3
+ - [Unity](https://unity3d.com) Compatible from 5.3.8 to 2017.2
+ - [PlayMaker](https://www.assetstore.unity3d.com/en/#!/content/368) 1.8.5
 
 ### Download
  
@@ -32,7 +32,7 @@ you need the following setup:
 ## BenchMark
 This port is published on many platforms and playable online. It serves as a comparison between a 100% PlayMaker solution and 100% scripted solution. You will find below benchmarks for the WebGL, web Player (deprecated), the Mac Application and the IOS apps build targets.
 
-Test on Computers are done on an mid-2009 (!!) mac book pro, so a very average configuration, far from game Spec standards...
+Test on Computers are done on an mid-2009 (!!!) mac book pro, so a very average configuration, far from game Spec standards...
 
 ### 100% PlayMaker WebGL
 Test where done using Firefox, which gaves better result than with Chrome.

@@ -13,9 +13,9 @@ you need the following setup:
 
 ### Download
  
- you can either clone this repository, or download the [Full Package directly](https://github.com/jeanfabre/PlayMaker--UnityLearn--2dPlatformer/blob/master/Packages/PlayMaker2dPlatformer.unitypackage).
+ you can either clone this repository, or download the [Full Package directly](https://github.com/jeanfabre/PlayMaker--UnityLearn--2dPlatformer/blob/master/Packages/PlayMaker2dPlatformer.unitypackage?raw=true).
  
-Install tip: Import PlayMaker First then import the [package](https://github.com/jeanfabre/PlayMaker--UnityLearn--2dPlatformer/blob/master/Packages/PlayMaker2dPlatformer.unitypackage) it will prevent errors while PlayMaker is imported.  
+Install tip: Import PlayMaker First then import the [package](https://github.com/jeanfabre/PlayMaker--UnityLearn--2dPlatformer/blob/master/Packages/PlayMaker2dPlatformer.unitypackage?raw=true) it will prevent errors while PlayMaker is imported.  
  
 ### Improvements over the original version:
  

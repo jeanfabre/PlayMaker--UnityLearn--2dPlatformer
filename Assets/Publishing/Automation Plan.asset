@@ -11,7 +11,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e24a62eb5d524cd3b323c691e8e55a5, type: 3}
   m_Name: Automation Plan
   m_EditorClassIdentifier: 
-  automationPlanId: 
-  firstEntry: {fileID: 0}
+  automationPlanId: d6584ac9-8dd4-4927-9475-86e3568a618e
+  firstEntry: {fileID: 11458324}
   hideInExecutionWindow: 0
   description: 
+--- !u!114 &11425248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8335df163f4fa433c8a67415db6de35f, type: 3}
+  m_Name: Graph
+  m_EditorClassIdentifier: 
+  nodes:
+  - bounds:
+      serializedVersion: 2
+      x: 396
+      y: 340
+      width: 200
+      height: 57
+    data: {fileID: 11458324}
+  - bounds:
+      serializedVersion: 2
+      x: 442
+      y: 442
+      width: 200
+      height: 57
+    data: {fileID: 11459714}
+  references:
+  - source: {fileID: 11458324}
+    sourceProperty: nextEntry
+    target: {fileID: 11459714}
+--- !u!114 &11458324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e716dc6c1dc44510b48cd9a02e13bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  automationPlanEntryId: 23f1fe02-6b59-42d6-90be-a3b944f00227
+  nextEntry: {fileID: 11459714}
+  action: {fileID: 11400000, guid: 75a71aa0ac5b24b878074928b76cd880, type: 2}
+--- !u!114 &11459714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e716dc6c1dc44510b48cd9a02e13bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  automationPlanEntryId: 5ea30bf0-6375-44f4-b617-a6b8e9edcbde
+  nextEntry: {fileID: 0}
+  action: {fileID: 11400000, guid: 159d5afdcd2674a898bd88669d1b45fe, type: 2}

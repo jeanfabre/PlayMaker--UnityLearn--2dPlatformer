@@ -15,55 +15,55 @@ MonoBehaviour:
   includes:
   - useExpression: 0
     expression: 
-    propertyValue: 416e696d6174696f6e2f2a2a
+    propertyValue: Animation/**
   - useExpression: 0
     expression: 
-    propertyValue: 417564696f2f2a2a
+    propertyValue: Audio/**
   - useExpression: 0
     expression: 
-    propertyValue: 466f6e74732f2a2a
+    propertyValue: Fonts/**
   - useExpression: 0
     expression: 
-    propertyValue: 4d6174657269616c732f2a2a
+    propertyValue: Materials/**
   - useExpression: 0
     expression: 
-    propertyValue: 50687973696373204d4174657269616c732f2a2a
+    propertyValue: Physics Materials/**
   - useExpression: 0
     expression: 
-    propertyValue: 506c61794d616b657220416e696d6174696f6e
+    propertyValue: PlayMaker Animation/**
   - useExpression: 0
     expression: 
-    propertyValue: 506c61794d616b65722041727261794d616b6572
+    propertyValue: PlayMaker ArrayMaker/**
   - useExpression: 0
     expression: 
-    propertyValue: 506c61794d616b657220437573746f6d20416374696f6e732f2a2a
+    propertyValue: PlayMaker Custom Actions/**
   - useExpression: 0
     expression: 
-    propertyValue: 506c61794d616b657220506f6f6c2f2a2a
+    propertyValue: PlayMaker Pool/**
   - useExpression: 0
     expression: 
-    propertyValue: 506c61794d616b65722053687572696b656e2f2a2a
+    propertyValue: PlayMaker Shuriken/**
   - useExpression: 0
     expression: 
-    propertyValue: 506c61794d616b657220754775692f2a2a
+    propertyValue: PlayMaker uGui/**
   - useExpression: 0
     expression: 
-    propertyValue: 506c61794d616b657220556e6974792032442044656d6f2f2a2a
+    propertyValue: PlayMaker Unity 2D Demo/**
   - useExpression: 0
     expression: 
-    propertyValue: 506c61794d616b6572205574696c73
+    propertyValue: PlayMaker Utils/**
   - useExpression: 0
     expression: 
-    propertyValue: 507265666162732f2a2a
+    propertyValue: Scenes/**
   - useExpression: 0
     expression: 
-    propertyValue: 5363656e65732f2a2a
+    propertyValue: Scripts/**
   - useExpression: 0
     expression: 
-    propertyValue: 536372697074732f2a2a
+    propertyValue: Sprites/**
   - useExpression: 0
     expression: 
-    propertyValue: 537072697465732f2a2a
+    propertyValue: Prefabs/**
   excludes: []
   includeDependencies:
     useExpression: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   includeProjectSettings:
     useExpression: 0
     expression: 
-    propertyValue: 0
+    propertyValue: 2
   includeLibraryAssets:
     useExpression: 0
     expression: 
@@ -80,9 +80,15 @@ MonoBehaviour:
   settingsIncludes:
   - useExpression: 0
     expression: 
-    propertyValue: 
+    propertyValue: Physics2DSettings.asset
+  - useExpression: 0
+    expression: 
+    propertyValue: TagManager.asset
+  - useExpression: 0
+    expression: 
+    propertyValue: ProjectSettings.asset
   settingsExcludes: []
   outputFileName:
     useExpression: 0
     expression: 
-    propertyValue: 
+    propertyValue: Packages/PlayMaker2dPlatformer.unitypackage

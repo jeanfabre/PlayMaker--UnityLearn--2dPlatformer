@@ -1,46 +1,47 @@
-// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
-// based on dudeBxl action
+// License: Attribution 4.0 International (CC BY 4.0)
+/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
+// keywords: constraint
 
-#if UNITY_5
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-
 	[ActionCategory(ActionCategory.Physics)]
 	[Tooltip("Sets the constraints of a 2D rigidBody")]
+    [HelpUrl("http://hutonggames.com/playmakerforum/index.php?topic=12365.0")]
 	public class SetRigidBody2dConstraints : FsmStateAction
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(Rigidbody2D))]
-		[Tooltip("The GameObject with the Rigidbody2D attached")]
 		public FsmOwnerDefault gameObject;
-
-		[Tooltip("The X Position constraint. Leave to none for no effect")]
+		
 		public FsmBool freezePositionX;
-
-		[Tooltip("The Y Position constraint. Leave to none for no effect")]
+		
 		public FsmBool freezePositionY;
 
-		[Tooltip("The Z Rotation constraint. Leave to none for no effect")]
+		
 		public FsmBool freezeRotationZ;
 
-		[Tooltip("freezeAll option. Leave to none for no effect")]
 		public FsmBool freezeAll;
+
 
 		public override void Reset()
 		{
 			gameObject = null;
-			freezePositionX = new FsmBool() {UseVariable=true};
-			freezePositionY =  new FsmBool() {UseVariable=true};
-			freezeRotationZ =  new FsmBool() {UseVariable=true};
-			freezeAll =  new FsmBool() {UseVariable=true};
+			freezePositionX = false;
+			freezePositionY = false;
+
+			
+			freezeRotationZ = false;
+
+			freezeAll = false;
 		}
 
 		public override void OnEnter()
 		{
 			DoSetConstraints();
-
+			
+			
 			Finish();		
 		}
 
@@ -52,42 +53,37 @@ namespace HutongGames.PlayMaker.Actions
 				LogError("gameObject is null");
 				return;
 			}
-
-			Rigidbody2D _rb2d = go.GetComponent<Rigidbody2D>();
-			if ( _rb2d == null)
+			
+			
+			if (go.GetComponent<Rigidbody2D>() == null)
 			{
 				LogError("RigidBody Component required");
 				return;
 			}
+			
+			go.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
 
-
-
-			_rb2d.constraints = RigidbodyConstraints2D.None;
-
-			if (!freezeAll.IsNone)
+			if (freezeAll.Value)
 			{
-				_rb2d.constraints = _rb2d.constraints | RigidbodyConstraints2D.FreezeAll;
+				go.GetComponent<Rigidbody2D>().constraints = go.GetComponent<Rigidbody2D>().constraints | RigidbodyConstraints2D.FreezeAll ;
 			}
 
-			if (!freezePositionX.IsNone)
+			if (freezePositionX.Value)
 			{
-				_rb2d.constraints = _rb2d.constraints | RigidbodyConstraints2D.FreezePositionX;
+				go.GetComponent<Rigidbody2D>().constraints = go.GetComponent<Rigidbody2D>().constraints | RigidbodyConstraints2D.FreezePositionX ;
 			}
-
-			if (!freezePositionY.IsNone)
+			if (freezePositionY.Value)
 			{
-				_rb2d.constraints = _rb2d.constraints | RigidbodyConstraints2D.FreezePositionY;
+				go.GetComponent<Rigidbody2D>().constraints = go.GetComponent<Rigidbody2D>().constraints | RigidbodyConstraints2D.FreezePositionY ;
 			}
 			
-			if (!freezeRotationZ.IsNone)
+			if (freezeRotationZ.Value)
 			{
-				_rb2d.constraints = _rb2d.constraints | RigidbodyConstraints2D.FreezeRotation;
+				go.GetComponent<Rigidbody2D>().constraints = go.GetComponent<Rigidbody2D>().constraints | RigidbodyConstraints2D.FreezeRotation ;
 			}
-
 
 			return;
 
 		}
 	}
 }
-#endif

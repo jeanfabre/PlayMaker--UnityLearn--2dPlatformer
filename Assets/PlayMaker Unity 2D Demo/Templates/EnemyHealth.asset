@@ -396,7 +396,7 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.RandomFloat
-        - HutongGames.PlayMaker.Actions.SetIsFixedAngle2d
+        - HutongGames.PlayMaker.Actions.SetRigidBody2dConstraints
         - HutongGames.PlayMaker.Actions.AddTorque2d
         customNames:
         - 
@@ -404,8 +404,8 @@ MonoBehaviour:
         - 
         actionEnabled: 010101
         actionIsOpen: 010101
-        actionStartIndex: 000000000300000005000000
-        actionHashCodes: 2ee0170415264c01dfe6ff01
+        actionStartIndex: 000000000300000008000000
+        actionHashCodes: 2ee0170473b31903dfe6ff01
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -469,6 +469,24 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -480,19 +498,22 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 0f0000000f0000000f000000140000001100000014000000070000000f00000001000000
+        paramDataType: 0f0000000f0000000f000000140000001100000011000000110000001100000014000000070000000f00000001000000
         paramName:
         - min
         - max
         - storeResult
         - gameObject
-        - isFixedAngle
+        - freezePositionX
+        - freezePositionY
+        - freezeRotationZ
+        - freezeAll
         - gameObject
         - forceMode
         - torque
         - everyFrame
-        paramDataPos: 000000000100000002000000000000000000000001000000000000000300000004000000
-        paramByteDataSize: 000000000000000000000000000000000000000000000000040000000000000001000000
+        paramDataPos: 000000000100000002000000000000000000000001000000020000000300000001000000000000000300000004000000
+        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000040000000000000001000000
     - name: Play Random Sound
       description: 
       colorIndex: 0
@@ -657,8 +678,8 @@ MonoBehaviour:
         - 
         actionEnabled: 01010101
         actionIsOpen: 01010101
-        actionStartIndex: 00000000070000000d00000014000000
-        actionHashCodes: 5552ad05a75502033e28c603ea32a105
+        actionStartIndex: 00000000070000000d00000012000000
+        actionHashCodes: 5552ad05a7550203bf83c900ea32a105
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -738,20 +759,8 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0
-        fsmIntParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmIntParams: []
         fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
         - useVariable: 0
           name: 
           tooltip: 
@@ -811,7 +820,7 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001c0000000f0000000f0000000f00000007000000010000001c0000001c000000070000001c0000000f0000000100000013000000130000001c0000001c00000013000000110000001000000014000000130000001100000011000000
+        paramDataType: 140000001c0000000f0000000f0000000f00000007000000010000001c0000001c000000070000001c0000000f0000000100000013000000130000001c0000001c0000001300000014000000130000001100000011000000
         paramName:
         - gameObject
         - vector
@@ -831,14 +840,12 @@ MonoBehaviour:
         - position
         - rotation
         - storeObject
-        - networkInstantiate
-        - networkGroup
         - gameObject
         - parent
         - resetLocalPosition
         - resetLocalRotation
-        paramDataPos: 000000000000000000000000010000000200000000000000040000000100000002000000050000000300000003000000090000000000000001000000040000000500000002000000000000000000000001000000030000000100000002000000
-        paramByteDataSize: 000000000000000000000000000000000000000004000000010000000000000000000000040000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        paramDataPos: 00000000000000000000000001000000020000000000000004000000010000000200000005000000030000000300000009000000000000000100000004000000050000000200000001000000030000000000000001000000
+        paramByteDataSize: 00000000000000000000000000000000000000000400000001000000000000000000000004000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000
     - name: set damage to 0
       description: 
       colorIndex: 0
@@ -1514,6 +1521,7 @@ MonoBehaviour:
     editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleLevelLoaded: 0
     handleTriggerEnter2D: 0
     handleTriggerExit2D: 0
     handleTriggerStay2D: 0
@@ -1526,9 +1534,14 @@ MonoBehaviour:
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleParticleCollision: 0
     handleControllerColliderHit: 0
+    handleJointBreak: 0
+    handleJointBreak2D: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
+    handleLateUpdate: 0
     handleApplicationEvents: 0
+    handleLegacyNetworking: 0
     handleAnimatorMove: 0
     handleAnimatorIK: 0

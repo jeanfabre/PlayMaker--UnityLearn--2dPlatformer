@@ -24,8 +24,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .538368225, y: -13.5297022, z: 0}
-  m_LocalScale: {x: 1.92500007, y: 1, z: 1}
+  m_LocalPosition: {x: 0.5383682, y: -13.529702, z: 0}
+  m_LocalScale: {x: 1.9250001, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -36,10 +37,13 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 23.1299992, y: 1.89999998}
-  m_Center: {x: 0, y: 0}
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 23.13, y: 1.9}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -355,7 +359,7 @@ MonoBehaviour:
         actionEnabled: 0101
         actionIsOpen: 0101
         actionStartIndex: 0000000002000000
-        actionHashCodes: 6513a7017dd6b201
+        actionHashCodes: 6513a701e688d305
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -404,12 +408,13 @@ MonoBehaviour:
         fsmQuaternionParams: []
         stringParams:
         - 
+        - 
         byteData: 0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 12000000100000001200000001000000010000001700000011000000
+        paramDataType: 1200000010000000120000000100000001000000170000001100000017000000
         paramName:
         - levelName
         - level
@@ -418,8 +423,9 @@ MonoBehaviour:
         - async
         - loadedEvent
         - dontDestroyOnLoad
-        paramDataPos: 00000000000000000100000000000000010000000000000000000000
-        paramByteDataSize: 00000000000000000000000001000000010000000000000000000000
+        - failedEvent
+        paramDataPos: 0000000000000000010000000000000001000000000000000000000001000000
+        paramByteDataSize: 0000000000000000000000000100000001000000000000000000000000000000
     - name: Destroy
       description: 
       colorIndex: 0
@@ -534,7 +540,7 @@ MonoBehaviour:
         actionEnabled: 0101
         actionIsOpen: 0101
         actionStartIndex: 0000000007000000
-        actionHashCodes: 5552ad053e28c603
+        actionHashCodes: 5552ad05bf83c900
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -594,20 +600,8 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0
-        fsmIntParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmIntParams: []
+        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params:
         - useVariable: 1
@@ -637,7 +631,7 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001c0000000f0000000f0000000f000000070000000100000013000000130000001c0000001c000000130000001100000010000000
+        paramDataType: 140000001c0000000f0000000f0000000f000000070000000100000013000000130000001c0000001c00000013000000
         paramName:
         - gameObject
         - vector
@@ -651,10 +645,8 @@ MonoBehaviour:
         - position
         - rotation
         - storeObject
-        - networkInstantiate
-        - networkGroup
-        paramDataPos: 0000000000000000000000000100000002000000000000000400000000000000010000000100000002000000020000000000000000000000
-        paramByteDataSize: 0000000000000000000000000000000000000000040000000100000000000000000000000000000000000000000000000000000000000000
+        paramDataPos: 000000000000000000000000010000000200000000000000040000000000000001000000010000000200000002000000
+        paramByteDataSize: 000000000000000000000000000000000000000004000000010000000000000000000000000000000000000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -732,7 +724,7 @@ MonoBehaviour:
     locked: 0
     manualUpdate: 0
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -740,6 +732,7 @@ MonoBehaviour:
     editorFlags: 1
     activeStateName: 
     mouseEvents: 0
+    handleLevelLoaded: 0
     handleTriggerEnter2D: 1
     handleTriggerExit2D: 0
     handleTriggerStay2D: 0
@@ -752,10 +745,15 @@ MonoBehaviour:
     handleCollisionEnter: 0
     handleCollisionExit: 0
     handleCollisionStay: 0
+    handleParticleCollision: 0
     handleControllerColliderHit: 0
+    handleJointBreak: 0
+    handleJointBreak2D: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
+    handleLateUpdate: 0
     handleApplicationEvents: 0
+    handleLegacyNetworking: 0
     handleAnimatorMove: 0
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
@@ -771,4 +769,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
-  m_IsExploded: 1

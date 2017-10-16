@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+#pragma warning disable 618
 public class Remover : MonoBehaviour
 {
 	public GameObject splash;

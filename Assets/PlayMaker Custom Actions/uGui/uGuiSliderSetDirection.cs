@@ -1,7 +1,8 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-// waiting for 1.8 to make it available using fsmEnum/
+//--- __ECO__ __PLAYMAKER__ __ACTION__ ---//
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace HutongGames.PlayMaker.Actions
 {
@@ -10,30 +11,30 @@ namespace HutongGames.PlayMaker.Actions
 	public class uGuiSliderSetDirection : FsmStateAction
 	{
 		[RequiredField]
-		[CheckForComponent(typeof(UnityEngine.UI.Slider))]
+		[CheckForComponent(typeof(Slider))]
 		[Tooltip("The GameObject with the slider UGui component.")]
 		public FsmOwnerDefault gameObject;
 
 		[RequiredField]
 		[Tooltip("The direction of the UGui slider component.")]
-		public UnityEngine.UI.Slider.Direction direction;
+		[ObjectType(typeof(Slider.Direction))]
+		public FsmEnum  direction;
 
-		// not sure what it does
-		//[Tooltip("Include the  RectLayouts. Leave to none for no effect")]
-		//public FsmBool includeRectLayouts;
+		[Tooltip("Include the  RectLayouts. Leave to none for no effect")]
+		public FsmBool includeRectLayouts;
 
 		[Tooltip("Reset when exiting this state.")]
 		public FsmBool resetOnExit;
 
-		private UnityEngine.UI.Slider _slider;
+		Slider _slider;
 
-		UnityEngine.UI.Slider.Direction _originalValue;
+		Slider.Direction _originalValue;
 
 		public override void Reset()
 		{
 			gameObject = null;
-			direction = UnityEngine.UI.Slider.Direction.LeftToRight;
-			//includeRectLayouts = new FsmBool(){UseVariable=true};
+			direction = Slider.Direction.LeftToRight;
+			includeRectLayouts = new FsmBool(){UseVariable=true};
 			resetOnExit = null;
 		}
 		
@@ -43,7 +44,7 @@ namespace HutongGames.PlayMaker.Actions
 			GameObject _go = Fsm.GetOwnerDefaultTarget(gameObject);
 			if (_go!=null)
 			{
-				_slider = _go.GetComponent<UnityEngine.UI.Slider>();
+				_slider = _go.GetComponent<Slider>();
 			}
 
 			if (resetOnExit.Value)
@@ -59,12 +60,12 @@ namespace HutongGames.PlayMaker.Actions
 
 			if (_slider!=null)
 			{
-				//if (includeRectLayouts.IsNone)
-				//{
-					_slider.direction = direction;
-			//	}else{
-			//		_slider.SetDirection(direction,includeRectLayouts.Value);
-			//	}
+				if (includeRectLayouts.IsNone)
+				{
+					_slider.direction = (Slider.Direction)direction.Value;
+				}else{
+					_slider.SetDirection((Slider.Direction)direction.Value,includeRectLayouts.Value);
+				}
 			}
 		}
 
@@ -77,7 +78,12 @@ namespace HutongGames.PlayMaker.Actions
 			
 			if (resetOnExit.Value)
 			{
-				_slider.direction = _originalValue;
+				if (includeRectLayouts.IsNone)
+				{
+					_slider.direction = _originalValue;
+				}else{
+					_slider.SetDirection(_originalValue,includeRectLayouts.Value);
+				}
 			}
 		}
 	}

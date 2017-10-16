@@ -1,7 +1,8 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-// waiting for 1.8 to make it available using fsmEnum
+//--- __ECO__ __PLAYMAKER__ __ACTION__ ---//
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace HutongGames.PlayMaker.Actions
 {
@@ -16,24 +17,24 @@ namespace HutongGames.PlayMaker.Actions
 
 		[RequiredField]
 		[Tooltip("The direction of the UGui Scrollbar component.")]
-		public UnityEngine.UI.Scrollbar.Direction direction;
+		[ObjectType(typeof(Scrollbar.Direction))]
+		public FsmEnum direction;
 
-		// not sure what it does
-		//[Tooltip("Include the  RectLayouts. Leave to none for no effect")]
-		//public FsmBool includeRectLayouts;
+		[Tooltip("Include the  RectLayouts. Leave to none for no effect")]
+		public FsmBool includeRectLayouts;
 
 		[Tooltip("Reset when exiting this state.")]
 		public FsmBool resetOnExit;
 
-		private UnityEngine.UI.Scrollbar _scrollbar;
+		Scrollbar _scrollbar;
 
-		UnityEngine.UI.Scrollbar.Direction _originalValue;
+		Scrollbar.Direction _originalValue;
 
 		public override void Reset()
 		{
 			gameObject = null;
-			direction = UnityEngine.UI.Scrollbar.Direction.LeftToRight;
-			//includeRectLayouts = new FsmBool(){UseVariable=true};
+			direction = Scrollbar.Direction.LeftToRight;
+			includeRectLayouts = new FsmBool(){UseVariable=true};
 			resetOnExit = null;
 		}
 		
@@ -43,7 +44,7 @@ namespace HutongGames.PlayMaker.Actions
 			GameObject _go = Fsm.GetOwnerDefaultTarget(gameObject);
 			if (_go!=null)
 			{
-				_scrollbar = _go.GetComponent<UnityEngine.UI.Scrollbar>();
+				_scrollbar = _go.GetComponent<Scrollbar>();
 			}
 
 			if (resetOnExit.Value)
@@ -61,12 +62,12 @@ namespace HutongGames.PlayMaker.Actions
 
 			if (_scrollbar!=null)
 			{
-				//if (includeRectLayouts.IsNone)
-				//{
-					_scrollbar.direction = direction;
-			//	}else{
-			//		_slider.SetDirection(direction,includeRectLayouts.Value);
-			//	}
+				if (includeRectLayouts.IsNone)
+				{
+					_scrollbar.direction = (Scrollbar.Direction)direction.Value;
+			}else{
+					_scrollbar.SetDirection((Scrollbar.Direction)direction.Value,includeRectLayouts.Value);
+				}
 			}
 		}
 
@@ -76,10 +77,16 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				return;
 			}
-			
+
 			if (resetOnExit.Value)
 			{
-				_scrollbar.direction = _originalValue;
+				if (includeRectLayouts.IsNone)
+				{
+					_scrollbar.direction = _originalValue;
+				}else{
+					_scrollbar.SetDirection(_originalValue,includeRectLayouts.Value);
+				}
+
 			}
 		}
 	}

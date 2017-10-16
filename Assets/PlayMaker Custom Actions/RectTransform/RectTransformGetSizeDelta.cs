@@ -69,7 +69,6 @@ namespace HutongGames.PlayMaker.Actions
 		
 		void DoGetValues()
 		{
-			
 			if (!sizeDelta.IsNone) sizeDelta.Value = _rt.sizeDelta;
 			if (!width.IsNone) width.Value = _rt.sizeDelta.x;
 			if (!height.IsNone) height.Value = _rt.sizeDelta.y;

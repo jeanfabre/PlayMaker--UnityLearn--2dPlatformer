@@ -1,7 +1,8 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-//--- __ECO__ __ACTION__ ---//
+//--- __ECO__ __PLAYMAKER__ __ACTION__ ---//
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace HutongGames.PlayMaker.Actions
 {
@@ -17,7 +18,7 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("Send this event when value changed.")]
 		public FsmEvent sendEvent;
 
-		private UnityEngine.UI.Toggle _toggle;
+		private Toggle _toggle;
 		
 		public override void Reset()
 		{
@@ -30,7 +31,7 @@ namespace HutongGames.PlayMaker.Actions
 			GameObject go = Fsm.GetOwnerDefaultTarget(gameObject);
 			if (go!=null)
 			{
-				_toggle = go.GetComponent<UnityEngine.UI.Toggle>();
+				_toggle = go.GetComponent<Toggle>();
 				if (_toggle!=null)
 				{
 					_toggle.onValueChanged.AddListener(DoOnValueChanged);

@@ -1,20 +1,12 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 
 using HutongGames.PlayMaker;
 
+/// <summary>
+/// Not needed anymore, only here for backward compatibility to avoid missing scripts and confusing developers.
+/// </summary>
 public class PlayMakerUGuiSceneProxy : MonoBehaviour {
-
-
-	public static PlayMakerFSM fsm;
-
-	// Use this for initialization
-	void Start () {
-		PlayMakerUGuiSceneProxy.fsm = GetComponent<PlayMakerFSM>();
-	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

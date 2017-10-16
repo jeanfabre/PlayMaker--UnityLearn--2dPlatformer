@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+#pragma warning disable 618
 public class Enemy : MonoBehaviour
 {
 		public float moveSpeed = 2f;		// The speed the enemy moves at.

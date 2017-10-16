@@ -1,6 +1,6 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
 // based on Sebastio work: http://hutonggames.com/playmakerforum/index.php?topic=8452.msg42858#msg42858
-//--- __ECO__ __ACTION__ ---//
+//--- __ECO__ __PLAYMAKER__ __ACTION__ ---//
 
 using UnityEngine;
 

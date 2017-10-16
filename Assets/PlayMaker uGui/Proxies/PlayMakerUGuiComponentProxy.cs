@@ -1,4 +1,11 @@
-﻿using UnityEngine;
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
+
+#if (UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1)
+#else
+#define UNITY_5_2_OR_NEWER
+#endif
+
+using UnityEngine;
 using uUI = UnityEngine.UI;
 using UnityEngine.Events;
 
@@ -36,6 +43,7 @@ public class PlayMakerUGuiComponentProxy : MonoBehaviour {
 		public PlayMakerFSM fsmComponent;
 		public string customEventName;
 		public string builtInEventName;
+		public bool sendtoChildren;
 	}
 
 	string error;
@@ -55,6 +63,7 @@ public class PlayMakerUGuiComponentProxy : MonoBehaviour {
 	FsmBool fsmBoolTarget;
 	FsmVector2 fsmVector2Target;
 	FsmString fsmStringTarget;
+	FsmInt fsmIntTarget;
 
 	// event target
 	public FsmEventSetup fsmEventSetup;
@@ -304,6 +313,19 @@ public class PlayMakerUGuiComponentProxy : MonoBehaviour {
 				lastInputFieldValue = "";
 			}
 		}
+
+		#if UNITY_5_2_OR_NEWER
+		
+			if (UiTarget.GetComponent<uUI.Dropdown>()!=null)
+			{
+				UiTarget.GetComponent<uUI.Dropdown>().onValueChanged.AddListener(OnValueChanged);
+				// force the value because it's not fired when starting ( Unity said they may implement it)
+				if (action== ActionType.SetFsmVariable)
+				{
+					SetFsmVariable(UiTarget.GetComponent<uUI.Dropdown>().value);
+				}
+			}
+		#endif
 		
 
 	}
@@ -316,7 +338,7 @@ public class PlayMakerUGuiComponentProxy : MonoBehaviour {
 	{
 		if (debug) Debug.Log("OnClick");
 
-		FsmEventData _eventData = new FsmEventData();
+		FsmEventData _eventData = HutongGames.PlayMaker.Fsm.EventData;
 		this.FirePlayMakerEvent(_eventData);
 	}
 
@@ -326,8 +348,23 @@ public class PlayMakerUGuiComponentProxy : MonoBehaviour {
 
 		if (action== ActionType.SendFsmEvent)
 		{
-			FsmEventData _eventData = new FsmEventData();
+			FsmEventData _eventData = HutongGames.PlayMaker.Fsm.EventData;
 			_eventData.BoolData = value;
+			FirePlayMakerEvent(_eventData);
+		}else
+		{
+			SetFsmVariable(value);
+		}
+	}
+
+	protected void OnValueChanged(int value)
+	{
+		if (debug) Debug.Log("OnValueChanged(int): "+value);
+		
+		if (action== ActionType.SendFsmEvent)
+		{
+			FsmEventData _eventData = HutongGames.PlayMaker.Fsm.EventData;
+			_eventData.IntData = value;
 			FirePlayMakerEvent(_eventData);
 		}else
 		{
@@ -341,7 +378,7 @@ public class PlayMakerUGuiComponentProxy : MonoBehaviour {
 
 		if (action== ActionType.SendFsmEvent)
 		{
-			FsmEventData _eventData = new FsmEventData();
+			FsmEventData _eventData = HutongGames.PlayMaker.Fsm.EventData;
 			_eventData.FloatData = value;
 			FirePlayMakerEvent(_eventData);
 		}else
@@ -356,7 +393,7 @@ public class PlayMakerUGuiComponentProxy : MonoBehaviour {
 		
 		if (action== ActionType.SendFsmEvent)
 		{
-			FsmEventData _eventData = new FsmEventData();
+			FsmEventData _eventData = HutongGames.PlayMaker.Fsm.EventData;
 			_eventData.Vector2Data = value;
 			FirePlayMakerEvent(_eventData);
 		}else
@@ -371,7 +408,7 @@ public class PlayMakerUGuiComponentProxy : MonoBehaviour {
 
 		if (action== ActionType.SendFsmEvent)
 		{
-			FsmEventData _eventData = new FsmEventData();
+			FsmEventData _eventData = HutongGames.PlayMaker.Fsm.EventData;
 			_eventData.StringData = value;
 			_eventData.BoolData = inputField.wasCanceled;
 			FirePlayMakerEvent(_eventData);
@@ -447,25 +484,13 @@ public class PlayMakerUGuiComponentProxy : MonoBehaviour {
 	void FirePlayMakerEvent(FsmEventData eventData)
 	{
 
-		if (eventData!=null)
-		{
-			HutongGames.PlayMaker.Fsm.EventData = eventData;
-		}
+		fsmEventTarget.excludeSelf = false; // not available in this context, only when even ti sfired from an Fsm.
 
-		fsmEventTarget.excludeSelf = false;
-
-	//	_eventTarget.sendToChildren = false;
-
-		if (PlayMakerUGuiSceneProxy.fsm == null)
-		{
-			Debug.LogError("Missing 'PlayMaker UGui' prefab in scene");
-			return;
-		}
-		Fsm _fsm = 	PlayMakerUGuiSceneProxy.fsm.Fsm;
+		fsmEventTarget.sendToChildren = fsmEventSetup.sendtoChildren;
 
 		if (debug) Debug.Log("Fire event: "+GetEventString());
-		_fsm.Event(fsmEventTarget,GetEventString());
 
+		PlayMakerUtils.SendEventToTarget(null,fsmEventTarget,GetEventString(),eventData);
 	}
 
 
@@ -486,12 +511,12 @@ public class PlayMakerUGuiComponentProxy : MonoBehaviour {
 
 		if (fsmEventSetup.target == PlayMakerProxyEventTarget.GameObject)
 		{
-			return PlayMakerUtils.DoesGameObjectImplementsEvent(fsmEventSetup.gameObject,eventName);
+			return PlayMakerUtils.DoesGameObjectImplementsEvent(fsmEventSetup.gameObject,eventName,fsmEventSetup.sendtoChildren);
 		}
 		
 		if (fsmEventSetup.target == PlayMakerProxyEventTarget.Owner)
 		{
-			return PlayMakerUtils.DoesGameObjectImplementsEvent(this.gameObject,eventName);
+			return PlayMakerUtils.DoesGameObjectImplementsEvent(this.gameObject,eventName,fsmEventSetup.sendtoChildren);
 		}
 
 		return false;

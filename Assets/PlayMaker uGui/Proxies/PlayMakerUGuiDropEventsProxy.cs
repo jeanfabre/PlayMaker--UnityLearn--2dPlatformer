@@ -26,6 +26,6 @@ public class PlayMakerUGuiDropEventsProxy : MonoBehaviour, IDropHandler
 		}
 
 		GetLastPointerDataInfo.lastPointeEventData = data;
-		onDropEvent.SendEvent(PlayMakerUGuiSceneProxy.fsm,eventTarget);
+		onDropEvent.SendEvent(null,eventTarget);
 	}
 }

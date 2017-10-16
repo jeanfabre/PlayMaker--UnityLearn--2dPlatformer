@@ -1,5 +1,5 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
-//--- __ECO__ __ACTION__ ---//
+//--- __ECO__ __PLAYMAKER__ __ACTION__ ---//
 
 #if (UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2)
 #define UNITY_PRE_5_3

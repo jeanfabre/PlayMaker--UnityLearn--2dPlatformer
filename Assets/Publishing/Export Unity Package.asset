@@ -11,8 +11,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5743521803b514353beb91c4e7841ea0, type: 3}
   m_Name: Export Unity Package
   m_EditorClassIdentifier: 
-  CreatedWithActionVersion: 
-  includes: []
+  CreatedWithActionVersion: 312e38
+  includes:
+  - useExpression: 0
+    expression: 
+    propertyValue: 416e696d6174696f6e2f2a2a
+  - useExpression: 0
+    expression: 
+    propertyValue: 417564696f2f2a2a
+  - useExpression: 0
+    expression: 
+    propertyValue: 466f6e74732f2a2a
+  - useExpression: 0
+    expression: 
+    propertyValue: 4d6174657269616c732f2a2a
+  - useExpression: 0
+    expression: 
+    propertyValue: 50687973696373204d4174657269616c732f2a2a
+  - useExpression: 0
+    expression: 
+    propertyValue: 506c61794d616b657220416e696d6174696f6e
+  - useExpression: 0
+    expression: 
+    propertyValue: 506c61794d616b65722041727261794d616b6572
+  - useExpression: 0
+    expression: 
+    propertyValue: 506c61794d616b657220437573746f6d20416374696f6e732f2a2a
+  - useExpression: 0
+    expression: 
+    propertyValue: 506c61794d616b657220506f6f6c2f2a2a
+  - useExpression: 0
+    expression: 
+    propertyValue: 506c61794d616b65722053687572696b656e2f2a2a
+  - useExpression: 0
+    expression: 
+    propertyValue: 506c61794d616b657220754775692f2a2a
+  - useExpression: 0
+    expression: 
+    propertyValue: 506c61794d616b657220556e6974792032442044656d6f2f2a2a
+  - useExpression: 0
+    expression: 
+    propertyValue: 506c61794d616b6572205574696c73
+  - useExpression: 0
+    expression: 
+    propertyValue: 507265666162732f2a2a
+  - useExpression: 0
+    expression: 
+    propertyValue: 5363656e65732f2a2a
+  - useExpression: 0
+    expression: 
+    propertyValue: 536372697074732f2a2a
+  - useExpression: 0
+    expression: 
+    propertyValue: 537072697465732f2a2a
   excludes: []
   includeDependencies:
     useExpression: 0
@@ -26,7 +77,10 @@ MonoBehaviour:
     useExpression: 0
     expression: 
     propertyValue: 0
-  settingsIncludes: []
+  settingsIncludes:
+  - useExpression: 0
+    expression: 
+    propertyValue: 
   settingsExcludes: []
   outputFileName:
     useExpression: 0

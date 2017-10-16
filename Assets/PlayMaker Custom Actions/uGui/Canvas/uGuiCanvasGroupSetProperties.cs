@@ -1,6 +1,6 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
 // original action by Nuclear Napalm Entertainment LLC: http://hutonggames.com/playmakerforum/index.php?topic=10581.msg49831#msg49831
-//--- __ECO__ __ACTION__ ---//
+//--- __ECO__ __PLAYMAKER__ __ACTION__ ---//
 
 using UnityEngine;
 using System.Collections;

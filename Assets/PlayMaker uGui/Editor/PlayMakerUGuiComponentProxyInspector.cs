@@ -1,4 +1,11 @@
-﻿using UnityEditor;
+﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
+
+#if (UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1)
+#else
+#define UNITY_5_2_OR_NEWER
+#endif
+
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using HutongGames.PlayMaker;
@@ -184,7 +191,16 @@ public class PlayMakerUGuiComponentProxyInspector : Editor {
 					_target.fsmEventSetup.customEventName = "";
 				}
 			}
-			GUILayout.EndHorizontal();
+		GUILayout.EndHorizontal();
+
+		bool _showSendToChildren = _target.fsmEventSetup.target == PlayMakerUGuiComponentProxy.PlayMakerProxyEventTarget.GameObject ||
+			_target.fsmEventSetup.target == PlayMakerUGuiComponentProxy.PlayMakerProxyEventTarget.Owner
+			;
+
+		if (_showSendToChildren)
+		{
+			_target.fsmEventSetup.sendtoChildren = EditorGUILayout.Toggle("Send to Children",_target.fsmEventSetup.sendtoChildren);
+		}
 
 		if (!isimplemented)
 		{
@@ -302,6 +318,21 @@ public class PlayMakerUGuiComponentProxyInspector : Editor {
 			uiCallBack = "On End Edit";
 			UiTargetIsValid = true;
 		}
+
+		#if UNITY_5_2_OR_NEWER
+		
+			if (_target.UiTarget.GetComponent<Dropdown>()!=null)
+			{
+				canSetValue = true;
+				_target.fsmVariableSetup.variableType = VariableType.Int;
+				_target.fsmEventSetup.builtInEventName = "UGUI / ON INT VALUE CHANGED";
+				
+				uiComponentType ="Dropdown";
+				uiCallBack = "On Value Changed (int)";
+				UiTargetIsValid = true;
+			}
+		
+		#endif
 
 		if (UiTargetIsValid)
 		{

@@ -1,7 +1,8 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-// not sure if it's needed...
+//--- __ECO__ __PLAYMAKER__ __ACTION__ ---//
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace HutongGames.PlayMaker.Actions
 {
@@ -14,17 +15,17 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("The GameObject with the ui canvas Element component.")]
 		public FsmOwnerDefault gameObject;
 
-		public UnityEngine.UI.CanvasUpdate canvasUpdate;
+		public CanvasUpdate canvasUpdate;
 
 		[Tooltip("Only Rebuild when state exits.")]
 		public bool rebuildOnExit;
 
-		private UnityEngine.UI.Graphic _graphic;
+		private Graphic _graphic;
 
 		public override void Reset()
 		{
 			gameObject = null;
-			canvasUpdate = UnityEngine.UI.CanvasUpdate.LatePreRender;
+			canvasUpdate = CanvasUpdate.LatePreRender;
 			rebuildOnExit = false;
 		}
 		

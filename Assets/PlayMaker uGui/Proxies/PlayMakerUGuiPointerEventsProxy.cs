@@ -47,7 +47,7 @@ public class PlayMakerUGuiPointerEventsProxy : MonoBehaviour,
 		}
 
 		GetLastPointerDataInfo.lastPointeEventData = data;
-		onClickEvent.SendEvent(PlayMakerUGuiSceneProxy.fsm,eventTarget);
+		onClickEvent.SendEvent(null,eventTarget);
 	}
 
 	public void OnPointerDown (PointerEventData data) {
@@ -57,7 +57,7 @@ public class PlayMakerUGuiPointerEventsProxy : MonoBehaviour,
 		}
 
 		GetLastPointerDataInfo.lastPointeEventData = data;
-		onDownEvent.SendEvent(PlayMakerUGuiSceneProxy.fsm,eventTarget);
+		onDownEvent.SendEvent(null,eventTarget);
 	}
 
 	public void OnPointerEnter (PointerEventData data) {
@@ -67,7 +67,7 @@ public class PlayMakerUGuiPointerEventsProxy : MonoBehaviour,
 		}
 
 		GetLastPointerDataInfo.lastPointeEventData = data;
-		onEnterEvent.SendEvent(PlayMakerUGuiSceneProxy.fsm,eventTarget);
+		onEnterEvent.SendEvent(null,eventTarget);
 	}
 
 	public void OnPointerExit (PointerEventData data) {
@@ -77,7 +77,7 @@ public class PlayMakerUGuiPointerEventsProxy : MonoBehaviour,
 		}
 
 		GetLastPointerDataInfo.lastPointeEventData = data;
-		onExitEvent.SendEvent(PlayMakerUGuiSceneProxy.fsm,eventTarget);
+		onExitEvent.SendEvent(null,eventTarget);
 	}
 
 	public void OnPointerUp (PointerEventData data) {
@@ -87,7 +87,7 @@ public class PlayMakerUGuiPointerEventsProxy : MonoBehaviour,
 		}
 
 		GetLastPointerDataInfo.lastPointeEventData = data;
-		onUpEvent.SendEvent(PlayMakerUGuiSceneProxy.fsm,eventTarget);
+		onUpEvent.SendEvent(null,eventTarget);
 	}
 
 }

@@ -1,5 +1,5 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-//--- __ECO__ __ACTION__ ---//
+//--- __ECO__ __PLAYMAKER__ __ACTION__ ---//
 
 using UnityEngine;
 
@@ -25,6 +25,10 @@ namespace HutongGames.PlayMaker.Actions
 
 		[UIHint(UIHint.Variable)]
 		public FsmBool dragging;
+
+		[UIHint(UIHint.Variable)]
+		[ObjectType(typeof(PointerEventData.InputButton))]
+		public FsmEnum inputButton;
 
 		[UIHint(UIHint.Variable)]
 		public FsmBool eligibleForClick;
@@ -87,6 +91,8 @@ namespace HutongGames.PlayMaker.Actions
 			clickTime = null;
 			delta = null;
 			dragging = null;
+			inputButton = PointerEventData.InputButton.Left;
+
 			eligibleForClick = null;
 			enterEventCamera = null;
 			pressEventCamera = null;
@@ -116,6 +122,7 @@ namespace HutongGames.PlayMaker.Actions
 				return;
 			}
 
+
 			if (!clickCount.IsNone)
 			{
 				clickCount.Value =  lastPointeEventData.clickCount;
@@ -134,6 +141,11 @@ namespace HutongGames.PlayMaker.Actions
 			if (!dragging.IsNone)
 			{
 				dragging.Value =  lastPointeEventData.dragging;
+			}
+
+			if (!inputButton.IsNone)
+			{
+				inputButton.Value = (PointerEventData.InputButton)lastPointeEventData.button;
 			}
 
 			if (!eligibleForClick.IsNone)

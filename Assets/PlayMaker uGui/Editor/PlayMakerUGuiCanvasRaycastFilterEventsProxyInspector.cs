@@ -14,7 +14,11 @@ public class PlayMakerUGuiCanvasRaycastFilterEventsProxyInspector : Editor {
 	
 	public override void OnInspectorGUI()
 	{
+		#if UNITY_5_6_OR_NEWER
+		serializedObject.UpdateIfRequiredOrScript();
+		#else
 		serializedObject.UpdateIfDirtyOrScript();
+		#endif
 
 		SerializedProperty RayCastingEnabled = serializedObject.FindProperty("RayCastingEnabled");
 		EditorGUILayout.PropertyField(RayCastingEnabled);

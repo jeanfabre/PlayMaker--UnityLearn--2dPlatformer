@@ -1,20 +1,12 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-/*--- __ECO__ __ACTION__
-EcoMetaStart
-{
-"script dependancies":[
-						"Assets/PlayMaker Custom Actions/__internal/FsmStateActionAdvanced.cs"
-					]
-}
-EcoMetaEnd
----*/
+ 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("RectTransform")]
 	[Tooltip("Set the local position of this RectTransform.")]
-	public class RectTransformSetLocalPosition : FsmStateActionAdvanced
+	public class RectTransformSetLocalPosition : BaseUpdateAction
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(RectTransform))]

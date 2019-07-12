@@ -1,20 +1,12 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-/*--- __ECO__ __ACTION__
-EcoMetaStart
-{
-"script dependancies":[
-						"Assets/PlayMaker Custom Actions/__internal/FsmStateActionAdvanced.cs"
-					]
-}
-EcoMetaEnd
----*/
+ 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("RectTransform")]
 	[Tooltip("Given a rect transform, return the corner points in pixel accurate coordinates.")]
-	public class RectTransformPixelAdjustRect : FsmStateActionAdvanced
+	public class RectTransformPixelAdjustRect : BaseUpdateAction
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(RectTransform))]

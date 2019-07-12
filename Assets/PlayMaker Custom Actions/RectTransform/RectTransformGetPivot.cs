@@ -1,20 +1,12 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-/*--- __ECO__ __ACTION__
-EcoMetaStart
-{
-"script dependancies":[
-						"Assets/PlayMaker Custom Actions/__internal/FsmStateActionAdvanced.cs"
-					]
-}
-EcoMetaEnd
----*/
+ 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("RectTransform")]
 	[Tooltip("Get the normalized position in this RectTransform that it rotates around.")]
-	public class RectTransformGetPivot : FsmStateActionAdvanced
+	public class RectTransformGetPivot : BaseUpdateAction
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(RectTransform))]

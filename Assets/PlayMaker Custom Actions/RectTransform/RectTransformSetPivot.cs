@@ -1,20 +1,12 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-/*--- __ECO__ __ACTION__
-EcoMetaStart
-{
-"script dependancies":[
-						"Assets/PlayMaker Custom Actions/__internal/FsmStateActionAdvanced.cs"
-					]
-}
-EcoMetaEnd
----*/
+ 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("RectTransform")]
 	[Tooltip("The normalized position in this RectTransform that it rotates around.")]
-	public class RectTransformSetPivot : FsmStateActionAdvanced
+	public class RectTransformSetPivot : BaseUpdateAction
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(RectTransform))]
@@ -25,11 +17,11 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmVector2 pivot;
 
 		[HasFloatSlider(0f,1f)]
-		[Tooltip("Setting only the x value. Overides pivot x value if set. Set to none for no effect")]
+		[Tooltip("Setting only the x value. Overrides pivot x value if set. Set to none for no effect")]
 		public FsmFloat x;
 
 		[HasFloatSlider(0f,1f)]
-		[Tooltip("Setting only the x value. Overides pivot y value if set. Set to none for no effect")]
+		[Tooltip("Setting only the x value. Overrides pivot y value if set. Set to none for no effect")]
 		public FsmFloat y;
 		
 

@@ -1,20 +1,12 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-/*--- __ECO__ __ACTION__
-EcoMetaStart
-{
-"script dependancies":[
-						"Assets/PlayMaker Custom Actions/__internal/FsmStateActionAdvanced.cs"
-					]
-}
-EcoMetaEnd
----*/
+ 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("RectTransform")]
 	[Tooltip("Get the offset of the lower left corner of the rectangle relative to the lower left anchor")]
-	public class RectTransformGetOffsetMin : FsmStateActionAdvanced
+	public class RectTransformGetOffsetMin : BaseUpdateAction
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(RectTransform))]

@@ -1,20 +1,12 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-/*--- __ECO__ __ACTION__
-EcoMetaStart
-{
-"script dependancies":[
-						"Assets/PlayMaker Custom Actions/__internal/FsmStateActionAdvanced.cs"
-					]
-}
-EcoMetaEnd
----*/
+ 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("RectTransform")]
 	[Tooltip("The offset of the lower left corner of the rectangle relative to the lower left anchor.")]
-	public class RectTransformSetOffsetMin : FsmStateActionAdvanced
+	public class RectTransformSetOffsetMin : BaseUpdateAction
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(RectTransform))]
@@ -24,10 +16,10 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("The Vector2 offsetMin. Set to none for no effect, and/or set individual axis below.")]
 		public FsmVector2 offsetMin;
 
-		[Tooltip("Setting only the x value. Overides offsetMin x value if set. Set to none for no effect")]
+		[Tooltip("Setting only the x value. Overrides offsetMin x value if set. Set to none for no effect")]
 		public FsmFloat x;
 
-		[Tooltip("Setting only the x value. Overides offsetMin y value if set. Set to none for no effect")]
+		[Tooltip("Setting only the x value. Overrides offsetMin y value if set. Set to none for no effect")]
 		public FsmFloat y;
 		
 		

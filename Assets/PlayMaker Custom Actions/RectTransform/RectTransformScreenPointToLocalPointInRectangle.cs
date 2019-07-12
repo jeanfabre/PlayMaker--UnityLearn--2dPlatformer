@@ -1,5 +1,5 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-/*--- __ECO__ __ACTION__ ---*/
+ 
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -37,7 +37,7 @@ namespace HutongGames.PlayMaker.Actions
 		[UIHint(UIHint.Variable)]
 		public FsmVector3 localPosition;
 
-		[Tooltip("Store the locao Position as a vector2 of the screenPoint on the RectTransform Plane.")]
+		[Tooltip("Store the local Position as a vector2 of the screenPoint on the RectTransform Plane.")]
 		[UIHint(UIHint.Variable)]
 		public FsmVector2 localPosition2d;
 

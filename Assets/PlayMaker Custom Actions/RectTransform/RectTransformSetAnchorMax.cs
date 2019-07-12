@@ -1,20 +1,12 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-/*--- __ECO__ __ACTION__
-EcoMetaStart
-{
-"script dependancies":[
-						"Assets/PlayMaker Custom Actions/__internal/FsmStateActionAdvanced.cs"
-					]
-}
-EcoMetaEnd
----*/
+﻿// (c) Copyright HutongGames, LLC 2010-2018. All rights reserved.
+
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("RectTransform")]
 	[Tooltip("The normalized position in the parent RectTransform that the upper right corner is anchored to. This is relative screen space, values ranges from 0 to 1")]
-	public class RectTransformSetAnchorMax : FsmStateActionAdvanced
+	public class RectTransformSetAnchorMax : BaseUpdateAction
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(RectTransform))]
@@ -25,11 +17,11 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmVector2 anchorMax;
 		
 		[HasFloatSlider(0f,1f)]
-		[Tooltip("Setting only the x value. Overides anchorMax x value if set. Set to none for no effect")]
+		[Tooltip("Setting only the x value. Overrides anchorMax x value if set. Set to none for no effect")]
 		public FsmFloat x;
 
 		[HasFloatSlider(0f,1f)]
-		[Tooltip("Setting only the x value. Overides anchorMax x value if set. Set to none for no effect")]
+		[Tooltip("Setting only the x value. Overrides anchorMax x value if set. Set to none for no effect")]
 		public FsmFloat y;
 		
 		

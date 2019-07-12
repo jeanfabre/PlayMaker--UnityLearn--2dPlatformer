@@ -1,13 +1,5 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-/*--- __ECO__ __ACTION__
-EcoMetaStart
-{
-"script dependancies":[
-						"Assets/PlayMaker Custom Actions/__internal/FsmStateActionAdvanced.cs"
-					]
-}
-EcoMetaEnd
----*/
+ 
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
@@ -16,7 +8,7 @@ namespace HutongGames.PlayMaker.Actions
 	[Tooltip("The position of the pivot of this RectTransform relative to the anchor reference point." +
 		"The anchor reference point is where the anchors are. " +
 		"If the anchor are not together, the four anchor positions are interpolated according to the pivot normalized values.")]
-	public class RectTransformSetAnchoredPosition : FsmStateActionAdvanced
+	public class RectTransformSetAnchoredPosition : BaseUpdateAction
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(RectTransform))]
@@ -26,10 +18,10 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("The Vector2 position. Set to none for no effect, and/or set individual axis below. ")]
 		public FsmVector2 position;
 
-		[Tooltip("Setting only the x value. Overides position x value if set. Set to none for no effect")]
+		[Tooltip("Setting only the x value. Overrides position x value if set. Set to none for no effect")]
 		public FsmFloat x;
 
-		[Tooltip("Setting only the y value. Overides position x value if set. Set to none for no effect")]
+		[Tooltip("Setting only the y value. Overrides position x value if set. Set to none for no effect")]
 		public FsmFloat y;
 		
 

@@ -6,7 +6,7 @@ namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("RectTransform")]
 	[Tooltip("The position ( normalized or not) in the parent RectTransform keeping the anchor rect size intact. This lets you position the whole Rect in one go. Use this to easily animate movement (like IOS sliding UIView)")]
-	public class RectTransformSetAnchorRectPosition : FsmStateActionAdvanced
+	public class RectTransformSetAnchorRectPosition : BaseUpdateAction
 	{
 		public enum AnchorReference {TopLeft,Top,TopRight,Right,BottomRight,Bottom,BottomLeft,Left,Center};
 

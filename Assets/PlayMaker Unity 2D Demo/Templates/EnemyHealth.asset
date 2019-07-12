@@ -544,8 +544,8 @@ MonoBehaviour:
         - 
         actionEnabled: 0100
         actionIsOpen: 0101
-        actionStartIndex: 0000000003000000
-        actionHashCodes: 73ef4a029cdc3905
+        actionStartIndex: 0000000005000000
+        actionHashCodes: 597887009cdc3905
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -622,8 +622,20 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 1
-        fsmIntParams: []
-        fsmBoolParams: []
+        fsmIntParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmVector2Params: []
         fsmVector3Params:
         - useVariable: 1
@@ -641,17 +653,19 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 290000002700000001000000140000001c000000180000000f000000
+        paramDataType: 2900000027000000100000001100000001000000140000001c000000180000000f000000
         paramName:
         - array
         - storeValue
+        - index
+        - noRepeat
         - everyFrame
         - gameObject
         - position
         - clip
         - volume
-        paramDataPos: 00000000000000000000000000000000000000000000000000000000
-        paramByteDataSize: 00000000000000000100000000000000000000000000000000000000
+        paramDataPos: 000000000000000000000000000000000000000000000000000000000000000000000000
+        paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000
     - name: Instantiate Bonus UI
       description: 
       colorIndex: 0
@@ -1367,7 +1381,7 @@ MonoBehaviour:
     - fsmEvent:
         name: ROCKET / HIT
         isSystemEvent: 0
-        isGlobal: 1
+        isGlobal: 0
       toState: Take Damage
       linkStyle: 0
       linkConstraint: 0
@@ -1375,7 +1389,7 @@ MonoBehaviour:
     - fsmEvent:
         name: BOMB / HIT
         isSystemEvent: 0
-        isGlobal: 1
+        isGlobal: 0
       toState: set damage to 0
       linkStyle: 0
       linkConstraint: 0
@@ -1542,6 +1556,7 @@ MonoBehaviour:
     handleFixedUpdate: 0
     handleLateUpdate: 0
     handleApplicationEvents: 0
+    handleUiEvents: 0
     handleLegacyNetworking: 0
     handleAnimatorMove: 0
     handleAnimatorIK: 0

@@ -1,5 +1,13 @@
 # UnityLearn 2dPlatformer PlayMaker
 
+this repository is obsolete now, please go to :
+
+https://github.com/jeanfabre/PlayMaker--UnityLearn--2dPlatformer_U2019
+
+
+-------------------------------------------
+
+
 
 This is a 100% PlayMaker port of [Unity](https://unity3d.com) [2d Platformer learning project](https://www.assetstore.unity3d.com/en/#!/content/11228) 
 

@@ -2,7 +2,7 @@
 
 this repository is obsolete now, please go to :
 
-https://github.com/jeanfabre/PlayMaker--UnityLearn--2dPlatformer_U2019
+https://github.com/PlayMakerEcosystem/PlayMaker--UnityLearn--2dPlatformer_U2020
 
 
 -------------------------------------------

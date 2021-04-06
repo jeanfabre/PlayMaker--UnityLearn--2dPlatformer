@@ -1,9 +1,12 @@
 # UnityLearn 2dPlatformer PlayMaker
 
+[![stability-deprecated](https://img.shields.io/badge/stability-deprecated-red.svg)](https://hutonggames.com/index.html)
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](https://hutonggames.com/index.html)
+
 this repository is obsolete now, please go to :
 
 https://github.com/PlayMakerEcosystem/PlayMaker--UnityLearn--2dPlatformer_U2020
-
 
 -------------------------------------------
 
